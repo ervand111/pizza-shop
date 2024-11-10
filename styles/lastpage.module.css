@@ -14,12 +14,12 @@
     margin-left: 50px;
 }
 .paragraph a{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 .paragraph>p{
-    color: #1A1A1A;
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;

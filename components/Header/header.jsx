@@ -7,11 +7,9 @@ import {
 } from '@ant-design/icons';
 import Link from "next/link";
 import SearchBox from "./searchBox";
-import LanguageSwitcher from "./languageSwitcher";
 import MobileMenu from "./mobileMenu";
 import {useRouter} from "next/router";
 import CountContext from 'providers/countContext';
-import CurrentSwitcher from "./currentSwitcher";
 import {Image} from "antd";
 
 const Header = ({categories}) => {
@@ -59,25 +57,27 @@ const Header = ({categories}) => {
     return (
         <div>
             <header className={styles.header}>
-                <link rel="icon" type="image/png" href="/logo.png"/>
+                <link rel="icon" type="image/png" href="/photos/logo.jpg"/>
                 <div className={styles.contentHeader}>
                     <div>
                         <ul className={styles.headerMenu}>
                             {categories.map((item) => {
-                                const {name, name_en, name_ru, id} = item;
+                                const {name, id} = item;
                                 // eslint-disable-next-line react-hooks/rules-of-hooks
                                 const router = useRouter();
                                 const isActive = Number(router.query.category) === id;
-                                const title = (locale === 'en') ? name_en : (locale === 'ru') ? name_ru : name
                                 return (
-                                    <li key={id} className={isActive ? styles.activeCategory : null}>
-                                        <Link href={`/products/${id}`}>
-                                            {title}
-                                        </Link>
-                                    </li>
+                                  <li key={id} className={isActive ? styles.activeCategory : null}>
+                                      <Link href={`/products/${id}`}>
+                                          {name}
+                                      </Link>
+                                  </li>
                                 );
                             })}
                         </ul>
+                    </div>
+                    <div className={styles.delivery}>
+                        <p>Доставка</p>
                     </div>
                     <div className={styles.mobileMenu}>
                        <span className={styles.btnMenu} onClick={handlerMenu}>
@@ -88,11 +88,15 @@ const Header = ({categories}) => {
                         </div>
                     </div>
                     <div>
+
                         <div className={styles.logo}>
                             <Link href={'/home'}>
-                                <Image preview={false} src="/logo.png" alt=""/>
+                                <Image preview={false} src="/photos/logo.jpg" alt=""/>
                             </Link>
                         </div>
+                    </div>
+                    <div className={styles.delivery}>
+                        <p>+7  928 333-41-05</p>
                     </div>
                     <div>
                         <div className={styles.icons}>
@@ -104,8 +108,8 @@ const Header = ({categories}) => {
 
                                         </span>
                                         {isSearchBox ?
-                                            <SearchBox onClose={openSearchBox}/>
-                                            : null
+                                          <SearchBox onClose={openSearchBox}/>
+                                          : null
                                         }
                                     </div>
                                 </li>
@@ -117,11 +121,6 @@ const Header = ({categories}) => {
                                     <span className={styles.countBasket}>{count.favorite}</span>
                                     <Link href={'/favorite'}><HeartOutlined/></Link>
                                 </li>
-
-                                <CurrentSwitcher openDrb={isOpenDrb} isOpenDrbFlag={isOpenDrbFlag}
-                                                 setIsOpenDrb={setIsOpenDrb} setIsOpenDrbFlag={setIsOpenDrbFlag}/>
-                                <LanguageSwitcher openDrb={isOpenDrb} isOpenDrbFlag={isOpenDrbFlag}
-                                                  setIsOpenDrb={setIsOpenDrb} setIsOpenDrbFlag={setIsOpenDrbFlag}/>
 
                             </ul>
                         </div>

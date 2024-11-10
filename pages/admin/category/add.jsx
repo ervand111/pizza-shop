@@ -33,20 +33,6 @@ const CreateCategoryPage = () => {
                         <Input/>
                     </Form.Item>
                     <Form.Item
-                        name="name_en"
-                        label="Name English"
-                        rules={[{required: true, message: 'Please enter the name'}]}
-                    >
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item
-                        name="name_ru"
-                        label="Name Russian"
-                        rules={[{required: true, message: 'Please enter the name'}]}
-                    >
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item
                         name="parent_id"
                         label="Category"
                         rules={[{required: false, message: 'Please select a category'}]}

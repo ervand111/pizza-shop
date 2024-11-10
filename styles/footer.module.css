@@ -2,13 +2,27 @@
     display: flex;
     justify-content: space-between;
     padding: 50px 5% 20px;
-    background: var(--White, #FFF);
+    background: #222222FF;
     border-top: 1px solid #1A1A1A;
     border-bottom: 1px solid #1A1A1A;
 }
 
-.footer img {
-    width: 111px;
+.logo {
+    width: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.logo img:hover {
+    scale: 1.1;
 }
 
 .footer > div:last-child {
@@ -18,31 +32,42 @@
 .footer li {
     list-style: none;
 }
-.footer li span{
+
+.footer li span {
     margin-right: 3px;
 }
 
 .pages > div {
     margin-left: 120px;
-
 }
 
 .pages h4 {
-    color: var(--Black, #1A1A1A);
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: 30px; /* 150% */
     margin-bottom: 20px;
 }
-.pages a{
-    color: black;
+
+.pages h4:hover {
+    color: #C31F30FF;
+    cursor: pointer;
+}
+
+.pages a {
+    color: white;
     text-decoration: none;
 }
+
+.pages ul li:hover {
+    color: #C31F30FF;
+}
+
 .pages li {
-    color: var(--Black, #1A1A1A);
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -65,12 +90,13 @@
     cursor: pointer;
     transition: 0.5s;
 }
-.itemSocial a{
-    color: white;
 
+.itemSocial a {
+    color: white;
 }
+
 .itemSocial:hover {
-    background-color: #D09F4E;
+    background-color: #625b5b;
 }
 
 .socials {
@@ -78,8 +104,11 @@
     margin-top: 20px;
 }
 
-.pages li:hover, .pages li a:hover {
-    color: #D09F4E;
+.footer a:hover,
+.footer p:hover,
+.footer span:hover,
+.footer li:hover {
+    color: #C31F30FF;
     cursor: pointer;
 }
 
@@ -106,12 +135,13 @@
     .pages li {
         font-size: 21px;
     }
-    .pages h4{
+
+    .pages h4 {
         font-size: 25px;
     }
+
     .footer > div:last-child {
         width: 100%;
         justify-content: space-evenly;
     }
 }
-

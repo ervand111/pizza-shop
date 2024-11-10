@@ -12,7 +12,7 @@ const Lastpage = ({scroll}) => {
                 <div className={styles.text}>
                     <div className={styles.paragraph}>
                         <p>© 2024 <a target="_blank" rel="noopener noreferrer"
-                                     href="https://www.linkedin.com/company/94111612/admin/feed/posts/">HiveSpace</a>
+                                     href="https://www.linkedin.com/company/geeklab1/mycompany/">GeekLab</a>
                         </p>
                     </div>
                     <div className={styles.text}>

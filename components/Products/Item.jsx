@@ -12,19 +12,11 @@ import Image from "next/image";
 
 
 const Item = ({item, addCart}) => {
-    const router = useRouter();
-    const {locale} = router;
     const {setCount} = useContext(CountContext)
     const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
-    const [title, setTitle] = useState("");
     const {price, currentRate} = useContext(RateContext)
     const [isLoading, setIsLoader] = useState(true)
-
-    useEffect(() => {
-        const title = (locale === 'en') ? item.title_en : (locale === 'ru') ? item.title_ru : item.title
-        setTitle(title)
-    }, [locale, item])
-
+    console.log(item.variants)
     const removeToBasket = useCallback(() => {
         setCount((prev) => {
             return {
@@ -68,59 +60,60 @@ const Item = ({item, addCart}) => {
     }, [item, addCart, addFavorite, setCount]);
 
     return (
-        <div className={styles.item}>
-            <>
-                <Link href={{
-                    pathname: '/product/[name]/',
-                    query: {name:  item.id},
-                }}>
+      <div className={styles.item}>
+          <>
+              <Link href={{
+                  pathname: '/product/[name]/',
+                  query: {name: item.id},
+              }}>
 
-                    <Image
-                        src={process.env.IMAGE_URL2  + item.avatar}
-                        style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
-                        onLoad={() => setIsLoader(false)}
-                        width={400}
-                        height={400}
-                        alt={item.title}
-                        priority
-                    />
-                </Link>
-                {isLoading ?
-                    <Skeleton/>
-                    :
-                    <div className={styles.info}>
-
-                        <div>
-                            <div className={styles.span}>
-                                <span>{truncateContent(title, 27)}</span>
-                            </div>
-                            <div className={styles.paragraph}>
-                                <p>{price(item.price)} {currentRate?.current}</p>
-                            </div>
+                  <Image
+                    src={process.env.IMAGE_URL2 + item.avatar}
+                    style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
+                    onLoad={() => setIsLoader(false)}
+                    width={400}
+                    height={400}
+                    alt={item.title}
+                    priority
+                  />
+              </Link>
+              {isLoading ?
+                <Skeleton/>
+                :
+                <div className={styles.info}>
+                    <div className={styles.productItem}>
+                    <div>
+                        <div className={styles.span}>
+                            <span>{truncateContent(item.title, 27)}</span>
                         </div>
+                        <div>
+                            <p>{price(item.price)}</p>
+                        </div>
+                    </div>
                         <div className={styles.icon}>
                             <ul>
                                 <li>
                                     {!isBasket(item) ? (
-                                        <ShoppingOutlined onClick={addToBaskets}/>
+                                      <ShoppingOutlined onClick={addToBaskets}/>
                                     ) : (
-                                        <ShoppingFilled onClick={removeToBasket}/>
+                                      <ShoppingFilled onClick={removeToBasket}/>
                                     )}
                                 </li>
                                 <li>
                                     {!isFavorite(item) ? (
-                                        <HeartOutlined onClick={addToFavorite}/>
+                                      <HeartOutlined onClick={addToFavorite}/>
                                     ) : (
-                                        <HeartFilled onClick={removeToFavorite}/>
+                                      <HeartFilled onClick={removeToFavorite}/>
                                     )}
                                 </li>
                             </ul>
                         </div>
                     </div>
-                }
+                </div>
+              }
 
-            </>
-        </div>
+          </>
+      </div>
     );
 };
 

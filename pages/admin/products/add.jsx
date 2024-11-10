@@ -7,6 +7,7 @@ import {getCategories, getSubCategories} from "../../../store/category/actions";
 import {addProduct} from "../../../store/products/actions";
 import {getBlogs} from "../../../store/blog/actions";
 import {compressImage} from "../../../utils/utils";
+import VariantForm from "../../../components/admin/VariantForm";
 
 const {Option} = Select;
 
@@ -15,13 +16,14 @@ const Add = () => {
     const subs = useSelector((state) => state.category?.subCategories?.data);
     const categories = useSelector((state) => state.category?.categories);
     const blogs = useSelector((state) => state.blog?.blogs);
-
+    const isAdd = useSelector((state) => state?.product.isAdding);
     const [form] = Form.useForm();
     const [avatarFile, setAvatarFile] = useState(null);
     const [avatarPreview, setAvatarPreview] = useState(null);
     const [imageFiles, setImageFiles] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
-
+    const [variants, setValues] = useState(null);
+    const [isSubmit, setIsSubmit]=useState(false)
     const [parent_id, setParentId] = useState(null)
 
     useEffect(() => {
@@ -67,25 +69,26 @@ const Add = () => {
         setImagePreviews(compressedImages.map(file => URL.createObjectURL(file)));
     };
 
+    function callBackGetValues(variantValues){
+        setValues(variantValues);
+    }
 
     const handleSubmit = (values) => {
         const formData = new FormData();
         if (values.important === undefined) {
             values.important = 0;
         }
+        console.log(variants)
         formData.append('title', values.title);
-        formData.append('title_en', values.title_en);
-        formData.append('title_ru', values.title_ru);
-        formData.append('metal', values.metal || "");
-        formData.append('metal_en', values.metal_en || "");
-        formData.append('model', values.model);
-        formData.append('metal_ru', values.metal_ru || "");
-        formData.append('respect', values.respect || "");
+        formData.append('description', values.title);
+
         formData.append('important', values.important);
-        formData.append('weight', values.weight || "");
+        formData.append('variants',JSON.stringify(variants));
+
         formData.append('category_id', JSON.stringify(values.category_id));
         formData.append('blog_id', values.blog_id !== undefined ? parseInt(values.blog_id) : 0);
         formData.append('price', parseInt(values.price));
+
         if (imageFiles.length > 0) {
             imageFiles.forEach((file, index) => {
                 formData.append(`images[${index}]`, file);
@@ -94,17 +97,22 @@ const Add = () => {
         if (avatarFile) {
             formData.append('avatar', avatarFile);
         }
-
+        setIsSubmit(true);
         dispatch(addProduct.request(formData));
-        form.resetFields();
-        setImageFiles([]);
-        setImagePreviews([]);
-        setAvatarFile(null)
-        setAvatarPreview("")
 
-        message.success('Product successfully added!');
     };
-
+    useEffect(() => {
+        if (isAdd === false && isSubmit) {
+            message.success('Product successfully added!');
+            form.resetFields();
+            setImageFiles([]);
+            setImagePreviews([]);
+            setAvatarFile(null);
+            setAvatarPreview("");
+            setIsSubmit(false)
+            setValues(null)
+        }
+    }, [form, isAdd, isSubmit]);
     return (
         <App>
             <h1>Add Product</h1>
@@ -116,61 +124,6 @@ const Add = () => {
                 >
                     <Input placeholder="Enter the Title"/>
                 </Form.Item>
-                <Form.Item
-                    label="Title English"
-                    name="title_en"
-                    rules={[{required: true, message: 'Please enter the name'}]}
-                >
-                    <Input placeholder="Enter the Title"/>
-                </Form.Item>
-                <Form.Item
-                    label="Title Russian"
-                    name="title_ru"
-                    rules={[{required: true, message: 'Please enter the name'}]}
-                >
-                    <Input placeholder="Enter the Title"/>
-                </Form.Item>
-                <Form.Item
-                    label="Model"
-                    name="model"
-                    rules={[{required: true, message: 'Please enter the model of product'}]}
-                >
-                    <Input type="text" placeholder=""/>
-                </Form.Item>
-
-                <Form.Item
-                    label="Weight"
-                    name="weight"
-                >
-                    <Input type="text" placeholder="Enter the weight"/>
-                </Form.Item>
-                <Form.Item
-                    label="Type"
-                    name="metal"
-                    // rules={[{required: true, message: 'Please enter the type of product'}]}
-                >
-                    <Input type="text" placeholder="Ոսկյա մատանի"/>
-                </Form.Item>
-                <Form.Item
-                    label="Type English"
-                    name="metal_en"
-                    // rules={[{required: true, message: 'Please enter the type of product'}]}
-                >
-                    <Input type="text" placeholder="Ոսկյա մատանի"/>
-                </Form.Item>
-                <Form.Item
-                    label="Type Russian"
-                    name="metal_ru"
-                    // rules={[{required: true, message: 'Please enter the type of product'}]}
-                >
-                    <Input type="text" placeholder="Ոսկյա մատանի"/>
-                </Form.Item>
-                {/*<Form.Item*/}
-                {/*    label="Respect"*/}
-                {/*    name="respect"*/}
-                {/*>*/}
-                {/*    <Input type="text" placeholder="750"/>*/}
-                {/*</Form.Item>*/}
 
                 <Form.Item
                     label="Parent Category"
@@ -214,6 +167,14 @@ const Add = () => {
                 </Form.Item>
 
                 <Form.Item
+                  label="Info of pizza"
+                  name="description"
+                  rules={[{required: true, message: 'Please enter the info'}]}
+                >
+                    <Input.TextArea placeholder="Enter the Info"/>
+                </Form.Item>
+
+                <Form.Item
                     label="New or Best"
                     name="important"
                 >
@@ -239,13 +200,7 @@ const Add = () => {
                         }
                     </Select>
                 </Form.Item>
-                <Form.Item
-                    label="Price"
-                    name="price"
-                    rules={[{required: true, message: 'Please enter the price'}]}
-                >
-                    <Input type="number" min={0} placeholder="Enter the price"/>
-                </Form.Item>
+
                 <Form.Item
                     name="avatar"
                     label="Avatar"
@@ -278,9 +233,17 @@ const Add = () => {
                         <Button icon={<UploadOutlined/>}>Upload Images</Button>
                     </Upload>
                 </Form.Item>
+
+                <VariantForm callback={callBackGetValues} />
+                <Form.Item
+                  label="Discount"
+                  name="discount"
+                >
+                    <Input placeholder="Enter the Discount"/>
+                </Form.Item>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit">
-                        Submit
+                    <Button type="primary" disabled={isAdd} htmlType="submit">
+                        {isAdd ? "Adding..." : "Add"}
                     </Button>
                 </Form.Item>
             </Form>

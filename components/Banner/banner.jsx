@@ -23,6 +23,8 @@ const Banner = ({slides}) => {
     };
 
     return (
+      <div className={styles.parentBanner}>
+
         <div className={styles.container}>
             <Slider {...settings}>
                 {slides?.map((item) => (
@@ -30,6 +32,8 @@ const Banner = ({slides}) => {
                 ))}
             </Slider>
         </div>
+      </div>
+
     );
 };
 

@@ -1,26 +1,83 @@
 
 .header {
     width: 100%;
-    height: 90px;
-    background-color: #F5F5F5;
+    height: 120px;
+    background-color: #222222FF;
     border-bottom: 1px solid black;
     position: fixed;
     z-index: 22222;
     top: 0;
+    border-bottom: 1px solid #C31F30FF;
+    border-right: 1px solid #C31F30FF;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+
 }
 
 .loaderPage {
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 0px;
-    left: 0px;
     background: rgba(255, 255, 255, 0.8);
-    z-index: 2222222222222222222222222222222222222;
-
+    z-index: 222;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.headerMenu li {
+    position: relative;
+    list-style: none;
+    font-size: 20px;
+    margin: 0 20px;
+    font-style: italic;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: MardotoItalic, serif;
+    transition: 0.5s;
+}
+.delivery{
+   max-width: max-content;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delivery p{
+    color:white;
+    font-size: 24px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courie, serif;
+}
+.headerMenu a {
+    color:#C31F30FF;
+    text-decoration: none;
+    position: relative;
+    font-size: 22px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.header ul {
+    display: flex;
+    width: 200px;
+}
+
+.headerMenu li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -3px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.headerMenu li:hover a::after {
+    width: 100%;
+}
+
+.headerMenu a:hover {
+    color: white;
 }
 
 .loaderPage img {
@@ -40,31 +97,11 @@
     }
 }
 
-.headerMenu {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.headerMenu li {
-    list-style: none;
-    font-size: 20px;
-    margin: 0 20px;
-    font-style: italic;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: MardotoItalic;
-    transition: 0.5s;
-}
 
 .searchBox {
     display: flex;
 }
 
-.headerMenu a {
-    color: black;
-    text-decoration: none;
-}
 
 .priceDrb {
     position: absolute;
@@ -144,18 +181,24 @@
 }
 
 
-.headerMenu li:hover, .headerMenu a:hover {
-    color: #D09F4E;
-}
-
-
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100px;
+    height: 90%;
     cursor: pointer;
+    border-radius: 50%;
+
 }
 
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.logo img:hover{
+    scale: 1.1;
+}
 .contentHeader {
     display: flex;
     width: calc(100% - 100px);
@@ -165,19 +208,16 @@
     justify-content: space-between;
 }
 
-/*.contentHeader>div{*/
-/*    width: calc(100% / 3);*/
-/*}*/
+
 .contentHeader > div:first-child {
-    width: 45%;
+    width:auto;
+
 }
 
-.contentHeader > div:nth-child(2) {
-    width: 10%;
-}
+
 
 .contentHeader > div:last-child {
-    width: 45%;
+    width: auto;
 }
 
 
@@ -194,7 +234,7 @@
 }
 
 .activeCategory a {
-    color: #976E2B;
+    color: white;
 }
 
 .searchBox input {
@@ -231,7 +271,7 @@
     width: 100%;
     height: calc(100vh - 90px);
     position: absolute;
-    background: #000000a2;
+    background: white;
     top: 90px;
     left: 0;
     z-index: 222221;
@@ -249,50 +289,50 @@
 }
 
 .icons > ul > li {
-    font-size: 20px;
+    font-size: 25px;
     margin: 0 10px;
     display: flex;
     align-items: center;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     cursor: pointer;
     position: relative;
+    color: #C31F30FF;
+}
+
+.icons > ul > li:hover {
+    color: white;
+    margin-bottom: 5px;
 }
 
 .icons li:first-child {
     position: unset;
 }
 
-.icons li:last-child img {
-    margin-right: 10px;
-    width: 27px;
-    border-radius: 5px;
-}
-
 
 .icons > ul > li > a:hover {
-    color: #D09F4E;
+    color: white;
     margin-bottom: 5px;
 
 }
 
 .icons a {
-    color: black;
+    color: #C31F30FF;
 }
 
 .icons li:nth-child(3):hover {
-    color: #c50909;
+    color: #C31F30FF;
     margin-bottom: 5px;
 }
 
 .countBasket {
     width: 17px;
     height: 17px;
-    background-color: #976E2B;
+    background-color: white;
     border-radius: 50%;
     position: absolute;
     top: -5px;
     right: -5px;
-    color: white;
+    color: black;
     font-size: 11px;
     display: flex;
     justify-content: center;
@@ -312,7 +352,6 @@
 }
 
 .icons > ul > li:last-child span:last-child {
-    font-size: 11px;
     margin-left: 3px;
     font-weight: bold;
 }
@@ -401,7 +440,7 @@
         color: black;
         font-size: 20px;
         margin-top: 25px;
-        font-family: Mardoto;
+        font-family: Mardoto, serif;
         list-style: none;
     }
 

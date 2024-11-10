@@ -124,6 +124,10 @@ const productReducer = handleActions(
             error: payload,
         }),
 
+        [addProduct.request]: (state, {payload}) => ({
+            ...state,
+            isAdding: true,
+        }),
         [addProduct.success]: (state, {payload}) => ({
             ...state,
             products: [...state.products, payload],

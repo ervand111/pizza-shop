@@ -94,9 +94,6 @@ const Details = () => {
     }, [product, removeFromFavorite, setCount])
 
 
-    const imagesArray = product?.images ? JSON.parse(product?.images) : [];
-
-    const imagesCarousel = imagesArray.map(x => process.env.IMAGE_URL + x)
     return (
         <div className={styles.product}>
             <Skeleton loading={isFetching} active>
@@ -104,9 +101,8 @@ const Details = () => {
                     <div className={styles.firstImg}>
                         <div className={styles.slider}>
                             <div>
-                                <Image.PreviewGroup items={imagesCarousel}>
                                     <Image  src={process.env.IMAGE_URL2 + product?.avatar} alt=""/>
-                                </Image.PreviewGroup>
+
                             </div>
 
                         </div>
@@ -122,17 +118,11 @@ const Details = () => {
                             <p>{t("infoOfProduct")}</p>
                         </div>
                         <div className={styles.spanTextRaw}>
-                            {metal !== "undefined" && metal !== null ? <span>{metal}</span> : null}
                             {product?.weight !== "undefined" && product?.weight !== null ?
-                                <span>{t("weightOf")}` {product?.weight} {t('grams')}</span> : null}
-                            {/*{product.respect!=="undefined" && product.respect !== null ?*/}
-                            {/*<span>{t("respect")}` {product.respect}</span>*/}
-                            {/*:null}*/}
+                                <span>{t("weightOf")}` {product?.weight} см</span> : null}
                             <span>{t("available")}</span>
                         </div>
-                        <div className={styles.priceText}>
-                            <span>{price(product?.price)} {currentRate?.current}</span>
-                        </div>
+
                         <div className={styles.buttons}>
                             {!isBasket(product) ?
                                 <Button onClick={addToBaskets}>
