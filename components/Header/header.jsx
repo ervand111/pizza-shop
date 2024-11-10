@@ -99,16 +99,16 @@ const Header = ({categories}) => {
                         <div className={styles.icons}>
                             <ul>
                                 <li>
-                                    <div className={styles.searchBox}>
-                                        <span onClick={openSearchBox}>
-                                            {isSearchBox ? <CloseOutlined onClick={openSearchBox}/> : <SearchOutlined/>}
+                                    {/*<div className={styles.searchBox}>*/}
+                                    {/*    <span onClick={openSearchBox}>*/}
+                                    {/*        {isSearchBox ? <CloseOutlined onClick={openSearchBox}/> : <SearchOutlined/>}*/}
 
-                                        </span>
-                                        {isSearchBox ?
-                                          <SearchBox onClose={openSearchBox}/>
-                                          : null
-                                        }
-                                    </div>
+                                    {/*    </span>*/}
+                                    {/*    {isSearchBox ?*/}
+                                    {/*      <SearchBox onClose={openSearchBox}/>*/}
+                                    {/*      : null*/}
+                                    {/*    }*/}
+                                    {/*</div>*/}
                                 </li>
                                 <li>
                                     <span className={styles.countBasket}>{count.basket}</span>

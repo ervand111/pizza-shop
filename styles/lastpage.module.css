@@ -10,24 +10,22 @@
     justify-content: space-between;
 
 }
+
 .paragraph{
     margin-left: 50px;
 }
 .paragraph a{
-    color:black;
+    color:white;
     text-decoration: none;
 }
 .paragraph>p{
-    color: black;
+    color: white;
     font-family: Mardoto, serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
 }
-.span{
-    margin-right: 55px;
-    cursor: pointer;
-}
+
 .span span{
     width: 50px;
     height: 50px;
@@ -42,6 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .span a{
     color:black;

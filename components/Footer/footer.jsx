@@ -86,7 +86,7 @@ const Footer = ({contact, categories}) => {
             <ul>
               <li><Link href={'/contact'}>{t("contact_us")}</Link></li>
               <li><Link href={'/about'}>{t("about_us")}</Link></li>
-              <li><Link href={'/faqs'}>FAQ</Link></li>
+              <li><Link href={'/faqs'}>Вопросы</Link></li>
             </ul>
           </div>
           <div>

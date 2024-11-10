@@ -16,11 +16,9 @@ import {Image, Skeleton} from "antd";
 const Details = () => {
   const product = useSelector((state) => state.product?.selectedProduct?.data);
   const isFetching = useSelector((state) => state.product?.isFetching);
-
   const [isShow, setIsShow] = useState(false);
   const {setCount} = useContext(CountContext)
   const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
-  const {price, currentRate} = useContext(RateContext)
   const [title, setTitle] = useState("");
   const [metal, setMetal] = useState("")
   const dispatch = useDispatch();
@@ -91,8 +89,6 @@ const Details = () => {
     removeFromFavorite(product)
   }, [product, removeFromFavorite, setCount])
 
-  // Extract the price from the first variant (assuming it has the price)
-  const productPrice = product?.variants && product?.variants[0]?.price;
 
   return (
     <div className={styles.product}>
@@ -114,11 +110,16 @@ const Details = () => {
             <div className={styles.paragraph}>
               <p>{t("infoOfProduct")}</p>
             </div>
+              <div>
+                <p style={{margin:10,fontSize:20}}>{product?.description}</p>
+              </div>
             <div className={styles.variants}>
               {product?.variants?.map((variant) => (
                 <div key={variant.id} className={styles.variant}>
       <span>
+
         {Number(variant.value) < 10
+
           ? `Количество: ${variant.value} шт.`
           : `Размер: ${variant.value} см`}
       </span>

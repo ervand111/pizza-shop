@@ -34,6 +34,7 @@
 .btnDelivery{
     background: transparent;
     color: white;
+    cursor: pointer;
     padding: 10px 20px;
     border: 1px solid white;
     border-radius: 30px;
@@ -232,7 +233,7 @@
     transform: translateX(-50%);
     top: 100%;
     z-index: 222222;
-    background: white;
+    background: black;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
 }
@@ -241,9 +242,7 @@
     color: white;
 }
 
-.searchBox input {
 
-}
 
 .drbLangRow {
     display: flex;
