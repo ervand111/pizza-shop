@@ -143,7 +143,7 @@ const Contactus = () => {
                                             },
                                         ]}
                                     >
-                                        <Input placeholder={t('+37477123456')} />
+                                        <Input placeholder={t('+7 928 333-41-05')} />
                                     </Form.Item>
                                 </div>
                                 <div className={styles.regInputs}>
@@ -160,7 +160,7 @@ const Contactus = () => {
                                     </Form.Item>
                                     {isSuccess ?
                                         <div className={styles.greenSuccess}>
-                                            <p>Ձեր նամակը հաջողությամբ ուղարկվել է</p>
+                                            <p>Ваше письмо было успешно отправлено</p>
                                         </div>
                                         : null}
                                     <div>

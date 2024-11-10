@@ -2,13 +2,15 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    background-image: url(/photos/back2.jpg);
+
 }
 
 .title {
     margin-top: 100px;
     margin-left: 90px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
+    color: white;
 }
 
 .location {
@@ -20,25 +22,26 @@
 .information {
     display: flex;
     flex-direction: column;
+
 }
 
 .info {
-    /*margin-bottom: 72px;*/
     display: flex;
     margin-bottom: 50px;
 
 }
 .info a{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 .info a:hover{
-    color: #976E2B;
+    color: white;
+
 }
 
 .info span {
-    color: #976E2B;
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -47,12 +50,12 @@
 
 .info p {
     margin-top: 10px;
-    color: #1A1A1A;
+    color:white;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 15px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
 }
 
 .registration {
@@ -65,8 +68,8 @@
 }
 
 .regTitle h2 {
-    color: #000;
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-size: 30px;
     font-style: normal;
     font-weight: 500;
@@ -75,16 +78,12 @@
 
 .background {
     margin-top: 40px;
-    background: #1A1A1A;
+    background:rgba(0,0,0,0.2);
     width: 80%;
+    border-radius: 20px;
 }
 
 .regInputs {
-    /*margin: auto;*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*flex-direction: column;*/
-    /*margin-top: 45px;*/
     width: 48%;
     display: flex;
     flex-direction: column;
@@ -121,9 +120,10 @@
     color: white;
     height: 40px;
     flex-shrink: 0;
-    background-color: var(--Black, #1A1A1A);
-    border: 1px solid white;
-    border-radius: 25px 0 0 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid white;
     padding-left: 10px;
 }
 .regInputs input::placeholder{
@@ -133,8 +133,8 @@
     color: rgba(180, 180, 180, 0.62);
 }
 .regInputs label {
-    color: var(--White, #FFF);
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -152,13 +152,10 @@
 }
 
 .regInputs textarea {
-    /*width: 430px;*/
-    /*height: 119px;*/
     width: calc(100% - 10px);
     flex-shrink: 0;
-    background: var(--Black, #1A1A1A);
+    background:transparent;
     border: 1px solid white;
-    border-radius: 25px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,27 +167,28 @@
     margin-top: 25px;
     width: 160px;
     height: 45px;
-    border-radius: 15px 0 0 0;
+    border-radius: 30px;
     background: #FFF;
     cursor: pointer;
-    border: none;
-    color: #000;
-    font-family: Mardoto;
+    border: 1px solid  #C31F30FF;
+    color:  white;
+    font-family: Mardoto, serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
 }
+
 .greenSuccess{
     color: green;
-    font-family: "Mardoto Black";
+    font-family: "Mardoto Black", serif;
     margin-left: 10px;
 }
 .error{
     color: red;
     font-size: 14px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     margin-left: 5px;
     margin-top: 5px;
 }

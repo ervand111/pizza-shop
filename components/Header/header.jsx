@@ -76,9 +76,7 @@ const Header = ({categories}) => {
                             })}
                         </ul>
                     </div>
-                    <div className={styles.delivery}>
-                        <p>Доставка</p>
-                    </div>
+
                     <div className={styles.mobileMenu}>
                        <span className={styles.btnMenu} onClick={handlerMenu}>
                            <MenuOutlined/>
@@ -95,10 +93,9 @@ const Header = ({categories}) => {
                             </Link>
                         </div>
                     </div>
-                    <div className={styles.delivery}>
-                        <p>+7  928 333-41-05</p>
-                    </div>
+
                     <div>
+
                         <div className={styles.icons}>
                             <ul>
                                 <li>
@@ -124,6 +121,13 @@ const Header = ({categories}) => {
 
                             </ul>
                         </div>
+
+                        <div>
+                            <a href="https://wa.me/79283334105" target="_blank" rel="noopener noreferrer">
+                                <button className={styles.btnDelivery}>Заказы</button>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </header>

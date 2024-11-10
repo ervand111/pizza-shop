@@ -14,153 +14,164 @@ import {t} from "../../../utils/utils";
 import {Image, Skeleton} from "antd";
 
 const Details = () => {
-    const product = useSelector((state) => state.product?.selectedProduct?.data);
-    const isFetching = useSelector((state) => state.product?.isFetching);
+  const product = useSelector((state) => state.product?.selectedProduct?.data);
+  const isFetching = useSelector((state) => state.product?.isFetching);
 
-    const [isShow, setIsShow] = useState(false);
-    const {setCount} = useContext(CountContext)
-    const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
-    const {price, currentRate} = useContext(RateContext)
-    const [title, setTitle] = useState("");
-    const [metal, setMetal] = useState("")
-    const dispatch = useDispatch();
-    const router = useRouter();
-    const {name} = router.query;
-    const {locale} = router;
-    const stylesNotification = {
-        transform: isShow ? "translate(0%)" : "translate(150%)"
-    }
+  const [isShow, setIsShow] = useState(false);
+  const {setCount} = useContext(CountContext)
+  const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
+  const {price, currentRate} = useContext(RateContext)
+  const [title, setTitle] = useState("");
+  const [metal, setMetal] = useState("")
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const {name} = router.query;
+  const {locale} = router;
+  const stylesNotification = {
+    transform: isShow ? "translate(0%)" : "translate(150%)"
+  }
 
+  function addNotification() {
+    setIsShow(true)
+    setTimeout(() => {
+      setIsShow(false)
+    }, 2000)
+  }
 
-    function addNotification() {
-        setIsShow(true)
-        setTimeout(() => {
-            setIsShow(false)
-        }, 2000)
-    }
+  useEffect(() => {
+    dispatch(getProduct.request({id: name}));
+  }, [dispatch, name])
 
+  useEffect(() => {
+    const t = (locale === 'en') ? product?.title_en : (locale === 'ru') ? product?.title_ru : product?.title
+    const m = (locale === 'en') ? product?.metal_en : (locale === 'ru') ? product?.metal_ru : product?.metal
+    setTitle(t)
+    setMetal(m)
+  }, [locale, product])
 
-    useEffect(() => {
-        dispatch(getProduct.request({id: name}));
-    }, [dispatch, name])
+  const addToBaskets = useCallback(() => {
+    addNotification()
+    setCount((prev) => {
+      return {
+        ...prev,
+        basket: ++prev.basket
+      }
+    });
+    add(product)
+  }, [product, add, setCount]);
 
-    useEffect(() => {
-        const t = (locale === 'en') ? product?.title_en : (locale === 'ru') ? product?.title_ru : product?.title
-        const m = (locale === 'en') ? product?.metal_en : (locale === 'ru') ? product?.metal_ru : product?.metal
-        setTitle(t)
-        setMetal(m)
-    }, [locale, product])
+  const removeToBasket = useCallback(() => {
+    setCount((prev) => {
+      return {
+        ...prev,
+        basket: --prev.basket
+      }
+    });
+    remove(product)
+  }, [product, remove, setCount])
 
+  const addToFavorites = () => {
+    addNotification()
+    addFavorite(product)
+    setCount((prev) => {
+      return {
+        ...prev,
+        favorite: ++prev.favorite
+      }
+    })
+  };
 
-    const addToBaskets = useCallback(() => {
-        addNotification()
-        setCount((prev) => {
-            return {
-                ...prev,
-                basket: ++prev.basket
-            }
-        });
-        add(product)
-    }, [product, add, setCount]);
-    const removeToBasket = useCallback(() => {
-        setCount((prev) => {
-            return {
-                ...prev,
-                basket: --prev.basket
-            }
-        });
-        remove(product)
-    }, [product, remove, setCount])
+  const removeToFavorite = useCallback(() => {
+    setCount((prev) => {
+      return {
+        ...prev,
+        favorite: --prev.favorite
+      }
+    });
+    removeFromFavorite(product)
+  }, [product, removeFromFavorite, setCount])
 
-    const addToFavorites = () => {
-        addNotification()
-        addFavorite(product)
-        setCount((prev) => {
-            return {
-                ...prev,
-                favorite: ++prev.favorite
-            }
-        })
-    };
+  // Extract the price from the first variant (assuming it has the price)
+  const productPrice = product?.variants && product?.variants[0]?.price;
 
-    const removeToFavorite = useCallback(() => {
-        setCount((prev) => {
-            return {
-                ...prev,
-                favorite: --prev.favorite
-            }
-        });
-        removeFromFavorite(product)
-    }, [product, removeFromFavorite, setCount])
+  return (
+    <div className={styles.product}>
+      <Skeleton loading={isFetching} active>
+        <div className={styles.productRow}>
+          <div className={styles.firstImg}>
+            <div className={styles.slider}>
+              <div>
+                <Image src={process.env.IMAGE_URL2 + product?.avatar} alt=""/>
+              </div>
+            </div>
+            <Image src={process.env.IMAGE_URL + product?.blog?.qrs?.image} className={styles.qrs} alt=""/>
+          </div>
 
-
-    return (
-        <div className={styles.product}>
-            <Skeleton loading={isFetching} active>
-                <div className={styles.productRow}>
-                    <div className={styles.firstImg}>
-                        <div className={styles.slider}>
-                            <div>
-                                    <Image  src={process.env.IMAGE_URL2 + product?.avatar} alt=""/>
-
-                            </div>
-
-                        </div>
-                        <Image  src={process.env.IMAGE_URL + product?.blog?.qrs?.image}
-                               className={styles.qrs} alt=""/>
-
-                    </div>
-                    <div className={styles.text}>
-                        <div className={styles.title}>
-                            <h1>{title}</h1>
-                        </div>
-                        <div className={styles.paragraph}>
-                            <p>{t("infoOfProduct")}</p>
-                        </div>
-                        <div className={styles.spanTextRaw}>
-                            {product?.weight !== "undefined" && product?.weight !== null ?
-                                <span>{t("weightOf")}` {product?.weight} см</span> : null}
-                            <span>{t("available")}</span>
-                        </div>
-
-                        <div className={styles.buttons}>
-                            {!isBasket(product) ?
-                                <Button onClick={addToBaskets}>
-                                    {t("add")}
-                                    <span><ShoppingOutlined/></span>
-                                </Button>
-                                :
-                                <Button onClick={removeToBasket} style={{background: '#D09F4E'}}>
-                                    {t("remove")}
-                                    <span><ShoppingOutlined/></span>
-                                </Button>
-                            }
-                            {!isFavorite(product) ?
-                                <Button onClick={addToFavorites}>
-                                    {t("add")}
-                                    <span><HeartOutlined/></span>
-                                </Button>
-                                :
-                                <Button style={{background: '#D09F4E'}} onClick={removeToFavorite}>
-                                    {t("remove")}
-                                    <span><HeartOutlined/></span>
-                                </Button>
-                            }
-
-                        </div>
-                    </div>
+          <div className={styles.text}>
+            <div className={styles.title}>
+              <h1>{title}</h1>
+            </div>
+            <div className={styles.paragraph}>
+              <p>{t("infoOfProduct")}</p>
+            </div>
+            <div className={styles.variants}>
+              {product?.variants?.map((variant) => (
+                <div key={variant.id} className={styles.variant}>
+      <span>
+        {Number(variant.value) < 10
+          ? `Количество: ${variant.value} шт.`
+          : `Размер: ${variant.value} см`}
+      </span>
+                  <span>Цена: {variant.price} руб.</span>
                 </div>
-            </Skeleton>
-            <Notification style={stylesNotification}>
+              ))}
+            </div>
+
+
+            <div className={styles.buttons}>
+              {!isBasket(product) ? (
+                <Button onClick={addToBaskets}>
+                  {t("add")}
+                  <span>
+                            <ShoppingOutlined/>
+                        </span>
+                </Button>
+              ) : (
+                <Button onClick={removeToBasket}>
+                  {t("remove")}
+                  <span>
+                            <ShoppingOutlined/>
+                        </span>
+                </Button>
+              )}
+              {!isFavorite(product) ? (
+                <Button onClick={addToFavorites}>
+                  {t("add")}
+                  <span>
+                            <HeartOutlined/>
+                        </span>
+                </Button>
+              ) : (
+                <Button style={{background: '#D09F4E'}} onClick={removeToFavorite}>
+                  {t("remove")}
+                  <span>
+                            <HeartOutlined/>
+                        </span>
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </Skeleton>
+
+      <Notification style={stylesNotification}>
                 <span className="icon">
                     <CheckOutlined/>
                 </span>
-                <span>{t("added_basket")}</span>
-            </Notification>
-        </div>
-
-    )
-        ;
+        <span>{t("added_basket")}</span>
+      </Notification>
+    </div>
+  );
 };
 
 export default Details;

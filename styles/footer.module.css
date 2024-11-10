@@ -52,7 +52,7 @@
 }
 
 .pages h4:hover {
-    color: #C31F30FF;
+    color:silver;
     cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .pages ul li:hover {
-    color: #C31F30FF;
+    color:silver;
 }
 
 .pages li {
@@ -73,6 +73,7 @@
     font-weight: 400;
     line-height: 30px; /* 166.667% */
     transition: 0.5s;
+    margin: 10px;
 }
 
 .itemSocial {
@@ -108,7 +109,7 @@
 .footer p:hover,
 .footer span:hover,
 .footer li:hover {
-    color: #C31F30FF;
+    color: silver;
     cursor: pointer;
 }
 

@@ -16,7 +16,6 @@ const Item = ({item, addCart}) => {
     const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
     const {price, currentRate} = useContext(RateContext)
     const [isLoading, setIsLoader] = useState(true)
-    console.log(item.variants)
     const removeToBasket = useCallback(() => {
         setCount((prev) => {
             return {

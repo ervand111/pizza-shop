@@ -1,78 +1,51 @@
-import React, {useEffect, useState} from 'react';
-import styles from "../../styles/review.module.css"
-import {useDispatch, useSelector} from "react-redux";
-import {getSlogan} from "../../store/slogan/actions";
-import {useRouter} from "next/router";
-import {Button, Skeleton} from "antd";
-import Image from "next/image";
-import {CompassOutlined, EnvironmentOutlined, HeatMapOutlined, PhoneOutlined, PushpinOutlined} from "@ant-design/icons";
-
-function MapOutlined() {
-  return null;
-}
+import React from 'react';
+import { Button, Card } from 'antd';
+import { PhoneOutlined, MailOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import styles from "../../styles/review.module.css";
 
 const Review = () => {
-  const [isLoading, setIsLoading] = useState(true)
-  const dispatch = useDispatch();
-  const slogan = useSelector(state => state.slogan.about);
-  const [content, setContent] = useState("")
-  useEffect(() => {
-    dispatch(getSlogan.request())
-  }, [dispatch]);
+  const handleEmailClick = () => {
+    window.location.href = "mailto:alekskrasnodar314@gmail.com?subject=Запрос информации";
+  };
 
-  const router = useRouter();
+  const handlePhoneClick = () => {
+    window.open("https://wa.me/79283334105", "_blank");
+  };
 
-  const {locale} = router;
-
-  useEffect(() => {
-    const content = (locale === 'en') ? slogan?.content_1_en : (locale === 'ru') ? slogan?.content_1_ru : slogan?.content_1
-    setContent(content)
-    setIsLoading(false)
-  }, [locale, slogan])
-
+  const handleMapClick = () => {
+    window.open("https://yandex.ru/maps/?text=Лётчика%20Позднякова%2C%202%20помещение%20А", "_blank");
+  };
 
   return (
-    <div>
-
-      {isLoading ?
-        <Skeleton style={{width: "90%", margin: 'auto'}}/>
-        :
-        <div className={styles.content}>
-          <div className={styles.animate}>
-
-            <p dangerouslySetInnerHTML={{__html: content}}></p>
-            <img src="/photos/moto.png" alt=""/>
-          </div>
-          <div className={styles.info} style={{color: slogan?.color}}>
-            <div style={{width:"100%",height:'100%',position: 'relative', overflow: 'hidden'}}>
-              <a
-                href="https://yandex.com/maps/35/krasnodar/?utm_medium=mapframe&utm_source=maps"
-                style={{color: '#eee', fontSize: '12px', position: 'absolute', top: '0px'}}
-              >
-                Краснодар
-              </a>
-              <a
-                href="https://yandex.com/maps/35/krasnodar/house/ulitsa_lyotchika_pozdnyakova_2/Z0AYdgJpSkEGQFpvfXx4dnVkZg==/?ll=39.059342%2C45.097972&utm_medium=mapframe&utm_source=maps&z=16.81"
-                style={{color: '#eee', fontSize: '12px', position: 'absolute', top: '14px'}}
-              >
-                Улица Лётчика Позднякова, 2 — Яндекс Карты
-              </a>
-              <iframe
-                src="https://yandex.com/map-widget/v1/?ll=39.059342%2C45.097972&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozODEyOTE1OTMwElPQoNC-0YHRgdC40Y8sINCa0YDQsNGB0L3QvtC00LDRgCwg0YPQu9C40YbQsCDQm9GR0YLRh9C40LrQsCDQn9C-0LfQtNC90Y_QutC-0LLQsCwgMiIKDcQ8HEIVU2Q0Qg%2C%2C&z=16.81"
-                width="100%"
-                height="100%"
-                frameBorder="1"
-                allowFullScreen
-                style={{position: 'relative'}}
-              />
-            </div>
-          </div>
+    <div className={styles.containerParent}>
 
 
-        </div>
-      }
-      {/*<Image priority width={1000} height={500} src={process.env.IMAGE_URL2 + slogan?.image1} alt='Review'*/}
-      {/*       className={styles.image}/>*/}
+    <div className={styles.container}>
+      <div className={styles.intro}>
+        <h2>Ваша любимая пицца, доставленная горячей и свежей!</h2>
+        <p>
+          Насладитесь лучшей пиццей в городе, приготовленной из свежих ингредиентов и идеального сочетания вкусов. Заказывайте прямо сейчас и утолите свой аппетит!
+        </p>
+        <Button type="primary" className={styles.orderButton} onClick={handleEmailClick}>
+          Заказать сейчас
+        </Button>
+      </div>
+
+      <div className={styles.contactInfo}>
+        <Card className={styles.contactCard} onClick={handlePhoneClick}>
+          <PhoneOutlined style={{ fontSize: '30px', color: '#3b5998' }} />
+          <p>+7 928 333-41-05</p>
+        </Card>
+        <Card className={styles.contactCard} onClick={handleEmailClick}>
+          <MailOutlined style={{ fontSize: '30px', color: '#EA4335' }} />
+          <p>alekskrasnodar314@gmail.com</p>
+        </Card>
+        <Card className={styles.contactCard} onClick={handleMapClick}>
+          <EnvironmentOutlined style={{ fontSize: '30px', color: '#34A853' }} />
+          <p>Лётчика Позднякова, 2 помещение А</p>
+        </Card>
+      </div>
+    </div>
     </div>
   );
 };

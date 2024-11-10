@@ -1,74 +1,80 @@
-.content {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
-.animate {
-    width: 70%;
-    height: 100%;
-    position: relative;
-    background-image: url("/photos/back1.jpg");
+.containerParent {
+    width: 100%;
+    height: auto;
+    background-image: url("/photos/back4.jpg");
     background-size: 100% 100%;
 }
 
-.animate img {
-    width: 35%;
-    height: 35%;
-    position: absolute;
-    bottom: 0;
-    left: -400px;
-    animation: 2s animate ease-in-out forwards;
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-size: cover;
+    border-radius: 15px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+
 }
 
-
-@keyframes animate {
-    from {
-        left: -400px;
-    }
-    to {
-        left: 300px;
-    }
-}
-
-.info {
-    width: 30%;
-    height: 100%;
+.intro {
     text-align: center;
-    font-family: Mardoto, serif;
+    margin-bottom: 30px;
+}
+
+.intro p {
+    margin: 10px;
+    font-size: 20px;
+}
+
+
+.orderButton {
+    margin: 20px auto;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 20px;
 }
 
-.animate p {
-    font-family: "Mardoto Black", serif;
-    line-height: 30px;
-    font-size: 25px;
-    color: #eae7e7;
+
+
+.contactInfo {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 40px;
+
+
+}
+
+.contactCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 3);
+    background: transparent;
+    height: 180px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 80%;
-    margin: 10px auto;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.container p{
+    color: white!important;
+}
+.contactCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-@media only screen and (max-width: 750px) {
-    .info {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: translate(0, 0);
-        padding: 20px;
-    }
-
-    .info p {
-        font-size: 18px;
-    }
-
-    .imageParent {
-        height: auto;
-    }
+.contactCard p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
 }

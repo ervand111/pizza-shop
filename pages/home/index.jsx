@@ -26,9 +26,9 @@ const Index = () => {
     return (
         <>
             <Banner slides={slides?.slides}/>
-            <Products products={importantProducts}/>
-            <Products products={newProducts} title={t("newSuggestion")}/>
-            <Review />
+            <Products products={newProducts} title={t("newSuggestion") || "Default Title"}/>
+            <Review/>
+            <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
         </>
     );
 };

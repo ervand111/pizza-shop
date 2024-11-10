@@ -10,17 +10,18 @@ const Info = ({info, children}) => {
             <div>
                 <span>{info.title}</span>
                 {info.key === 'address' ?
-                        info.info.map((item, index) => (
-                            <p key={index}>
-                                <a target="_blank" rel="noopener noreferrer" href={`https://maps.google.com?q=${encodeURIComponent(item)}`}>{item}</a>
-                            </p>
-                        ))
-                    : null}
+                  <p>
+                    <a target="_blank" rel="noopener noreferrer"
+                       href={`https://maps.google.com?q=${encodeURIComponent(info.info)}`}>{info.info[0]}
+                    </a>
+                  </p>
 
-                {info.key === 'phone' ?
-                        info.info.map((item, index) => (
-                            <p key={index}>
-                                <a href={`whatsapp://send?phone=${item}`}>{item}</a>
+                  : null}
+
+              {info.key === 'phone' ?
+                info.info.map((item, index) => (
+                  <p key={index}>
+                  <a href={`whatsapp://send?phone=${item}`}>{item}</a>
                             </p>
                         ))
                     : null}

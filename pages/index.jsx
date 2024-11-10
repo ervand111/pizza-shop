@@ -10,41 +10,41 @@ import Head from 'next/head';
 import {getSlides} from "../store/slides/actions";
 
 function Home() {
-    const dispatch = useDispatch();
-    const newProducts = useSelector((state) => state.product.newProducts) || [];
-    const importantProducts = useSelector((state) => state.product.importantProducts) || [];
-    const slides = useSelector(state => state.slide.slides) || {instagrams:[], slides:[]};
+  const dispatch = useDispatch();
+  const newProducts = useSelector((state) => state.product.newProducts) || [];
+  const importantProducts = useSelector((state) => state.product.importantProducts) || [];
+  const slides = useSelector(state => state.slide.slides) || {instagrams: [], slides: []};
 
 
-    useEffect(() => {
-        dispatch(getProductsAll.request());
-        dispatch(getSlides.request());
-        dispatch(getNewProducts.request());
-        dispatch(getImportantProducts.request());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProductsAll.request());
+    dispatch(getSlides.request());
+    dispatch(getNewProducts.request());
+    dispatch(getImportantProducts.request());
+  }, [dispatch]);
 
 
+  return (
+    <>
+      <Head>
+        <title>Алекс Пицца</title>
+      </Head>
+      <Banner slides={slides?.slides}/>
+      <Products products={newProducts} title={t("newSuggestion") || "Default Title"}/>
+      <Review/>
+      <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
 
-    return (
-        <>
-            <Head>
-                <title>Алекс Пицца</title>
-            </Head>
-            <Banner slides={slides?.slides}/>
-            <Products products={newProducts} title={t("newSuggestion")}/>
-            <Review/>
-            <Products products={importantProducts} title={t("bestSuggestion")}/>
-        </>
-    );
+    </>
+  );
 };
 
 
 Home.getLayout = function getLayout(page) {
-    return (
-        <App>
-            {page}
-        </App>
-    )
+  return (
+    <App>
+      {page}
+    </App>
+  )
 }
 
 export default Home;

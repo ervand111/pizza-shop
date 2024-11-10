@@ -3,14 +3,9 @@
     width: 100%;
     height: 120px;
     background-color: #222222FF;
-    border-bottom: 1px solid black;
     position: fixed;
     z-index: 22222;
     top: 0;
-    border-bottom: 1px solid #C31F30FF;
-    border-right: 1px solid #C31F30FF;
-    border-top: 1px solid white;
-    border-left: 1px solid white;
 
 }
 
@@ -36,6 +31,15 @@
     font-family: MardotoItalic, serif;
     transition: 0.5s;
 }
+.btnDelivery{
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
 .delivery{
    max-width: max-content;
     height: 90%;
@@ -49,7 +53,7 @@
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courie, serif;
 }
 .headerMenu a {
-    color:#C31F30FF;
+    color: #ffffff;
     text-decoration: none;
     position: relative;
     font-size: 22px;
@@ -296,7 +300,7 @@
     font-family: Mardoto, serif;
     cursor: pointer;
     position: relative;
-    color: #C31F30FF;
+    color: #ffffff;
 }
 
 .icons > ul > li:hover {
@@ -316,11 +320,11 @@
 }
 
 .icons a {
-    color: #C31F30FF;
+    color: #ffffff;
 }
 
 .icons li:nth-child(3):hover {
-    color: #C31F30FF;
+    color: #ffffff;
     margin-bottom: 5px;
 }
 

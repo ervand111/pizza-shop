@@ -1,9 +1,21 @@
-
 .productRow {
     display: flex;
     justify-content: space-between;
 }
-
+.productRow p{
+    color: white!important;
+}
+.productRow span{
+    color: white;
+}
+.variant{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.variant span{
+    margin: 10px;
+}
 .firstImg {
     width: 40%;
     margin-top: 70px;
@@ -96,8 +108,6 @@
 .spanTextRaw > span {
     display: block;
     margin-top: 5px;
-
-
     font-family: Mardoto;
     font-size: 18px;
     font-weight: 400;
@@ -108,8 +118,8 @@
 
 .spanTextRaw > span:last-child {
     margin-top: 20px;
-    color: #D09F4E;
-    font-family: Mardoto;
+    color: white;
+    font-family: Mardoto, serif;
     font-size: 18px;
     font-weight: 700;
     line-height: 26px;
@@ -129,6 +139,7 @@
 
 .buttons {
     margin-top: 30px;
+
 }
 
 .buttons > button:last-child {
@@ -165,8 +176,8 @@
 
     .buttons {
         display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
+        background: transparent;
     }
 
     .buttons > button:last-child {
