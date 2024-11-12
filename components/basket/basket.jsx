@@ -181,7 +181,7 @@ const Basket = () => {
                         </div>
                     ) : (
                         <div>
-                            <h2 className={styles.title2}>{t('empty_basket')}</h2>
+                            <h2 className={styles.title2} style={{color:'white'}}>{t('empty_basket')}</h2>
                         </div>
                     )}
                 </div>

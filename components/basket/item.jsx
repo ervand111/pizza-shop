@@ -68,11 +68,9 @@ const Item = ({item, onRemove,updateBasketItemQuantity, removeFavorite}) => {
                 </div>
                 <div className={styles.basketText}>
                     <div className={styles.basketSpan}>
-                        <span>{truncateContent(title, 27)}</span>
+                        <span>{truncateContent(item.title, 27)}</span>
                     </div>
-                    <div className={styles.basketParagraph}>
-                        <p>{t("model")}՝ {item.model}</p>
-                    </div>
+
                 </div>
             </div>
             <div className={styles.basketItem}>
@@ -82,7 +80,7 @@ const Item = ({item, onRemove,updateBasketItemQuantity, removeFavorite}) => {
                     <button onClick={increment}>+</button>
                 </div>
                 <div className={styles.price}>
-                    <span>{price(item.price*item.quantity)} {currentRate?.current}</span>
+                    <span>{price(item?.price*item.quantity)} {currentRate?.current}</span>
                 </div>
                 <div className={styles.icons}>
                     <ul>
@@ -101,9 +99,7 @@ const Item = ({item, onRemove,updateBasketItemQuantity, removeFavorite}) => {
                         <div className={styles.basketSpan}>
                             <span>{item.label}</span>
                         </div>
-                        <div className={styles.basketParagraph}>
-                            <p>Մոդելի համար՝ 19940001-58</p>
-                        </div>
+
                     </div>
                 </div>
             </div>

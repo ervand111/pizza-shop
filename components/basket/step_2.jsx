@@ -49,10 +49,10 @@ const Step2 = ({total,prevStep,next,setValues,region}) => {
             <div className={styles.formStep}>
                 <div onClick={()=>clickItem(1)} className={styles.paymentTypes} style={{borderColor: activeId === 1 ? "orange" : "black"}}>
                     <div className={styles.icon}>
-                        <img src="/cart.png" alt=""/>
+                        <img src="/cart.png" alt="" style={{backgroundColor:"white",borderRadius:20}}/>
                     </div>
                     <div className={styles.text}>
-                        <h3>Բանկային քարտ</h3>
+                        <h3>Банковская карта</h3>
                     </div>
                 </div>
                 {/*<div onClick={()=>clickItem(2)} className={styles.paymentTypes} style={{borderColor: activeId === 2 ? "orange" : "black"}}>*/}

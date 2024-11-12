@@ -89,7 +89,6 @@ const Products = ({products, title = ""}) => {
             {products?.map((item) => {
                 return <>
                   <Item addCart={addNotification} key={item.id} item={item}/>
-
                 </>
               }
             )}

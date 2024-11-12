@@ -1,10 +1,17 @@
+.title{
+    width: max-content;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title > h1 {
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 30px;
     font-weight: 500;
     line-height: 35px;
-    margin-top: 100px;
-    margin-bottom: 35px;
+    color: white;
 }
 .textareaReg {
     margin-bottom: 16px;
@@ -28,82 +35,129 @@
 .row {
     display: flex;
     align-items: center;
-
     width: 60%;
     margin: auto;
+    height: 100px;
+
 }
 
 .circleNumber {
     width: 40px;
     height: 40px;
-    border: 1px solid black;
-
+    border: 1px solid white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: white;
     position: relative;
 }
 
 .line {
     flex-grow: 1;
     height: 2px;
-    background-color: #000;
+    background-color: white;
 }
 
 .radius {
     font-size: 18px;
 }
 
+
+/* Common Styles */
 .regPage, .lastPage {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 40px;
+    justify-content: center;
 }
-.lastPage{
+
+/* Last Page Styles */
+.lastPage {
     flex-direction: column;
     align-items: center;
 }
-.lastPage .regInputs{
+
+.lastPage .regInputs {
     display: flex;
     align-items: center;
     width: 100%;
 }
-.lastPage .regInputs div:first-child{
+
+.regInputs label {
+    color: white;
+}
+
+.lastPage .regInputs div:first-child {
     width: 100%;
 }
-.lastPage .regInputs>div:last-child{
+
+.lastPage .regInputs > div:last-child {
     width: max-content;
 }
 
-.regInputs{
+/* Input Styles */
+.regInputs {
     width: 48%;
+}
+
+.regInputs input {
+    margin-left: 5px;
+    width: calc(100% - 10px);
+    height: 40px;
+    flex-shrink: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    padding-left: 10px;
+}
+
+.regInputs input::placeholder {
+    color: white;
+}
+.regInputs textarea::placeholder {
+    color: white;
 }
 .textareaReg{
     width: 100%;
 }
-
+.textareaReg  label{
+    color: white;
+}
+.textareaReg textarea {
+    margin-left: 5px;
+    width:100%;
+    height: 40px;
+    flex-shrink: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    padding-left: 10px;
+}
 
 .buttonsForm{
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    margin-top: 20px;
+    height: 50px;
+    align-items: center;
 }
 .formStep{
     width: 60%;
     margin: auto;
+    background:rgba(0,0,0,0.5);
+    border: 1px solid white;
 }
 .formStepLast{
     width: 40%;
     margin: auto;
 }
 .buttonsForm button{
-    border-radius: 15px 0 0 0;
-    margin-left: 20px;
+    border-radius: 15px;
     border: 1px solid black;
+    margin:10px;
 }
 .buttonsForm button:first-child{
     background: white;
@@ -114,31 +168,29 @@
     color: white;
 }
 .active {
-    background: #976E2B;
-    color: #fff; /* Add your active state styles */
+    background: black;
+    color: #fff;
 }
 
-/*steps*/
 .paymentTypes{
-    border:1px solid black;
     padding-left: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
-
     display: flex;
     align-items: center;
-    font-family: "Mardoto Light";
+    font-family: "Mardoto Light", serif;
     margin: 11px 0px;
 }
 .paymentTypes:first-child{
     margin-top: 75px;
 }
 .paymentTypes:hover{
-    border-color: #976E2B;
+    border-color: black;
     cursor: pointer;
 }
 .paymentTypes h3{
     margin-left:22px;
+    color: white;
 }
 .basket {
     width: 90%;
@@ -150,9 +202,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #767676;
-    border-right: 1px solid #767676;
-    border-left: 1px solid #767676;
 }
 
 .shoppingLast{
@@ -160,9 +209,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 3px solid #767676;
-    border-right: 3px solid #767676;
-    border-left: 3px solid #767676;
+    border-bottom: 1px solid white;
+    margin: 10px;
 }
 
 .basketItem {
@@ -173,12 +221,11 @@
 
 
 .basketDiv:last-child {
-    border-bottom: 1px solid #767676;
+    border-bottom: 1px solid white;
     display: flex;
     justify-content: flex-end;
 }
 .shoppingLast:last-child {
-    border-bottom: 3px solid #767676;
     display: flex;
     justify-content: flex-end;
     padding-right: 35px;
@@ -202,16 +249,17 @@
 
 .shoppingResult li {
     margin-top: 10px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     display: flex;
     justify-content: space-between;
+    color: white;
 }
 .shoppingResult li:last-child span:first-child{
     margin-right: 10px;
 }
 
 .shoppingResult li:last-child {
-    font-family: "Mardoto Black";
+    font-family: "Mardoto Black", serif;
     margin-top: 26px;
 }
 
@@ -232,28 +280,25 @@
 .basketPicture img{
     height: 100%!important;
     object-fit: cover;
-    object-position: center;
 }
 
-.basketPicture > img {
-    width: 100%;
-    object-fit: cover;
-}
+
 
 .basketText {
     margin-left: 20px;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.basketSpan {
-    margin-top: 20px;
-}
 
 .basketSpan > span {
-    font-family: Mardoto;
-    font-size: 16px;
+    font-family: Mardoto, serif;
+    font-size: 24px;
     font-weight: 400;
     line-height: 19px;
+    color: white;
 }
 
 .basketParagraph {
@@ -261,10 +306,11 @@
 }
 
 .basketParagraph > p {
-    font-family: Mardoto;
-    font-size: 12px;
+    font-family: Mardoto, serif;
+    font-size: 18px;
     font-weight: 400;
     line-height: 14px;
+    color: white;
 }
 
 .buttons {
@@ -287,18 +333,19 @@
     width: 50px;
     text-align: center;
     font-size: 16px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
+    color: white;
 }
 
 .price {
 }
 
 .price > span {
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 19px;
-
+    color: white;
 
 
 }
@@ -318,6 +365,8 @@
     list-style: none;
     margin-right: 15px;
     font-size: 20px;
+    color: white;
+
 }
 .mobileTitle{
     display: none;

@@ -49,8 +49,8 @@
     background: #000000a2;
     z-index: 222221;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 .modal img{
     object-fit: contain;
@@ -78,7 +78,7 @@
 }
 
 .title h1 {
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 40px;
     font-weight: 300;
     line-height: 47px;
@@ -86,7 +86,7 @@
 
 .spanText {
     margin-top: 15px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 26px;
@@ -98,7 +98,7 @@
 }
 
 .paragraph > p {
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 18px;
     font-weight: 700;
     line-height: 28px;
@@ -108,7 +108,7 @@
 .spanTextRaw > span {
     display: block;
     margin-top: 5px;
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
@@ -131,7 +131,7 @@
 }
 
 .priceText span {
-    font-family: Mardoto;
+    font-family: Mardoto, serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 35px;
@@ -139,7 +139,6 @@
 
 .buttons {
     margin-top: 30px;
-
 }
 
 .buttons > button:last-child {

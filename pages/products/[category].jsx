@@ -143,7 +143,7 @@ const Index = () => {
 
                             return (
                                 <li key={item.id}>
-                                    <span>{name}</span>
+                                    <span>{item.name}</span>
                                     <span>
                                   <Form.Item name={['checkboxs', item.id]} valuePropName="checked">
                                     <Checkbox onChange={(e) => changes(item.id, e)}/>

@@ -65,11 +65,9 @@ const Item = ({item, onRemove}) => {
                 </div>
                 <div className={styles.favoriteText}>
                     <div className={styles.favoriteSpan}>
-                        <span>{truncateContent(title, 27)}</span>
+                        <span>{truncateContent(item.title, 27)}</span>
                     </div>
-                    <div className={styles.favoriteParagraph}>
-                        <p>{t("model")}՝ {item.model}</p>
-                    </div>
+
                 </div>
             </div>
             <div className={styles.favoriteItem}>

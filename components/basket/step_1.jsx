@@ -71,21 +71,7 @@ const Step1 = ({prevStep, setValues, next}) => {
                             </Form.Item>
                         </div>
 
-                        <div className={styles.regInputs}>
-                            <label htmlFor="">{t('contact_region')}*</label>
-                            <Form.Item
-                                name="region"
-                                rules={[{required: true, message: t("contact_field_error_region")}]}
-                            >
-                                <Select
-                                    placeholder={t('contact_region')}
-                                    options={regions.map(region => ({
-                                        ...region,
-                                        label: locale === 'ru' ? region.label_ru : locale === 'en' ? region.label_en : region.label
-                                    }))}
-                                />
-                            </Form.Item>
-                        </div>
+
                         <div className={styles.regInputs}>
                             <label htmlFor="">{t('address')}*</label>
                             <Form.Item
@@ -120,7 +106,7 @@ const Step1 = ({prevStep, setValues, next}) => {
                                     },
                                 ]}
                             >
-                                <Input placeholder={'+37477123456'}/>
+                                <Input placeholder={'+71234567890'}/>
                             </Form.Item>
                         </div>
 
@@ -134,7 +120,7 @@ const Step1 = ({prevStep, setValues, next}) => {
                                     {max: 200, message: t("contact_field_error_message_3")},
                                 ]}
                             >
-                                <Input.TextArea autoSize={{minRows: 2, maxRows: 6}} placeholder={t('contact_message')}/>
+                                <Input.TextArea autoSize={{minRows: 2, maxRows: 6}} />
                             </Form.Item>
                         </div>
                         <div className={styles.buttonsForm}>

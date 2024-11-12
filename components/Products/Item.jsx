@@ -12,6 +12,7 @@ import Image from "next/image";
 
 
 const Item = ({item, addCart}) => {
+    console.log(item)
     const {setCount} = useContext(CountContext)
     const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
     const {price, currentRate} = useContext(RateContext)

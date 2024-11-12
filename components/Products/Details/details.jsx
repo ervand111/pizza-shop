@@ -110,18 +110,15 @@ const Details = () => {
             <div className={styles.paragraph}>
               <p>{t("infoOfProduct")}</p>
             </div>
-              <div>
-                <p style={{margin:10,fontSize:20}}>{product?.description}</p>
-              </div>
+            <div>
+              <p style={{margin: 10, fontSize: 20}}>{product?.description}</p>
+            </div>
             <div className={styles.variants}>
               {product?.variants?.map((variant) => (
                 <div key={variant.id} className={styles.variant}>
       <span>
+          {variant.name}:{variant.value}
 
-        {Number(variant.value) < 10
-
-          ? `Количество: ${variant.value} шт.`
-          : `Размер: ${variant.value} см`}
       </span>
                   <span>Цена: {variant.price} руб.</span>
                 </div>

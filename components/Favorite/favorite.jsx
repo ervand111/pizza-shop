@@ -35,10 +35,11 @@ const Favorite = () => {
 
     return (
         <div>
-            <App>
+
                 <div className={styles.favorite}>
                     {basketItems.length > 0 ? <div className={styles.title}>
-                        <h1>Նախնտրելի</h1>
+                        <h1>{t("Избранное")}</h1>
+
                     </div> : null}
                     {basketItems.length > 0 ?
                         <div>
@@ -48,12 +49,12 @@ const Favorite = () => {
                                 ))}
                             </div>
                         </div>
-                        : <div>
+                        : <div className={styles.emptyFavorit}>
                             <h2 className={styles.title2}>{t("wishlist_empty")}</h2>
                         </div>}
                 </div>
                 <Products products={products}/>
-            </App>
+
         </div>
     )
 
