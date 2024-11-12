@@ -150,7 +150,7 @@ const Details = () => {
                         </span>
                 </Button>
               ) : (
-                <Button style={{background: '#D09F4E'}} onClick={removeToFavorite}>
+                <Button onClick={removeToFavorite}>
                   {t("remove")}
                   <span>
                             <HeartOutlined/>
