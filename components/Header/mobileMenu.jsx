@@ -39,46 +39,18 @@ const MobileMenu = ({handlerClose,handlerClosing}) => {
     return (
         <div className={styles.mobileMenuLists}>
             <div className={styles.headerMobileMenu}>
-
-                <span className={styles.closeIcon} onClick={handlerClose}>
-                    <Image preview={false} src="/logo.png" alt=""/>
-                </span>
+                    <Image preview={false} src="/photos/logo.jpg" alt="" width={100} height={100} style={{borderRadius:"50%"}}/>
                 <span className={styles.closeIcon} onClick={handlerClose}>
                     <CloseOutlined/>
                 </span>
             </div>
-
-            <div className={styles.mobileTools}>
-                <div className="languages-mobile">
-                    <Select onChange={changeLanguage}>
-                        <option value={locale}>{locale==='ru' ? "RU" : locale==='en' ? "EN" : "ՀԱՅ"}</option>
-                        {languages.filter(x=>x.value!==locale).map((item) => (
-                            <option key={item.id} value={item.value}>{item.name}</option>
-                        ))}
-                    </Select>
-                </div>
-                <div className="current-mobile">
-                    <Select onChange={changeRate}>
-                        <option>{currentRate.current}</option>
-                        {rates.filter(x=>x.current !== currentRate.current).map(x=>(
-                            <option key={x.id}>{x.current}</option>
-                        ))}
-                    </Select>
-                </div>
-            </div>
-
             <div className={styles.lists}>
                 <ul>
                     {categories.map((item) => {
-                        const {name, name_en, name_ru, id} = item;
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        const router = useRouter();
-                        const isActive = router.query.category === name;
-                        const title = (locale === 'en') ? name_en : (locale === 'ru') ? name_ru : name
                         return (
-                            <li key={id} className={isActive ? styles.activeCategory : null}>
-                                <Link href={`/products/${id}`}>
-                                    {title}
+                            <li key={item.id}>
+                                <Link href={`/products/${item.id}`}>
+                                    {item.name}
                                 </Link>
                             </li>
                         );

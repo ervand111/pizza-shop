@@ -60,60 +60,65 @@ const Item = ({item, addCart}) => {
     }, [item, addCart, addFavorite, setCount]);
 
     return (
-      <div className={styles.item}>
-          <>
-              <Link href={{
-                  pathname: '/product/[name]/',
-                  query: {name: item.id},
-              }}>
+        <div className={styles.item}>
+            <>
+                <Link href={{
+                    pathname: '/product/[name]/',
+                    query: {name: item.id},
+                }}>
 
-                  <Image
-                    src={process.env.IMAGE_URL2 + item.avatar}
-                    style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
-                    onLoad={() => setIsLoader(false)}
-                    width={400}
-                    height={400}
-                    alt={item.title}
-                    priority
-                  />
-              </Link>
-              {isLoading ?
-                <Skeleton/>
-                :
-                <div className={styles.info}>
-                    <div className={styles.productItem}>
-                    <div>
-                        <div className={styles.span}>
-                            <span>{truncateContent(item.title, 27)}</span>
-                        </div>
-                        <div>
-                            <p>{price(item.price)}</p>
+                    <Image
+                        src={process.env.IMAGE_URL2 + item.avatar}
+                        style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
+                        onLoad={() => setIsLoader(false)}
+                        width={400}
+                        height={400}
+                        alt={item.title}
+                        priority
+                    />
+                </Link>
+                {isLoading ?
+                    <Skeleton/>
+                    :
+                    <div className={styles.info}>
+                        <div className={styles.productItem}>
+                            <div>
+                                <div className={styles.span}>
+                                    <span>{truncateContent(item.title, 27)}</span>
+                                </div>
+                                <div>
+                                    <p>{price(item.price)}</p>
+                                </div>
+                            </div>
+                            <div className={styles.icon}>
+                                <ul>
+                                    <li>
+                                        {!isBasket(item) ? (
+                                            <ShoppingOutlined onClick={addToBaskets}/>
+                                        ) : (
+                                            <ShoppingFilled onClick={removeToBasket}/>
+                                        )}
+                                    </li>
+                                    <li>
+                                        {!isFavorite(item) ? (
+                                            <HeartOutlined onClick={addToFavorite}/>
+                                        ) : (
+                                            <HeartFilled onClick={removeToFavorite}/>
+                                        )}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className={styles.textItem}>
+                                <p>Идеальный а Добрый 0,5 (л) ||
+                                    палочке</p>
+                            </div>
+
                         </div>
                     </div>
-                        <div className={styles.icon}>
-                            <ul>
-                                <li>
-                                    {!isBasket(item) ? (
-                                      <ShoppingOutlined onClick={addToBaskets}/>
-                                    ) : (
-                                      <ShoppingFilled onClick={removeToBasket}/>
-                                    )}
-                                </li>
-                                <li>
-                                    {!isFavorite(item) ? (
-                                      <HeartOutlined onClick={addToFavorite}/>
-                                    ) : (
-                                      <HeartFilled onClick={removeToFavorite}/>
-                                    )}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-              }
+                }
 
-          </>
-      </div>
+            </>
+        </div>
     );
 };
 

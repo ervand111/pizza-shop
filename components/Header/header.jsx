@@ -86,7 +86,11 @@ const Header = ({categories}) => {
                         </div>
                     </div>
                     <div>
-
+                        <div className={styles.logoText}>
+                            <Link href={'/home'}>
+                                <p>Алекс пицца</p>
+                            </Link>
+                        </div>
                         <div className={styles.logo}>
                             <Link href={'/home'}>
                                 <Image preview={false} src="/photos/logo.jpg" alt=""/>

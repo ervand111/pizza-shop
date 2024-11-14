@@ -23,7 +23,8 @@
     width: 99%;
     height: auto;
     background-image: url("/photos/back5.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
     padding: 20px;
 
 }
@@ -40,24 +41,46 @@
 
 .productItem {
     width: 96%;
-    height: 80px;
-    background: rgba(0, 0, 0, 0.5);
+    height: 60px;
+    background: rgba(0, 0, 0, 0.8);
     position: absolute;
     border-radius: 20px;
     bottom: 0;
-    transition: 0.5s;
+    transition: 0.6s;
     border: 1px solid white;
     left: 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
+    flex-wrap: wrap;
+    overflow-y: hidden;
 }
 
 .item:hover .productItem {
+    height: 140px;
     bottom: 30px;
 }
+.item:hover .textItem {
+    opacity: 1;
+    visibility: hidden;
+    height: auto;
 
+}
+
+.textItem {
+    min-width: auto;
+    height: 80px;
+    opacity: 0;
+    visibility: visible;
+    transition: height 1s,  visibility 1s 5s;
+    padding: 10px;
+}
+
+.textItem p{
+    text-align: center;
+    color: white;
+
+}
 .item img {
     height: 80%;
     transition: 1s;
@@ -77,7 +100,6 @@
     color: white;
     font-family: "Mardoto Light", serif;
     font-size: 15px;
-
 }
 
 .span {
@@ -87,6 +109,7 @@
     font-family: MardotoItalic, serif;
     cursor: pointer;
     color: white;
+    margin-top: 20px;
 
 }
 
@@ -99,9 +122,10 @@
 
 .icon li {
     font-size: 24px;
-    margin: 0 5px;
     cursor: pointer;
     color: white;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 .icon li:hover {

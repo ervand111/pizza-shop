@@ -63,7 +63,8 @@
 
 .header ul {
     display: flex;
-    width: 200px;
+    max-width: 100px;
+    justify-content: center;
 }
 
 .headerMenu li a::after {
@@ -193,7 +194,13 @@
     border-radius: 50%;
 
 }
-
+.logoText{
+    width: max-content;
+    display: none;
+}
+.logoText a p{
+  cursor: pointer;
+}
 .logo img {
     width: 100%;
     height: 100%;
@@ -206,25 +213,12 @@
 }
 .contentHeader {
     display: flex;
-    width: calc(100% - 100px);
+    width: calc(100% );
     margin: auto;
     align-items: center;
     height: 100%;
-    justify-content: space-between;
+    justify-content:space-around;
 }
-
-
-.contentHeader > div:first-child {
-    width:auto;
-
-}
-
-
-
-.contentHeader > div:last-child {
-    width: auto;
-}
-
 
 .boxSearch {
     position: absolute;
@@ -233,7 +227,6 @@
     transform: translateX(-50%);
     top: 100%;
     z-index: 222222;
-    background: black;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
 }
@@ -247,6 +240,7 @@
 .drbLangRow {
     display: flex;
     align-items: center;
+
 }
 
 .searchBox label {
@@ -281,8 +275,9 @@
 }
 
 .contentHeader > div:last-child, .icons {
+    width: 200px;
     display: flex;
-    justify-content: flex-end;
+    justify-content:space-evenly;
 }
 
 .icons ul {
@@ -292,8 +287,8 @@
 }
 
 .icons > ul > li {
+    margin-right:10px;
     font-size: 25px;
-    margin: 0 10px;
     display: flex;
     align-items: center;
     font-family: Mardoto, serif;
@@ -363,9 +358,11 @@
     display: none;
 }
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (max-width: 1800px) {
     .contentHeader {
-        width: calc(100% - 300px);
+        width: calc(80%);
+        display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -382,10 +379,18 @@
 }
 
 @media only screen and (max-width: 990px) {
+    .btnDelivery{
+        padding: 7px 18px;
+        border: 1px solid white;
+        font-size: 14px;
 
-    .contentHeader > div:last-child {
-        width: auto;
     }
+    .contentHeader {
+        width: calc(100%);
+        display: flex;
+        justify-content: space-evenly;
+    }
+
 
     .menuStyle {
         width: 100%;
@@ -404,9 +409,8 @@
 
     .headerMobileMenu {
         width: 100%;
-        height: 40px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         margin-bottom: 20px;
         margin-top: 20px;
     }
@@ -421,9 +425,6 @@
         padding-top: 25px;
     }
 
-    .searchBoxMobile {
-
-    }
 
     .searchBoxMobile input {
         margin-top: 10px;
@@ -436,30 +437,43 @@
 
     .closeIcon {
         font-size: 30px;
-        padding: 10px
+        color: white;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
+    .lists{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    .lists ul{
+        display: flex;
+        flex-direction: column;
 
+    }
     .lists li {
-        color: black;
-        font-size: 20px;
-        margin-top: 25px;
+        font-size: 25px;
         font-family: Mardoto, serif;
         list-style: none;
+        padding: 10px;
+
     }
 
-    .lists {
-        padding: 10px;
-    }
+
+
 
     .lists a {
-        color: black;
+        color: white;
         text-decoration: none;
     }
 
     .menuStyle {
         width: 90%;
         height: 100vh;
-        background: white;
+        background: url("/photos/back5.jpg");
+        background-size: cover;
         position: fixed;
         top: 0;
         left: 0;
@@ -468,19 +482,16 @@
 
     .mobileMenu {
         display: block;
+        color: white;
     }
 
     .btnMenu {
         font-size: 30px;
     }
 
-    .icons li:first-child, .icons li:last-child, .language {
-        display: none !important;
-    }
 
-    .mobileCurrent .language {
-        display: block !important;
-    }
+
+
 }
 
 @media only screen and (max-width: 750px) {
@@ -488,12 +499,55 @@
         font-size: 15px;
         margin: 0 3px;
     }
+    .contentHeader > div:last-child {
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: center;
 
+    }
+
+    .logo{
+        display: none;
+    }
+    .logoText{
+        display: block;
+        text-align: end;
+    }
+    .logoText p{
+        color: white;
+        font-size: 18px;
+        text-transform: capitalize;
+        font-family: "Malgun Gothic Semilight", serif!important;
+    }
     .icons li {
         font-size: 24px;
     }
 
     .contentHeader {
-
+        width: 80%;
+        justify-content: space-around;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .btnDelivery{
+        padding: 7px 18px;
+        border: 1px solid white;
+        font-size: 12px;
+    }
+    .contentHeader {
+        width: calc(100% - 20px);
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .contentHeader {
+        width: calc(100% - 20px);
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .logoText{
+        display: none;
     }
 }
