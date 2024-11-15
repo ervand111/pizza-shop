@@ -42,46 +42,65 @@
 .productItem {
     width: 96%;
     height: 60px;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(240, 240, 240, 0.5));
     position: absolute;
     border-radius: 20px;
     bottom: 0;
-    transition: 0.6s;
-    border: 1px solid white;
     left: 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    overflow-y: hidden;
+    overflow: hidden; /* Prevent content overflow */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.6s ease; /* Smoother transition */
 }
 
 .item:hover .productItem {
     height: 140px;
-    bottom: 30px;
+    bottom: 20px; /* Adjust for better spacing */
 }
 
 .item:hover .textItem {
     opacity: 1;
-    visibility: hidden;
+    visibility: visible; /* Ensure visibility aligns with opacity */
     height: auto;
-
+    transition: all 0.5s ease-in-out; /* Simplify transition */
 }
 
 .textItem {
-    min-width: auto;
-    height: 80px;
+    width: 90%; /* Ensure text stays within bounds */
+    height: 0; /* Initial height */
     opacity: 0;
-    visibility: visible;
-    transition: height 1s, visibility 1s 5s;
+    visibility: hidden; /* Hidden until hover */
+    transition: all 0.5s ease-in-out; /* Smoother reveal */
     padding: 10px;
+    text-align: center; /* Center align content */
 }
 
 .textItem p {
-    text-align: center;
-    color: white;
-
+    color: black;
+    font-size: 14px; /* Consistent text size */
+    line-height: 1.4; /* Better readability */
 }
+
+/* Add responsiveness */
+@media screen and (max-width: 768px) {
+    .productItem {
+        height: 50px; /* Reduce initial size for smaller screens */
+    }
+
+    .item:hover .productItem {
+        height: 120px;
+    }
+
+    .textItem p {
+        font-size: 12px; /* Adjust font size */
+    }
+}
+
 
 .item img {
     height: 80%;
@@ -99,7 +118,7 @@
 .productItem > p {
     font-weight: 400;
     line-height: 28px;
-    color: white;
+    color: black;
     font-family: "Mardoto Light", serif;
     font-size: 15px;
 }
@@ -110,7 +129,7 @@
     line-height: 20px;
     font-family: MardotoItalic, serif;
     cursor: pointer;
-    color: white;
+    color: black;
     margin-top: 20px;
 
 }
@@ -125,7 +144,7 @@
 .icon li {
     font-size: 24px;
     cursor: pointer;
-    color: white;
+    color: black;
     margin-top: 20px;
     margin-left: 10px;
 }
@@ -184,7 +203,6 @@
     }
 
     .productItem {
-        background-color: red;
         height: 60px;
     }
 
