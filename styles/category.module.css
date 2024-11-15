@@ -1,10 +1,11 @@
 .row {
     display: flex;
     margin: auto;
+
 }
 
 .nav {
-    width: 360px;
+    width: 300px;
     padding-left: 50px;
     padding-bottom: 50px;
     background:rgba(0,0,0,0.5);
@@ -85,7 +86,7 @@
 }
 
 .productsSection {
-    width: calc(80% - 360px);
+    width: calc(100% - 360px);
     padding: 30px 50px 35px;
 }
 
@@ -179,8 +180,7 @@
 .inputs > div:last-child {
     margin-left: 50px;
 }
-
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1300px) {
     .filterButton{
         display: block;
     }
@@ -214,12 +214,88 @@
     }
 
     .productsSection {
-        width: 100%;
+        width: 60%;
+        margin: auto;
     }
 
     .productRow > div {
-        width: calc(100% / 2);
         height: auto;
+    }
+
+}
+@media screen and (max-width: 1200px) {
+
+
+
+    .productRow{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    .productRow > div {
+        width: calc(100% / 2 - 150px);
+        height: auto;
+        margin: 10px;
+        right: 0;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+    .filterButton{
+        display: block;
+    }
+    .mobileContainer{
+        width: 80%;
+        color: white;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 70px;
+    }
+    .nav {
+        position: fixed;
+        height: calc(100vh - 90px);
+        transition: 1s all;
+        top: 90px;
+        overflow-y: scroll;
+        z-index: 222222;
+        padding-bottom: 100px;
+    }
+    .headerNav{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .headerNav span{
+        color: white;
+    }
+    .nav.active {
+        transform: translateX(0%);
+        transition: 1s;
+
+    }
+
+    .iconFilter {
+        display: block;
+        font-size: 25px;
+    }
+
+    .productsSection {
+        width: 100%;
+        display: flex;
+
+    }
+    .productRow{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .productRow > div {
+        width:auto;
+        height: auto;
+        margin: 10px;
     }
 
 }

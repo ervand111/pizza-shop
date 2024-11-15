@@ -56,7 +56,7 @@ const Products = ({products, title = ""}) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          rows: 2,
+          rows: 1,
           prevArrow: null,
           nextArrow: null,
         },

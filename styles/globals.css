@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6, p, span, i, li, a, label {
     width: 30px !important;
     height: 3px !important;
     flex-shrink: 0 !important;
-    background: var(--Gold, #976E2B) !important;
+    background:white !important;
     opacity: 0.2;
     padding: 0 !important;
 }

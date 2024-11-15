@@ -3,7 +3,7 @@
     width: 100%;
     height: auto;
     background-image: url("/photos/back4.jpg");
-    background-size:cover;
+    background-size: cover;
 }
 
 .container {
@@ -13,7 +13,7 @@
     background-size: cover;
     border-radius: 15px;
     color: white;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
 
 }
 
@@ -41,7 +41,6 @@
 }
 
 
-
 .contactInfo {
     display: flex;
     justify-content: space-around;
@@ -65,9 +64,11 @@
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-.container p{
-    color: white!important;
+
+.container p {
+    color: white !important;
 }
+
 .contactCard:hover {
     transform: translateY(-5px);
     box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
@@ -77,4 +78,85 @@
     margin-top: 10px;
     font-size: 16px;
     color: #333;
+}
+
+@media screen  and (max-width: 800px) {
+    .contactCard p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .contactCard {
+        width: calc(100% / 3 - 20px);
+        height: 140px;
+    }
+
+    .contactCard:nth-child(2) {
+        width: calc(300px);
+
+    }
+
+    .orderButton {
+        margin: 20px auto;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 20px;
+    }
+
+    .intro h2 {
+        font-size: 20px;
+    }
+
+    .intro p {
+        margin: 10px;
+        font-size: 16px;
+    }
+
+
+}
+
+@media screen  and (max-width: 650px) {
+
+    .contactCard p {
+        font-size: 20px;
+    }
+    .contactCard {
+        width: 90%;
+    }
+  .contactCard:nth-child(2) {
+        width: 90%;
+    }
+    .contactInfo {
+        flex-wrap: wrap;
+
+    }
+
+
+    .orderButton {
+        margin: 20px auto;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 20px;
+    }
+
+    .intro h2 {
+        font-size: 20px;
+    }
+
+    .intro p {
+        font-size: 14px;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-.offers{
+.offers {
     width: 100%;
     height: 100px;
     display: flex;
@@ -60,6 +60,7 @@
     height: 140px;
     bottom: 30px;
 }
+
 .item:hover .textItem {
     opacity: 1;
     visibility: hidden;
@@ -72,15 +73,16 @@
     height: 80px;
     opacity: 0;
     visibility: visible;
-    transition: height 1s,  visibility 1s 5s;
+    transition: height 1s, visibility 1s 5s;
     padding: 10px;
 }
 
-.textItem p{
+.textItem p {
     text-align: center;
     color: white;
 
 }
+
 .item img {
     height: 80%;
     transition: 1s;
@@ -161,32 +163,110 @@
 
     .offers h2 {
         font-size: 20px;
-        font-family: "Mardoto Black";
+        font-family: "Mardoto Black", serif;
     }
 }
 
-@media screen  and (max-width: 500px) {
+@media screen  and (max-width: 900px) {
+
+
+    .item img {
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
     .item {
-        height: auto;
+        width: 70%;
+        margin: auto;
+
+
+    }
+
+    .productItem {
+        background-color: red;
+        height: 60px;
+    }
+
+    .textItem p {
+        font-size: 12px;
+
+    }
+
+    .productItem > p {
+        color: white;
+        font-family: "Mardoto Light", serif;
+        font-size: 12px;
     }
 
     .span {
-        font-size: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: MardotoItalic, serif;
+        cursor: pointer;
+        color: white;
+        margin-top: 20px;
+
     }
 
-    .item img {
-        height: 285px
-    }
-
-    .paragraph > p {
-        font-size: 10px;
-    }
 
     .icon li {
-        font-size: 13px;
+        font-size: 14px;
     }
 
-    .products {
-        width: 100%;
+    .offers h2 {
+        font-size: 20px;
+        font-family: "Mardoto Black", serif;
     }
 }
+@media screen  and (max-width: 500px) {
+
+
+    .item img {
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .item {
+        width: 70%;
+        margin: auto;
+
+
+    }
+
+    .productItem {
+        width: 100%;
+        height: 60px;
+
+    }
+
+    .textItem p {
+        font-size: 12px;
+
+    }
+
+    .productItem > p {
+        color: white;
+        font-family: "Mardoto Light", serif;
+        font-size: 12px;
+    }
+
+    .span {
+        font-size: 12px;
+    }
+
+
+    .icon li {
+        font-size: 12px;
+    }
+
+    .offers h2 {
+        font-size: 20px;
+        font-family: "Mardoto Black", serif;
+    }
+}
+
+
+
