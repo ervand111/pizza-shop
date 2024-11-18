@@ -7,6 +7,7 @@ import {t} from "../../utils/utils";
 import {useDispatch, useSelector} from "react-redux";
 import {getImportantProducts, getNewProducts, getProductsAll} from "store/products/actions";
 import {getSlides} from "../../store/slides/actions";
+import Delivery from "../../components/delivery/delivery";
 
 const Index = () => {
     const dispatch = useDispatch();
@@ -27,8 +28,9 @@ const Index = () => {
         <>
             <Banner slides={slides?.slides}/>
             <Products products={newProducts} title={t("newSuggestion") || "Default Title"}/>
-            <Review/>
+            <Delivery/>
             <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
+            <Review/>
         </>
     );
 };

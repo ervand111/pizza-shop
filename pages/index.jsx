@@ -31,8 +31,8 @@ function Home() {
       </Head>
       <Banner slides={slides?.slides}/>
       <Products products={newProducts} title={t("newSuggestion") || "Default Title"}/>
-      <Review/>
       <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
+      <Review/>
 
     </>
   );
