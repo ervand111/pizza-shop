@@ -5,7 +5,7 @@
 }
 
 .nav {
-    width: 300px;
+    width: auto;
     padding-left: 50px;
     padding-bottom: 50px;
     background:rgba(0,0,0,0.5);
@@ -139,8 +139,12 @@
 .lastSection {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding-right: 60px;
+
+}
+.lastSection button{
+    margin: 0 10px;
 }
 
 .productHeader p {

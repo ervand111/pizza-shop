@@ -28,25 +28,56 @@
 }
 
 
-.orderButton {
-    margin: 20px auto;
+.orderButton{
     font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    margin: auto;
     background: transparent;
-    border: 1px solid white;
+    border: 2px solid #fff;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: 1s animated ease-out infinite;
 
 }
-.orderButton:hover {
-    background: white;
-    color: black;
-    border: 1px solid black;
+@keyframes animated {
+    from{
+        box-shadow: 0 0 0 rgba(0, 0, 0,0);
 
+
+
+    }
+    to{
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+
+
+    }
 }
+.orderButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+    transition: all 0.4s ease-in-out;
+}
+
+
+
+.orderButton:hover::before {
+    left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
 .contactInfo {
     display: flex;
     justify-content: space-around;

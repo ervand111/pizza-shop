@@ -128,7 +128,7 @@ const Header = ({categories}) => {
 
                         <div>
                             <a href="https://wa.me/79283334105" target="_blank" rel="noopener noreferrer">
-                                <button className={styles.btnDelivery}>Заказы</button>
+                                <button className={styles.btnDelivery}>Заказать</button>
                             </a>
                         </div>
 
