@@ -4,6 +4,7 @@
     height: auto;
     background-image: url("/photos/back4.jpg");
     background-size: cover;
+    padding: 20px;
 }
 
 .container {
