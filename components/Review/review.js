@@ -26,22 +26,22 @@ const Review = () => {
         <p>
           Насладитесь лучшей пиццей в городе, приготовленной из свежих ингредиентов и идеального сочетания вкусов. Заказывайте прямо сейчас и утолите свой аппетит!
         </p>
-        <Button type="primary" className={styles.orderButton} onClick={handleEmailClick}>
+        <Button type="" className={styles.orderButton} onClick={handleEmailClick}>
           Заказать сейчас
         </Button>
       </div>
 
       <div className={styles.contactInfo}>
         <Card className={styles.contactCard} onClick={handlePhoneClick}>
-          <PhoneOutlined style={{ fontSize: '30px', color: '#3b5998' }} />
+          <PhoneOutlined style={{ fontSize: '40px', color: 'black' }} />
           <p>+7 928 333-41-05</p>
         </Card>
         <Card className={styles.contactCard} onClick={handleEmailClick}>
-          <MailOutlined style={{ fontSize: '30px', color: '#EA4335' }} />
+          <MailOutlined style={{ fontSize: '40px', color: 'black' }} />
           <p>alekskrasnodar314@gmail.com</p>
         </Card>
         <Card className={styles.contactCard} onClick={handleMapClick}>
-          <EnvironmentOutlined style={{ fontSize: '30px', color: '#34A853' }} />
+          <EnvironmentOutlined style={{ fontSize: '40px', color: 'black' }} />
           <p>Лётчика Позднякова, 2 помещение А</p>
         </Card>
       </div>

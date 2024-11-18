@@ -31,15 +31,30 @@
     font-family: MardotoItalic, serif;
     transition: 0.5s;
 }
+.header a{
+    text-decoration: none;
+
+}
 .btnDelivery{
+    margin: 20px auto;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 20px;
     background: transparent;
+    border: 1px solid white;
+    border-radius: 20px;
     color: white;
     cursor: pointer;
-    padding: 10px 20px;
-    border: 1px solid white;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
+    transition: 0.5s;
+
+}
+.btnDelivery:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+
 }
 .delivery{
    max-width: max-content;

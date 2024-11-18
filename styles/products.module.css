@@ -58,10 +58,12 @@
 
 .item:hover .productItem {
     min-height: 140px;
-    bottom: 20px;
+    cursor: pointer;
 }
 .item:hover .textItem p{
     opacity: 1;
+    transition: 0.5s ease-in-out;
+
 }
 .textItem p {
     color: black;

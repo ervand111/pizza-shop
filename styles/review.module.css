@@ -38,9 +38,15 @@
     background: transparent;
     border: 1px solid white;
     border-radius: 20px;
+    color: white;
+
 }
+.orderButton:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
 
-
+}
 .contactInfo {
     display: flex;
     justify-content: space-around;
