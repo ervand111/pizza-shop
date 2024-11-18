@@ -41,7 +41,7 @@
 
 .productItem {
     width: 96%;
-    height: 60px;
+    min-height: 60px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(240, 240, 240, 0.5));
     position: absolute;
     border-radius: 20px;
@@ -51,39 +51,22 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    overflow: hidden; /* Prevent content overflow */
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.6s ease; /* Smoother transition */
+    transition: all 0.6s ease;
 }
 
 .item:hover .productItem {
-    height: 140px;
-    bottom: 20px; /* Adjust for better spacing */
+    min-height: 140px;
+    bottom: 20px;
 }
-
-.item:hover .textItem {
+.item:hover .textItem p{
     opacity: 1;
-    visibility: visible; /* Ensure visibility aligns with opacity */
-    height: auto;
-    transition: all 0.5s ease-in-out; /* Simplify transition */
 }
-
-.textItem {
-    width: 90%; /* Ensure text stays within bounds */
-    height: 0; /* Initial height */
-    opacity: 0;
-    visibility: hidden; /* Hidden until hover */
-    transition: all 0.5s ease-in-out; /* Smoother reveal */
-    padding: 10px;
-    text-align: center; /* Center align content */
-}
-
 .textItem p {
     color: black;
-    font-size: 14px; /* Consistent text size */
-    line-height: 1.4; /* Better readability */
+    font-size: 14px;
+    opacity: 0;
 }
 
 /* Add responsiveness */
@@ -285,6 +268,3 @@
         font-family: "Mardoto Black", serif;
     }
 }
-
-
-
