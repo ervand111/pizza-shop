@@ -4,7 +4,9 @@
 }
 .parentBanner{
     width: 100%;
-    background-image: url("../public/photos/reviuw.jpg");
+    background-image: url("../public/photos/bg-2.jpg");
+    background-size: cover;
+    background-position: left;
     height: auto;
     padding: 20px;
 }

@@ -18,8 +18,6 @@ const Review = () => {
 
   return (
     <div className={styles.containerParent}>
-
-
     <div className={styles.container}>
       <div className={styles.intro}>
         <h2>Ваша любимая пицца, доставленная горячей и свежей!</h2>

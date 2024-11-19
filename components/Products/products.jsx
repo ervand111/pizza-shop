@@ -15,8 +15,8 @@ const Products = ({products, title = ""}) => {
     dots: false,
     arrows: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 6,
+    speed: 1000,
+    slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -26,21 +26,21 @@ const Products = ({products, title = ""}) => {
       {
         breakpoint: 1720, // screens larger than 1024px
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 3,
           slidesToScroll: 3,
         },
       },
       {
         breakpoint: 1520, // screens larger than 1024px
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 2,
           slidesToScroll: 3,
         },
       },
       {
         breakpoint: 1300, // screens larger than 1024px
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -54,7 +54,7 @@ const Products = ({products, title = ""}) => {
       {
         breakpoint: 500, // screens larger than 768px
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           rows: 1,
           prevArrow: null,

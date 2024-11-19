@@ -55,6 +55,7 @@ const Details = () => {
         basket: ++prev.basket
       }
     });
+    product.price = product?.variants[0]?.price;
     add(product)
   }, [product, add, setCount]);
 

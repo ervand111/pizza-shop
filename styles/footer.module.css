@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 50px 5% 20px;
-    background: #222222FF;
+    background: white;
     border-top: 1px solid #1A1A1A;
     border-bottom: 1px solid #1A1A1A;
 }
@@ -42,7 +42,7 @@
 }
 
 .pages h4 {
-    color: white;
+    color: black;
     font-family: Mardoto, serif;
     font-size: 20px;
     font-style: normal;
@@ -52,21 +52,22 @@
 }
 
 .pages h4:hover {
-    color:silver;
+    color: #645e5e;
     cursor: pointer;
 }
 
 .pages a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .pages ul li:hover {
-    color:silver;
+    color: #494444;
+
 }
 
 .pages li {
-    color: white;
+    color: black;
     font-family: Mardoto, serif;
     font-size: 18px;
     font-style: normal;

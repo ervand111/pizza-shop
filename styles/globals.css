@@ -6,11 +6,9 @@
 }
 
 body {
-    background-image: url("/photos/back2.jpg");
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: linear-gradient(to right, #333333, #d0c9c9);
 }
+
 
 html {
     scroll-behavior: smooth;

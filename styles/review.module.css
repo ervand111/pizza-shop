@@ -5,7 +5,10 @@
     background-image: url("/photos/back4.jpg");
     background-size: cover;
     padding: 20px;
+    box-shadow: 20px 10px 34px 10px #544f4f;
+    border-radius: 15px;
 }
+
 
 .container {
     max-width: 1000px;
@@ -218,7 +221,7 @@
 @media screen  and (max-width: 650px) {
 
     .contactCard p {
-        font-size: 20px;
+        font-size: 14px;
     }
     .contactCard {
         width: 90%;
@@ -245,7 +248,7 @@
     }
 
     .intro h2 {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .intro p {
