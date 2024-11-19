@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {paymentSignIn} from "../../store/payment/actions";
 import {t, validateArmenianOrRussianPhoneNumber} from "../../utils/utils";
 
-const Step3 = ({prevStep,inputValues, setValues, submitForm}) => {
+const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail }) => {
     const [currentStep, setCurrentStep] = useState(3);
     const [isRequest, setIsRequest] = useState(false);
 
@@ -57,14 +57,14 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm}) => {
                             <div>
                                 <label htmlFor="">{t('phone')}*</label>
                                 <Form.Item
-                                    name="phone"
-                                    rules={[
-                                        {required: true, message: t("contact_field_error_phone_1")},
-                                        {
-                                            validator: validateArmenianOrRussianPhoneNumber,
-                                            message: t("contact_field_error_phone_2")
-                                        },
-                                    ]}
+                                  name="phone"
+                                  rules={[
+                                      {required: true, message: t("contact_field_error_phone_1")},
+                                      {
+                                          validator: validateArmenianOrRussianPhoneNumber,
+                                          message: t("contact_field_error_phone_2")
+                                      },
+                                  ]}
                                 >
                                     <Input disabled placeholder={'+37477123456'}/>
                                 </Form.Item>
@@ -76,12 +76,12 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm}) => {
                             <div>
                                 <label htmlFor="">{t('address')}*</label>
                                 <Form.Item
-                                    name="address"
-                                    rules={[
-                                        {required: true, message: t("contact_field_error_address")}
-                                    ]}
+                                  name="address"
+                                  rules={[
+                                      {required: true, message: t("contact_field_error_address")}
+                                  ]}
                                 >
-                                    <Input disabled />
+                                    <Input/>
                                 </Form.Item>
                             </div>
                             <div>
@@ -89,13 +89,11 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm}) => {
                         </div>
 
                         <div className={styles.buttonsForm}>
-                            <Button onClick={prevStep} type="primary" htmlType="button">
-                                {t('back')}
-                            </Button>
-                            <Button loading={isRequest} type="primary" htmlType="submit" disabled={isRequest}>
-                                {isRequest ? 'Updating...' :  t("append")}
+                            <Button onClick={handleSendEmail} type="primary" htmlType="submit">
+                                {t("append")} {/* Your button label */}
                             </Button>
                         </div>
+
                     </div>
                 </Form>
             </div>

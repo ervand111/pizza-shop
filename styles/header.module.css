@@ -513,13 +513,13 @@
     .menuStyle {
         width: 90%;
         height: 100vh;
-        background: url("/photos/back5.jpg");
-        background-size: cover;
         position: fixed;
         top: 0;
+        background: linear-gradient(135deg, #000000, #ffffff);
         left: 0;
         z-index: 222222;
     }
+
 
     .mobileMenu {
         display: block;

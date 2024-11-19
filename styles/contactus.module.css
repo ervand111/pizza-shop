@@ -2,15 +2,15 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-image: url(/photos/back2.jpg);
-
+    box-shadow: 0 1px 20px 10px black;
+    margin: 20px;
 }
 
 .title {
     margin-top: 100px;
     margin-left: 90px;
     font-family: Mardoto, serif;
-    color: white;
+    color: black;
 }
 
 .location {
@@ -31,7 +31,7 @@
 
 }
 .info a{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .info a:hover{
@@ -40,7 +40,7 @@
 }
 
 .info span {
-    color: white;
+    color: black;
     font-family: Mardoto, serif;
     font-size: 20px;
     font-style: normal;
@@ -78,9 +78,10 @@
 
 .background {
     margin-top: 40px;
-    background:rgba(0,0,0,0.2);
+    background:rgba(0,0,0,0.9);
     width: 80%;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .regInputs {
@@ -125,6 +126,7 @@
     background: transparent;
     border-bottom: 1px solid white;
     padding-left: 10px;
+    margin-bottom: 4px;
 }
 .regInputs input::placeholder{
     color: rgba(180, 180, 180, 0.62);
@@ -170,7 +172,6 @@
     border-radius: 30px;
     background: #FFF;
     cursor: pointer;
-    border: 1px solid  #C31F30FF;
     color:  black;
     font-family: Mardoto, serif;
     font-size: 20px;
@@ -195,11 +196,16 @@
 
 @media only screen and (max-width: 1150px) {
     .page {
+        display: flex;
         align-items: center;
         flex-direction: column;
     }
     .registration{
-       width: 600px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .title{
         margin-left: 0;
@@ -208,10 +214,12 @@
     .location{
         margin-left: 0;
         display: flex;
+
         justify-content: space-between;
     }
     .info{
         width: calc(100% / 3 - 10px);
+
     }
 }
 @media only screen and (max-width: 950px){
@@ -230,12 +238,43 @@
         width: 90%;
         margin: auto;
     }
-    .regInputs{
-        width: 100%;
-    }
+
     .info {
         width: 100%;
-        padding: 0 30px;
     }
 
+}
+@media only screen and (max-width: 500px) {
+
+    .page {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+    }
+    .regInputs{
+        width: 50%;
+    }
+
+    .registration{
+        width: 90%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .title{
+        margin-left: 0;
+        text-align: center;
+    }
+    .location{
+        margin-left: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .info{
+        width: calc(100% / 3 - 10px);
+    }
 }

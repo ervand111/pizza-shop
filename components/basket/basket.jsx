@@ -12,6 +12,10 @@ import { t } from "../../utils/utils";
 import Step1 from "./step_1";
 import Step2 from "./step_2";
 import Step3 from "./step_3";
+import emailjs from 'emailjs-com';
+
+
+
 
 const Basket = () => {
   // State and context
@@ -83,25 +87,51 @@ const Basket = () => {
   // Handle buy button click
   const handleBuy = () => setStep(1);
 
-  // Submit payment
-  const handleSubmit = async () => {
+  const handleSendEmail = async () => {
+    const emailPayload = {
+      email: "alekspizzakrasnodar@gmail.com",
+      subject: "Order Confirmation",
+      message: "Your order has been placed successfully!",
+    };
+
     try {
-      const response = await fetch("https://interior.dahk.am/api/payment/signIn", {
+      const response = await fetch("/api/sendEmail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...values, products: basketItems }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(emailPayload),
       });
 
-      if (response.ok) {
-        window.location.href = "/payment/success";
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Email sent successfully!");
       } else {
-        console.error("Payment failed");
+        console.error("Failed to send email:", result.message);
       }
     } catch (error) {
-      console.error("Error during payment:", error);
+      console.error("Error sending email:", error);
     }
+  };
+
+  const handleSubmit = async () => {
+    alert()
+    // try {
+    //   const response = await fetch("https://interior.dahk.am/api/payment/signIn", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ ...values, products: basketItems }),
+    //   });
+    //
+    //   if (response.ok) {
+    //     window.location.href = "/payment/success";
+    //   } else {
+    //     console.error("Payment failed");
+    //   }
+    // } catch (error) {
+    //   console.error("Error during payment:", error);
+    // }
   };
 
   // Dynamic scrolling styles
@@ -168,14 +198,13 @@ const Basket = () => {
         />
       ) : step === 3 ? (
         <Step3
-          submitForm={handleSubmit}
           inputValues={values}
           setValues={setValues}
           prevStep={() => setStep(2)}
+          handleSendEmail ={handleSendEmail}
         />
       ) : null}
 
-      {/* Product List */}
       <Products products={products} />
     </div>
   );
