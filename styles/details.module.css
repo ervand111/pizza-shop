@@ -1,49 +1,71 @@
+/* Product Section */
+.product {
+    width: 100%;
+    height: 500px;
+}
+
 .productRow {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    box-shadow: 0 10px 10px 20px silver;
+
 }
-.productRow p{
-    color: white!important;
+
+.productRow p {
+    color: black !important;
 }
-.productRow span{
-    color: white;
+
+.productRow span {
+    color: black;
 }
-.variant{
+
+/* Variant Section */
+.variant {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.variant span{
+
+.variant span {
     margin: 10px;
 }
+
+/* Image Styling */
 .firstImg {
     width: 40%;
     margin-top: 70px;
     display: flex;
-    align-items: end;
-
+    align-items: flex-end;
 }
-.firstImg>div:last-child{
+
+.firstImg > div:last-child {
     height: auto;
 }
-.qrs{
-    width: 70px!important;
-    z-index: 2222;
+
+.firstImg img {
+    width: 70%;
+    margin: auto;
 }
-.modal{
+
+/* Modal */
+.modal {
     max-width: 70%;
     width: max-content;
     height: 85vh;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform:translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 222222;
 }
-.modal div{
+
+.modal div {
     height: 100%;
 }
-.background{
+
+.background {
     width: 100%;
     height: 100vh;
     background: #000000a2;
@@ -52,59 +74,99 @@
     top: 0;
     left: 0;
 }
-.modal img{
+
+.modal img {
     object-fit: contain;
     width: 100%;
     height: 100%;
 }
-.slider{
-    position: relative;
-    padding-left: 12%;
-    /*padding-right: 12%;*/
-    width: 420px;
-}
-.firstImg img {
-    width: 70%;
-    margin: auto;
+
+/* Slider */
+.slider {
+    width: 300px;
+    height: 350px;
+    border: 1px solid black;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px 10px #807e7e;
 }
 
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Text */
 .text {
-    display: inline;
-
     align-items: center;
     width: 50%;
-    margin-top: 85px;
+    box-shadow: 0 10px 10px 20px silver;
+    padding: 20px;
 
 }
-
+.selectedPrice span{
+    font-size: 22px;
+}
 .title h1 {
     font-family: Mardoto, serif;
     font-size: 40px;
     font-weight: 300;
     line-height: 47px;
+    text-transform: uppercase;
+    color: #333;
+    transition: all 0.3s ease-in-out;
 }
 
+.title h1:hover {
+    color: #82B440FF;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Span Text */
 .spanText {
     margin-top: 15px;
     font-family: Mardoto, serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 26px;
-
+    color: #666;
+    transition: all 0.3s ease-in-out;
 }
 
+.spanText:hover {
+    color: #82B440FF;
+    text-decoration: underline;
+    transform: translateX(5px);
+}
+
+/* Paragraph */
 .paragraph {
     margin-top: 20px;
+    padding: 10px;
 }
 
 .paragraph > p {
     font-family: Mardoto, serif;
-    font-size: 18px;
+    font-size: 28px;
+    padding: 20px 0;
     font-weight: 700;
     line-height: 28px;
     text-align: left;
+    color: #333;
+    transition: all 0.3s ease-in-out;
 }
 
+.paragraph > p:hover {
+    color: #82B440FF;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Raw Text */
 .spanTextRaw > span {
     display: block;
     margin-top: 5px;
@@ -112,8 +174,8 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
-
-
+    color: #666;
+    transition: all 0.3s ease-in-out;
 }
 
 .spanTextRaw > span:last-child {
@@ -123,9 +185,17 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 26px;
-
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
+.spanTextRaw > span:last-child:hover {
+    color: #82B440FF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Price Text */
 .priceText {
     margin-top: 15px;
 }
@@ -135,71 +205,261 @@
     font-size: 30px;
     font-weight: 400;
     line-height: 35px;
+    color: #333;
+    transition: all 0.3s ease-in-out;
 }
 
+.priceText span:hover {
+    color: #82B440FF;
+    transform: translateX(5px);
+    font-weight: 700;
+}
+
+/* Buttons */
 .buttons {
-    margin-top: 30px;
+    display: flex;
 }
 
-.buttons > button:last-child {
-    margin-left: 20px;
+.buttons button {
+    margin-left: 10px;
+    padding: 18px 30px;
+    font-size: 16px;
+    border-radius: 50px;
+    background-color: #82B440FF;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-.buttons > button > span {
-    margin-left: 20px;
+.buttons button svg {
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
 }
+
+.buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+}
+.variantSelector {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 200px;
+}
+
+.variantSelector label {
+    font-family: Mardoto, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.variantSelector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: Mardoto, serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    background-color: #f4f4f4;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 12px 20px;
+    width: 100%;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.variantSelector label:hover {
+    color: #82B440FF;
+    text-decoration: underline;
+
+}
+.variantSelector select:hover {
+    border-color: #82B440FF;
+}
+
+.variantSelector select:focus {
+    border-color: #82B440FF;
+    box-shadow: 0 0 5px rgba(130, 180, 64, 0.5);
+}
+.variantSelector select::after {
+    content: '▼';
+    font-size: 18px;
+    color: #333;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.variantSelector option {
+    font-family: Mardoto, serif;
+    font-size: 16px;
+    color: #333;
+    padding: 12px 20px;
+    background-color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.variantSelector option:hover {
+    background-color: #82B440FF;
+    color: white;
+}
+
+.variantSelector option:active {
+    background-color: #75a12a;
+}
+
 
 @media only screen and (max-width: 950px) {
-    .productRow {
-        flex-direction: column;
-    }
-    .slider{
-        padding-right: 12%;
-        width: 100%;
+    .buttons button {
+        padding: 10px 22px;
+        font-size: 14px;
     }
 
-    .firstImg {
-        width: 100%;
+    .buttons button svg {
+        font-size: 14px;
+    }
+    .selectedPrice span{
+        font-size: 16px;
+    }
+    .variantSelector label {
+        font-size: 14px;
     }
 
-    .firstImg > img {
-        width: 400px;
-        display: flex;
+    .variantSelector select {
+        padding: 8px 16px;
+        width: 80%;
     }
-    .qrs{
-        display: none;
+    .paragraph p{
+        font-size: 16px;
+        padding: 2px;
     }
-    .productRow {
-        margin: auto;
+    .paragraph h3{
+        font-size: 18px;
     }
-
-    .buttons {
-        display: flex;
-        flex-wrap: wrap;
-        background: transparent;
-    }
-
-    .buttons > button:last-child {
-        margin-top: 5px;
-        margin-right: 5px;
-        margin-left: 0;
-    }
-
-
-    .title h1 {
-        font-size: 25px;
-        flex-wrap: wrap;
-    }
-
     .text {
-        padding: 0px 40px;
-        width: 100%;
+        height:auto;
+    }
+
+    .slider {
+        width: 250px;
+        height: 250px;
+        border: 1px solid black;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 20px 10px #807e7e;
+    }
+
+}
+@media only screen and (max-width: 750px) {
+    .buttons button {
+        padding: 10px 29px;
+        font-size: 12px;
+    }
+
+    .buttons button svg {
+        font-size: 12px;
+    }
+    .selectedPrice span{
+        font-size: 14px;
+    }
+    .variantSelector label {
+        font-size: 12px;
+    }
+
+    .variantSelector select {
+        padding: 8px 12px;
+        width: 75%;
+    }
+    .paragraph p{
+        font-size: 16px;
+    }
+    .paragraph h3{
+        font-size: 18px;
+    }
+    .text {
+        height:auto;
+        width: 80%;
+        margin: 20px;
+        box-shadow: 0 0 0 2px silver;
+
+    }
+    .productRow {
+      flex-wrap: wrap;
+        padding: 20px;
+        height: auto;
+    }
+    .slider {
+        width: 200px;
+        height: 200px;
+        box-shadow: 0 0 0 3px #807e7e;
     }
 
 }
 
-@media only screen and (max-width: 405px) {
-    .buttons > button:last-child {
-        margin-left: 0;
+@media only screen and (max-width: 500px) {
+    .buttons button {
+        padding: 10px 20px;
+        font-size: 12px;
     }
+
+    .buttons button svg {
+        font-size: 12px;
+    }
+    .selectedPrice span{
+        font-size: 14px;
+    }
+    .variantSelector label {
+        font-size: 12px;
+    }
+
+    .variantSelector select {
+        padding: 8px 12px;
+        width: 75%;
+    }
+    .paragraph p{
+        font-size: 16px;
+    }
+    .paragraph h3{
+        font-size: 18px;
+    }
+    .text {
+        height:auto;
+        width: 90%;
+        margin: 20px;
+        box-shadow: 0 0 0 2px silver;
+
+    }
+    .productRow {
+        flex-wrap: wrap;
+        padding: 20px;
+        height: auto;
+    }
+    .slider {
+        width: 200px;
+        height: 200px;
+        box-shadow: 0 0 0 3px #807e7e;
+    }
+
 }

@@ -46,51 +46,14 @@ const Step2 = ({total,prevStep,next,setValues,region}) => {
                     <span className={styles.radius}>3</span>
                 </div>
             </div>
-            <div className={styles.formStep}>
-                <div onClick={()=>clickItem(1)} className={styles.paymentTypes} style={{borderColor: activeId === 1 ? "orange" : "black"}}>
-                    <div className={styles.icon}>
-                        <img src="/cart.png" alt="" style={{backgroundColor:"white",borderRadius:20}}/>
-                    </div>
-                    <div className={styles.text}>
-                        <h3>Банковская карта</h3>
-                    </div>
-                </div>
-                {/*<div onClick={()=>clickItem(2)} className={styles.paymentTypes} style={{borderColor: activeId === 2 ? "orange" : "black"}}>*/}
-                {/*    <div className={styles.icon}>*/}
-                {/*        <img src="/idram.png" alt=""/>*/}
-                {/*    </div>*/}
-                {/*    <div className={styles.text}>*/}
-                {/*        <h3>Idram</h3>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                <div onClick={()=>clickItem(3)} className={styles.paymentTypes} style={{borderColor: activeId === 3 ? "orange" : "black"}}>
-                    <div className={styles.icon}>
-                        <img src="/paypal.png" alt=""/>
-                    </div>
-                    <div className={styles.text}>
-                        <h3>Paypal</h3>
-                    </div>
-                </div>
-                <div>
+
+
                     <div className={styles.shoppingLast}>
                         <div className={styles.shoppingResult}>
-                            <ul>
-                                <li>
                                     <span>{t("pricesTotal")}:</span>
                                     <span> {price(total)} {currentRate?.current}</span>
-                                </li>
-                                <li>
-                                    <span>{t("delivery")}:</span>
-                                    <span>{price(region === "Russia" ? 8500 : region === 'USA' ? 20000 : 1500)}{currentRate?.current}</span>
-                                </li>
-                                <li>
-                                    <span>{t("general")}: </span>
-                                    <span> {parseFloat(Number(price(total)) + Number(price(region === "Russia" ? 8500 : region === 'USA' ? 20000 : 1500))).toFixed(1)} {currentRate?.current}</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
-                </div>
                 <div className={styles.buttonsForm}>
                     <Button onClick={prevStep} type="primary" htmlType="button">
                         {t('back')}
@@ -101,7 +64,6 @@ const Step2 = ({total,prevStep,next,setValues,region}) => {
                 </div>
             </div>
 
-        </div>
     );
 };
 

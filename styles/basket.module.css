@@ -45,6 +45,7 @@
     width: 40px;
     height: 40px;
     border: 1px solid white;
+    background-color: black;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -57,7 +58,7 @@
 .line {
     flex-grow: 1;
     height: 2px;
-    background-color: white;
+    background-color: black;
 }
 
 .radius {
@@ -70,6 +71,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: black;
+    padding: 20px;
 }
 
 /* Last Page Styles */
@@ -96,35 +99,33 @@
     width: max-content;
 }
 
-/* Input Styles */
 .regInputs {
     width: 48%;
 }
 
 .regInputs input {
-    margin-left: 5px;
     width: calc(100% - 10px);
     height: 40px;
     flex-shrink: 0;
     border: none;
+    background-color: white!important;
     outline: none;
-    background: transparent;
     border-bottom: 1px solid white;
     padding-left: 10px;
+    margin: 10px;
+    color: black!important;
+
 }
 
-.regInputs input::placeholder {
-    color: white;
-}
-.regInputs textarea::placeholder {
-    color: white;
-}
+
+
 .textareaReg{
     width: 100%;
 }
 .textareaReg  label{
     color: white;
 }
+
 .textareaReg textarea {
     margin-left: 5px;
     width:100%;
@@ -132,14 +133,15 @@
     flex-shrink: 0;
     border: none;
     outline: none;
-    background: transparent;
     border-bottom: 1px solid white;
     padding-left: 10px;
+    color: black;
+
 }
 
 .buttonsForm{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     height: 50px;
     align-items: center;
@@ -160,13 +162,16 @@
     margin:10px;
 }
 .buttonsForm button:first-child{
+    border: 1px solid black;
     background: white;
     color: black;
 }
 .buttonsForm button:last-child{
+    border: 1px solid white;
     background: black;
     color: white;
 }
+
 .active {
     background: black;
     color: #fff;
@@ -190,27 +195,31 @@
 }
 .paymentTypes h3{
     margin-left:22px;
-    color: white;
+    color: black;
 }
 .basket {
     width: 90%;
+    box-shadow: 0 5px 30px 10px black;
     margin: auto;
-
+    padding: 20px;
 }
 .basketDiv {
     height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .shoppingLast{
     height: 150px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid white;
-    margin: 10px;
+    margin: auto;
+    width: 300px;
+    justify-content: center;
+    box-shadow: 0 10px 10px 10px silver;
+
 }
 
 .basketItem {
@@ -221,7 +230,6 @@
 
 
 .basketDiv:last-child {
-    border-bottom: 1px solid white;
     display: flex;
     justify-content: flex-end;
 }
@@ -252,7 +260,7 @@
     font-family: Mardoto, serif;
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: black;
 }
 .shoppingResult li:last-child span:first-child{
     margin-right: 10px;
@@ -298,7 +306,7 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 19px;
-    color: white;
+    color: black;
 }
 
 .basketParagraph {
@@ -310,7 +318,7 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 14px;
-    color: white;
+    color: black;
 }
 
 .buttons {
@@ -334,7 +342,7 @@
     text-align: center;
     font-size: 16px;
     font-family: Mardoto, serif;
-    color: white;
+    color: black;
 }
 
 .price {
@@ -345,7 +353,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 19px;
-    color: white;
+    color: black;
 
 
 }
@@ -365,7 +373,7 @@
     list-style: none;
     margin-right: 15px;
     font-size: 20px;
-    color: white;
+    color: black;
 
 }
 .mobileTitle{
@@ -380,8 +388,23 @@
     .icons > ul > li:first-child{
         display: none;
     }
-    .regInputs{
+    .textareaReg{
+        width: 80%;
+    }
+    .textareaReg textarea{
         width: 100%;
+        margin: 0;
+
+    }
+    .regInputs input {
+           width: 100%;
+           margin: 0;
+
+       }
+    .regInputs{
+        width: 80%;
+        margin: 2px;
+
     }
     .regPage, .lastPage {
         padding: 0;
@@ -405,8 +428,8 @@
     }
     .basketDiv{
         height: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        border: 1px solid black;
+        margin: 3px;
     }
     .basketItem {
         flex-direction: column-reverse;
@@ -422,7 +445,6 @@
         width: 100%;
         margin-top: 10px;
         margin-bottom: 10px;
-        /*display: none;*/
         position: absolute;
         top: 0;
         right: 0;

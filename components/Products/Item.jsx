@@ -12,7 +12,6 @@ import {Skeleton} from "antd";
 
 
 const Item = ({item, addCart}) => {
-  console.log(item)
   const {setCount} = useContext(CountContext)
   const isFetching = useSelector((state) => state.product?.isFetching);
   const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext)
@@ -99,8 +98,8 @@ const Item = ({item, addCart}) => {
             <div className={styles.addCard}>
 
               {!isBasket(item) ? (
-                <button onClick={addToBaskets}> {t("add")} <ShoppingOutlined/>
-                </button>
+                <button onClick={addToBaskets}> {t("add")} <ShoppingOutlined/> </button>
+
               ) : (
                 <button onClick={removeToBasket}> {t('remove')} <ShoppingFilled/></button>
               )}

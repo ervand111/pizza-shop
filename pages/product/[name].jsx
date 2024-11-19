@@ -23,8 +23,7 @@ const Index = () => {
     return (
       <div>
           <Details />
-          <div className={styles.detailsMargin}>
-              <hr />
+          <div>
               <Products products={products} />
           </div>
       </div>
