@@ -158,22 +158,20 @@ const Basket = () => {
                 ))}
               </div>
 
-              {/* Summary */}
-              <div className={styles.shoppingLast}>
-                <div className={styles.shoppingResult}>
-                  <ul>
-                    <li>
-                      <span>{t("pricesTotal")}:</span>
-                      <span>{total} {currentRate?.current}</span>
-                    </li>
-                    <li>
-                      <span>{t("general")}:</span>
-                      <span>{total} {currentRate?.current}</span>
-                      {/* Example delivery cost */}
-                    </li>
-                  </ul>
+                <div className={styles.shoppingLast}>
+                  <div className={styles.shoppingResult}>
+                    <ul>
+                      <li>
+                        <span>{t("pricesTotal")}:</span>
+                        <span>{total} руб</span>
+                      </li>
+                      <li>
+                        <span>{t("general")}:</span>
+                        <span>{total} руб</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
 
               {/* Buy Button */}
               <div className={styles.shoppingStep}>
@@ -181,13 +179,13 @@ const Basket = () => {
               </div>
             </div>
           ) : (
-            <h2 className={styles.title2} style={{ color: "black" }}>
+            <h2 className={styles.title2} style={{color: "black"}}>
               {t("empty_basket")}
             </h2>
           )}
         </div>
       ) : step === 1 ? (
-        <Step1 next={() => setStep(2)} setValues={setValues} prevStep={() => setStep(0)} />
+        <Step1 next={() => setStep(2)} setValues={setValues} prevStep={() => setStep(0)}/>
       ) : step === 2 ? (
         <Step2
           total={total}

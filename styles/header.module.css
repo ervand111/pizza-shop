@@ -588,7 +588,7 @@
         display: flex;
         justify-content: space-evenly;
     }
-    .logoText{
-        display: none;
+    .logoText p{
+        font-size: 12px;
     }
 }
