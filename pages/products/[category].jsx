@@ -157,10 +157,10 @@ const Index = () => {
                         <h3>{t('price')}</h3>
                         <div className={styles.priceList}>
                             <Form.Item name={'start'}>
-                                <Input placeholder={'Սկսած'} name={'startPrice'} defaultValue={0} type="number"/>
+                                <Input placeholder={'С'} name={'startPrice'} type="number"/>
                             </Form.Item>
                             <Form.Item name={'end'}>
-                                <Input defaultValue={0} placeholder={'Մինչև'} min={0} name={'endPrice'} type="number"/>
+                                <Input placeholder={'До'}  min={0} name={'endPrice'} type="number"/>
                             </Form.Item>
                         </div>
                     </div>

@@ -39,7 +39,7 @@ const MobileMenu = ({handlerClose,handlerClosing}) => {
     return (
         <div className={styles.mobileMenuLists}>
             <div className={styles.headerMobileMenu}>
-                    <Image preview={false} src="/photos/logo.jpg" alt="" width={100} height={100} style={{borderRadius:"50%"}}/>
+                   <Link href='/home'><Image preview={false} src="/photos/logo.jpg" alt="" width={100} height={100} style={{borderRadius:"50%"}}/></Link>
                 <span className={styles.closeIcon} onClick={handlerClose}>
                     <CloseOutlined/>
                 </span>

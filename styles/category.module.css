@@ -193,6 +193,7 @@
     .mobileContainer{
         width: 80%;
         margin: auto;
+
     }
     .nav {
         transform: translateX(-100%);
@@ -207,6 +208,8 @@
     .headerNav{
         display: flex;
         justify-content: flex-end;
+        color: white;
+
     }
     .nav.active {
         transform: translateX(0%);

@@ -81,7 +81,7 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail }) =
                                       {required: true, message: t("contact_field_error_address")}
                                   ]}
                                 >
-                                    <Input/>
+                                    <Input disabled/>
                                 </Form.Item>
                             </div>
                             <div>
