@@ -1,20 +1,18 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import styles from "../../styles/basket.module.css";
 import Item from "./item";
 import Button from "../ui/button/button";
 import CountContext from "providers/countContext";
 import BasketContext from "providers/BasketContext";
 import Products from "../Products/products";
-import { useDispatch, useSelector } from "react-redux";
-import { getProductsAll } from "../../store/products/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {getProductsAll} from "../../store/products/actions";
 import RateContext from "../../providers/rateContext";
-import { t } from "../../utils/utils";
+import {t} from "../../utils/utils";
 import Step1 from "./step_1";
 import Step2 from "./step_2";
 import Step3 from "./step_3";
 import emailjs from 'emailjs-com';
-
-
 
 
 const Basket = () => {
@@ -26,9 +24,9 @@ const Basket = () => {
   const [values, setValues] = useState({});
 
   const dispatch = useDispatch();
-  const { price, currentRate } = useContext(RateContext);
-  const { setCount } = useContext(CountContext);
-  const { baskets, remove, removeFromFavorite } = useContext(BasketContext);
+  const {price, currentRate} = useContext(RateContext);
+  const {setCount} = useContext(CountContext);
+  const {baskets, remove, removeFromFavorite} = useContext(BasketContext);
 
   const products = useSelector((state) => state.product.products) || [];
   const containerRef = useRef();
@@ -78,7 +76,7 @@ const Basket = () => {
   // Update basket item quantity
   const updateBasketItemQuantity = (itemId, newQuantity) => {
     const updatedBasket = basketItems.map((item) =>
-      item.id === itemId ? { ...item, quantity: newQuantity } : item
+      item.id === itemId ? {...item, quantity: newQuantity} : item
     );
     localStorage.setItem("basket", JSON.stringify(updatedBasket));
     setBasketItems(updatedBasket);
@@ -88,50 +86,41 @@ const Basket = () => {
   const handleBuy = () => setStep(1);
 
   const handleSendEmail = async () => {
-    const emailPayload = {
-      email: "alekspizzakrasnodar@gmail.com",
-      subject: "Order Confirmation",
-      message: "Your order has been placed successfully!",
-    };
 
-    try {
-      const response = await fetch("/api/sendEmail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(emailPayload),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        console.log("Email sent successfully!");
-      } else {
-        console.error("Failed to send email:", result.message);
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-    }
   };
 
   const handleSubmit = async () => {
-    alert()
-    // try {
-    //   const response = await fetch("https://interior.dahk.am/api/payment/signIn", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ ...values, products: basketItems }),
-    //   });
-    //
-    //   if (response.ok) {
-    //     window.location.href = "/payment/success";
-    //   } else {
-    //     console.error("Payment failed");
-    //   }
-    // } catch (error) {
-    //   console.error("Error during payment:", error);
-    // }
+    try {
+      const response = await fetch("https://interior.dahk.am/api/payment/signIn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({...values, products: basketItems}),
+      });
+
+      if (response.ok) {
+        const emailPayload = {
+          subject: "Order Confirmation",
+          message: "У вас новый заказ",
+        };
+        try {
+          await fetch("/api/sendEmail", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(emailPayload),
+          });
+        } catch (error) {
+          console.error("Error sending email:", error);
+        }
+
+        window.location.href = "/payment/success";
+      } else {
+        console.error("Payment failed");
+      }
+    } catch (error) {
+      console.error("Error during payment:", error);
+    }
   };
 
   // Dynamic scrolling styles
@@ -158,20 +147,20 @@ const Basket = () => {
                 ))}
               </div>
 
-                <div className={styles.shoppingLast}>
-                  <div className={styles.shoppingResult}>
-                    <ul>
-                      <li>
-                        <span>{t("pricesTotal")}:</span>
-                        <span>{total} руб</span>
-                      </li>
-                      <li>
-                        <span>{t("general")}:</span>
-                        <span>{total} руб</span>
-                      </li>
-                    </ul>
-                  </div>
+              <div className={styles.shoppingLast}>
+                <div className={styles.shoppingResult}>
+                  <ul>
+                    <li>
+                      <span>{t("pricesTotal")}:</span>
+                      <span>{total} руб</span>
+                    </li>
+                    <li>
+                      <span>{t("general")}:</span>
+                      <span>{total} руб</span>
+                    </li>
+                  </ul>
                 </div>
+              </div>
 
               {/* Buy Button */}
               <div className={styles.shoppingStep}>
@@ -199,11 +188,12 @@ const Basket = () => {
           inputValues={values}
           setValues={setValues}
           prevStep={() => setStep(2)}
-          handleSendEmail ={handleSendEmail}
+          handleSendEmail={handleSendEmail}
+          handleSubmitMail={handleSubmit}
         />
       ) : null}
 
-      <Products products={products} />
+      <Products products={products}/>
     </div>
   );
 };

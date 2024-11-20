@@ -6,10 +6,10 @@ const Failed = () => {
     return (
         <div>
             <App>
-                <div className={styles.background}>
-                    <Image width={300} height={200} src="/failed.png" alt=""/>
-                    <h2>Ձախողում </h2>
-                    </div>
+              <div className={styles.background}>
+                <Image width={300} height={200} src="/failed.png" alt=""/>
+                <h2>Неудача</h2>
+              </div>
             </App>
         </div>
     );

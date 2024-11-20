@@ -1,32 +1,33 @@
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const { email, subject, message } = req.body;
+  if (req.method === 'POST') {
+    const {subject, message} = req.body;
+
+    // Create a transporter object using SMTP transport
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.hostinger.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'k.achoyan@geeklab.am',
+        pass: 'alekskrasnodar314@gmail.com^',
+      },
+    });
 
     try {
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
+      await transporter.sendMail({
+        from: 'k.achoyan@geeklab.am',
+        to: 'vip.ervand.77@mail.ru',
+        subject: subject,
+        text: message,
       });
 
-      const mailOptions = {
-        from: process.env.EMAIL_USER, // Sender's Gmail
-        to: email, // Recipient's email
-        subject: subject || "No Subject",
-        text: message || "No Message Content",
-      };
-
-      const info = await transporter.sendMail(mailOptions);
-      res.status(200).json({ success: true, message: "Email sent!", info });
+      return res.status(200).json({message: 'Email sent successfully'});
     } catch (error) {
-      console.error("Error sending email:", error);
-      res.status(500).json({ success: false, error: error.message });
+      return res.status(500).json({message: 'Error sending email', error});
     }
   } else {
-    res.status(405).json({ success: false, message: "Method not allowed." });
+    res.status(405).json({message: 'Method Not Allowed'});
   }
 }

@@ -5,11 +5,11 @@ const Success = () => {
     return (
         <div>
             <App>
-                <div className={styles.background}>
-                    <img src="/check.png" alt=""/>
-                    <h2>Շնորհակալություն </h2>
-                    <h4>Գնումների համար</h4>
-                </div>
+              <div className={styles.background}>
+                <h2>Спасибо</h2>
+                <h4>За покупки</h4>
+
+              </div>
             </App>
         </div>
     );

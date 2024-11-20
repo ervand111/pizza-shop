@@ -122,7 +122,7 @@ const Orders = () => {
         <Menu>
             {products.map(product => (
                 <Menu.Item key={product.id}>
-                    <a href={"https://www.poel.am/product/" + product.id} target="_blank" rel="noreferrer">
+                    <a href={"https://www.alekspizza.ru/product/" + product.id} target="_blank" rel="noreferrer">
                         {product.title} ({product.model}) - {product.price}
                     </a>
                 </Menu.Item>

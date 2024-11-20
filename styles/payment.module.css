@@ -1,25 +1,68 @@
-.background{
-    width: 100%;
-    height: 90vh;
-    background-image: url("/success.png");
-    background-size: cover;
-
-    text-align: center;
-
+.background {
+    width: 90%;
+    height: 80vh;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+    text-align: center;
+    padding: 30px;
 }
-.background h2{
-    font-size: 50px;
-    font-family: "Mardoto Light";
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.background h2 {
+    font-size: 60px;
+    font-family: 'Mardoto Light', serif;
+    color: #ff6347; /* Tomato color */
     margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: bounce 1.5s infinite;
 }
-.background h4{
-    font-size: 35px;
-    font-family: "Mardoto Light";
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
-.background img{
-    width: 100px;
+
+.background h4 {
+    font-size: 40px;
+    font-family: 'Mardoto Light', serif;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Emojis and Icons */
+.emoji {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: rotate 3s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

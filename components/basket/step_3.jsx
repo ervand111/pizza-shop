@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {paymentSignIn} from "../../store/payment/actions";
 import {t, validateArmenianOrRussianPhoneNumber} from "../../utils/utils";
 
-const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail }) => {
+const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail,handleSubmitMail }) => {
     const [currentStep, setCurrentStep] = useState(3);
     const [isRequest, setIsRequest] = useState(false);
 
@@ -89,7 +89,7 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail }) =
                         </div>
 
                         <div className={styles.buttonsForm}>
-                            <Button onClick={handleSendEmail} type="primary" htmlType="submit">
+                            <Button onClick={handleSubmitMail} type="primary" htmlType="submit">
                                 {t("append")} {/* Your button label */}
                             </Button>
                         </div>
