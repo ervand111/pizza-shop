@@ -15,6 +15,8 @@
 }
 .textareaReg {
     margin-bottom: 16px;
+    width: 50%;
+    margin: auto;
 }
 
 .errorInput {
@@ -64,111 +66,86 @@
 .radius {
     font-size: 18px;
 }
-
-
-/* Common Styles */
-.regPage, .lastPage {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: black;
-    padding: 20px;
+.regInputs{
+    width: 50%;
+    margin: auto;
 }
-
-/* Last Page Styles */
-.lastPage {
-    flex-direction: column;
-    align-items: center;
-}
-
-.lastPage .regInputs {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.regInputs label {
-    color: white;
-}
-
-.lastPage .regInputs div:first-child {
-    width: 100%;
-}
-
-.lastPage .regInputs > div:last-child {
-    width: max-content;
-}
-
-.regInputs {
-    width: 48%;
-}
-
 .regInputs input {
-    width: calc(100% - 10px);
-    height: 40px;
+    width: 90%;
+    height: 45px;
     flex-shrink: 0;
-    border: none;
-    background-color: white!important;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
     outline: none;
-    border-bottom: 1px solid white;
-    padding-left: 10px;
-    margin: 10px;
-    color: black!important;
-
+    padding: 10px;
+    color: #333;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin: auto;
 }
 
-
-
-.textareaReg{
-    width: 100%;
+.regInputs input:hover {
+    border-color: #ccc; /* Slight color change */
+    background-color: #fff; /* Brighten the input */
 }
-.textareaReg  label{
-    color: white;
+
+/* Focus Effect */
+.regInputs input:focus {
+    border-color: #4caf50; /* Green border to indicate focus */
+    background-color: #fff; /* Brighten the input */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Soft green glow */
+    color: #000; /* Darker text for focus */
 }
+
 
 .textareaReg textarea {
-    margin-left: 5px;
-    width:100%;
-    height: 40px;
-    flex-shrink: 0;
-    border: none;
+    width: 90%; /* Improved spacing */
+    height: 100px; /* Larger height for more text */
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
     outline: none;
-    border-bottom: 1px solid white;
-    padding-left: 10px;
-    color: black;
-
+    padding: 10px;
+    margin: 10px 0;
+    color: #333;
+    font-size: 16px;
+    border-radius: 8px;
+    resize: vertical; /* Allow resizing vertically only */
+    transition: all 0.3s ease;
 }
 
-.buttonsForm{
+
+.textareaReg textarea:hover {
+    border-color: #ccc;
+    background-color: #fff;
+}
+
+.textareaReg textarea:focus {
+    border-color: #4caf50;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    color: #000;
+}
+
+.buttonsForm {
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 50px;
-    align-items: center;
-}
-.formStep{
-    width: 60%;
-    margin: auto;
-    background:rgba(0,0,0,0.5);
-    border: 1px solid white;
-}
-.formStepLast{
-    width: 40%;
-    margin: auto;
 }
 .buttonsForm button{
     border-radius: 15px;
     border: 1px solid black;
     margin:10px;
 }
+
 .buttonsForm button:first-child{
     border: 1px solid black;
-    background: white;
+    background: white!important;
     color: black;
 }
 .buttonsForm button:last-child{
-    border: 1px solid white;
-    background: black;
+    border: 1px solid black;
+    background: black!important;
     color: white;
 }
 
@@ -208,7 +185,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    margin: 20px 0;
+    border: 1px solid silver;
 }
 
 .shoppingLast{
@@ -483,7 +461,8 @@
        }
     .regInputs{
         width: 80%;
-        margin: 2px;
+        margin: auto;
+
 
     }
     .regPage, .lastPage {

@@ -175,15 +175,9 @@ const Basket = () => {
         </div>
       ) : step === 1 ? (
         <Step1 next={() => setStep(2)} setValues={setValues} prevStep={() => setStep(0)}/>
-      ) : step === 2 ? (
-        <Step2
-          total={total}
-          region={values?.region}
-          next={() => setStep(3)}
-          setValues={setValues}
-          prevStep={() => setStep(1)}
-        />
-      ) : step === 3 ? (
+      )
+
+       : step === 2 ? (
         <Step3
           inputValues={values}
           setValues={setValues}

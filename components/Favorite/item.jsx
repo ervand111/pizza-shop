@@ -73,13 +73,10 @@ const Item = ({item, onRemove}) => {
             <div className={styles.favoriteItem}>
                 <div className={styles.favoriteRow}>
                     <div className={styles.price}>
-                        <span>{price(item.price)} {currentRate?.current}</span>
+                        <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
                     </div>
                     <div className={styles.rowR}>
-                        <div className={styles.qrCode}>
-                            <Image preview={false} src={process.env.IMAGE_URL  + item.blog?.qrs?.image}
-                                   alt=""/>
-                        </div>
+
                         <div className={styles.mobileIcons}>
                             <div className={styles.icons}>
                                 <ul>
@@ -108,9 +105,7 @@ const Item = ({item, onRemove}) => {
                         <div className={styles.favoriteSpan}>
                             <span>{item.label}</span>
                         </div>
-                        <div className={styles.favoriteParagraph}>
-                            <p>Մոդելի համար՝ 19940001-58</p>
-                        </div>
+
                     </div>
                 </div>
             </div>

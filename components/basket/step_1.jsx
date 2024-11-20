@@ -38,16 +38,11 @@ const Step1 = ({prevStep, setValues, next}) => {
                 </div>
                 <div className={styles.line}></div>
                 <div
-                    className={`${styles.circleNumber} ${currentStep >= 2 ? styles.active : ''}`}
+                    className={`${styles.circleNumber} ${currentStep >= 3 ? styles.active : ''}`}
                 >
                     <span className={styles.radius}>2</span>
                 </div>
-                <div className={styles.line}></div>
-                <div
-                    className={`${styles.circleNumber} ${currentStep >= 3 ? styles.active : ''}`}
-                >
-                    <span className={styles.radius}>3</span>
-                </div>
+
             </div>
             <div className={styles.formStep}>
                 <Form form={form} onFinish={handleSubmit}>

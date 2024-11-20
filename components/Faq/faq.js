@@ -48,7 +48,7 @@ const Faq = () => {
     return (
       <div className={styles.facParent}>
           <div className={styles.faq}>
-              <Title level={2} style={{textAlign: 'center', marginBottom: '20px',color:'white'}}>Часто задаваемые вопросы</Title>
+              <h2>Часто задаваемые вопросы</h2>
               <Collapse
                 accordion
                 bordered={false}
