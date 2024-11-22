@@ -1,16 +1,119 @@
-.background {
-    width: 90%;
-    height: 80vh;
-    margin: auto;
+/* Main Wrapper */
+.successWrapper {
     display: flex;
+    height: 88vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 2s ease-in-out;
+    background-color: #ffe5b4; /* Light pizza dough color */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    position: relative;
+    overflow: hidden; /* Prevent overflow from animations */
+}
+
+/* Icon Section */
+.iconWrapper {
+    font-size: 4rem;
+    position: relative;
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Pizza Icon Animation */
+.pizzaIcon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 2rem;
+    animation: spin 3s linear infinite;
+}
+
+/* Thank You Message */
+.thankYou {
+    font-size: 2.5rem;
+    color: #d35400; /* Pizza sauce color */
+    margin: 10px 0;
+    text-shadow: 2px 2px #ffcc00;
+    animation: pop 1s ease-out infinite alternate;
+}
+
+/* Confirmation Message */
+.message {
+    font-size: 1.76rem;
+    text-shadow: 2px 2px #ffcc00;
+
+    color: #d35400; /* Pizza sauce color */
+
+    margin: 15px 0;
     text-align: center;
-    padding: 30px;
+    max-width: 80%;
+    animation: fadeIn 2s ease-in;
+}
+
+/* Confetti Section */
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Individual Emoji */
+.emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatEmojis 4s linear infinite;
+}
+
+/* Animations */
+@keyframes floatEmojis {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    25%{
+        transform: translateY(-40px) scale(1.1);
+        opacity: 0.5;
+
+
+}
+    50% {
+        transform: translateY(-70px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pop {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
 }
 
 @keyframes fadeIn {
@@ -21,48 +124,104 @@
         opacity: 1;
     }
 }
+/* For small devices (phones, less than 600px) */
+@media (max-width: 600px) {
+    .successWrapper {
+        height: 100vh;
+        padding: 10px;
+    }
 
-.background h2 {
-    font-size: 60px;
-    font-family: 'Mardoto Light', serif;
-    color: #ff6347; /* Tomato color */
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    animation: bounce 1.5s infinite;
+    .iconWrapper {
+        font-size: 3rem;
+    }
+
+    .pizzaIcon {
+        font-size: 1.5rem;
+    }
+
+    .thankYou {
+        font-size: 2rem;
+        margin: 8px 0;
+    }
+
+    .message {
+        font-size: 1.2rem;
+        max-width: 90%;
+    }
+
+    .emoji {
+        font-size: 1.5rem;
+    }
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
+/* For tablets (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .iconWrapper {
+        font-size: 3.5rem;
     }
-    50% {
-        transform: translateY(-15px);
+
+    .pizzaIcon {
+        font-size: 1.8rem;
     }
-    100% {
-        transform: translateY(0);
+
+    .thankYou {
+        font-size: 2.3rem;
+    }
+
+    .message {
+        font-size: 1.5rem;
+        max-width: 85%;
+    }
+
+    .emoji {
+        font-size: 1.8rem;
     }
 }
 
-.background h4 {
-    font-size: 40px;
-    font-family: 'Mardoto Light', serif;
-    color: #e74c3c;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-/* Emojis and Icons */
-.emoji {
-    font-size: 80px;
-    margin-bottom: 20px;
-    animation: rotate 3s infinite linear;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
+/* For medium desktops (901px to 1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
+    .iconWrapper {
+        font-size: 3.8rem;
     }
-    100% {
-        transform: rotate(360deg);
+
+    .pizzaIcon {
+        font-size: 2rem;
+    }
+
+    .thankYou {
+        font-size: 2.4rem;
+    }
+
+    .message {
+        font-size: 1.6rem;
+        max-width: 80%;
+    }
+
+    .emoji {
+        font-size: 2rem;
+    }
+}
+
+/* For large desktops (1201px and above) */
+@media (min-width: 1201px) {
+    .iconWrapper {
+        font-size: 4rem;
+    }
+
+    .pizzaIcon {
+        font-size: 2.2rem;
+    }
+
+    .thankYou {
+        font-size: 2.5rem;
+    }
+
+    .message {
+        font-size: 1.76rem;
+        max-width: 80%;
+    }
+
+    .emoji {
+        font-size: 2.5rem;
     }
 }

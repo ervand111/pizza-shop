@@ -51,13 +51,13 @@ const Footer = ({contact, categories}) => {
           </div>
           <div className={styles.socials}>
             <div className={styles.itemSocial}>
-              <a href="https://www.instagram.com/poel.am/" target="_blank" rel="noopener noreferrer">
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <InstagramOutlined/>
               </a>
             </div>
             <div className={styles.itemSocial}>
               <a target="_blank" rel="noopener noreferrer"
-                 href="https://www.facebook.com/profile.php?id=100064626914118&mibextid=LQQJ4d">
+                 href="#">
                 <FacebookOutlined/>
               </a>
             </div>

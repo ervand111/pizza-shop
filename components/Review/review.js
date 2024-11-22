@@ -5,7 +5,7 @@ import styles from "../../styles/review.module.css";
 
 const Review = () => {
   const handleEmailClick = () => {
-    window.location.href = "mailto:alekskrasnodar314@gmail.com?subject=Запрос информации";
+    window.location.href = "mailto:alekspizzak@gmail.com?subject=Запрос информации";
   };
 
   const handlePhoneClick = () => {
@@ -36,7 +36,7 @@ const Review = () => {
         </Card>
         <Card className={styles.contactCard} onClick={handleEmailClick}>
           <MailOutlined style={{ fontSize: '40px', color: 'black' }} />
-          <p>alekskrasnodar314@gmail.com</p>
+          <p>alekspizzak@gmail.com</p>
         </Card>
         <Card className={styles.contactCard} onClick={handleMapClick}>
           <EnvironmentOutlined style={{ fontSize: '40px', color: 'black' }} />

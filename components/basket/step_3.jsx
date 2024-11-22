@@ -4,6 +4,7 @@ import {Button, Form, Input, message} from "antd";
 import {useDispatch, useSelector} from "react-redux";
 import {paymentSignIn} from "../../store/payment/actions";
 import {t, validateArmenianOrRussianPhoneNumber} from "../../utils/utils";
+import {LoadingOutlined} from "@ant-design/icons";
 
 const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail,handleSubmitMail }) => {
     const [currentStep, setCurrentStep] = useState(3);
@@ -15,7 +16,6 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail,hand
         form.setFieldsValue({
             phone: inputValues.phone,
             address: inputValues.address,
-            payment_type:inputValues.paymentType===1 ? "Բանկային քարտ" : inputValues.paymentType === 2 ? "Idram" : "Paypal"
         })
     }, [form, inputValues.address, inputValues.paymentType, inputValues.phone]);
 
@@ -82,9 +82,15 @@ const Step3 = ({prevStep,inputValues, setValues, submitForm,handleSendEmail,hand
                       </div>
 
                       <div className={styles.buttonsForm}>
-                          <Button onClick={handleSubmitMail} type="primary" htmlType="submit">
-                              {t("append")} {/* Your button label */}
+                          <Button
+                            onClick={handleSubmitMail}
+                            type="primary"
+                            htmlType="submit"
+                            icon={isRequest ? <LoadingOutlined /> : null}
+                          >
+                              {isRequest ? "Подождите" : "Отправить"}
                           </Button>
+
                       </div>
 
                   </div>
