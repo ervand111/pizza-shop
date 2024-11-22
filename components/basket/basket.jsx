@@ -101,7 +101,7 @@ const Basket = () => {
 
       if (response.ok) {
         const emailPayload = {
-          subject: "Order Confirmation",
+          subject: "Подтверждение заказа",
           message: "У вас новый заказ",
         };
         try {

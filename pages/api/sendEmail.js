@@ -11,14 +11,14 @@ export default async function handler(req, res) {
       secure: false,
       auth: {
         user: 'k.achoyan@geeklab.am',
-        pass: 'alekskrasnodar314@gmail.com^',
+        pass: '3745509XXXXachoyand8^',
       },
     });
 
     try {
       await transporter.sendMail({
         from: 'k.achoyan@geeklab.am',
-        to: 'vip.ervand.77@mail.ru',
+        to: 'alekspizzak@gmail.com',
         subject: subject,
         text: message,
       });
