@@ -98,7 +98,7 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
         <div className={styles.mobileTitle}>
           <div className={styles.basketText}>
             <div className={styles.basketSpan}>
-              <span>{item.label} hujkyjkh</span>
+              <span>{item.label}</span>
             </div>
           </div>
         </div>
