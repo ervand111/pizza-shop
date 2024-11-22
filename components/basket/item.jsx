@@ -30,19 +30,15 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
     setMetal(localizedMetal);
   }, [locale, item]);
 
-  // Increment item quantity
   const increment = () => setQuantity(prev => prev + 1);
 
-  // Decrement item quantity (minimum is 1)
   const decrement = () => setQuantity(prev => Math.max(prev - 1, 1));
 
-  // Add item to favorites
   const addToFavorites = () => {
     setCount(prev => ({...prev, favorite: prev.favorite + 1}));
     addFavorite(item);
   };
 
-  // Remove item from favorites
   const removeFromFavorites = () => {
     setCount(prev => ({...prev, favorite: prev.favorite - 1}));
     removeFavorite(item);

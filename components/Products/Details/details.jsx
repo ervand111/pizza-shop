@@ -106,15 +106,16 @@ const Details = () => {
       <Skeleton loading={isFetching} active>
         <div className={styles.productRow}>
           <div className={styles.slider}>
-            <Image src={process.env.IMAGE_URL2 + product?.avatar} alt=""/>
+            <img src={process.env.IMAGE_URL2 + product?.avatar} alt=""/>
           </div>
           <div className={styles.text}>
             <div className={styles.title}>
               <h1>{title}</h1>
             </div>
             <div className={styles.paragraph}>
-              <h3>{t("infoOfProduct")}</h3>
-              <p>{product?.description}</p>
+              <h2>{t("infoOfProduct")}</h2>
+              <h3>{product?.title}</h3>
+              <p >{product?.description}</p>
             </div>
 
 
