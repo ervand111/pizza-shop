@@ -10,13 +10,10 @@ import {getProductsAll} from "../../store/products/actions";
 import RateContext from "../../providers/rateContext";
 import {t} from "../../utils/utils";
 import Step1 from "./step_1";
-import Step2 from "./step_2";
 import Step3 from "./step_3";
-import emailjs from 'emailjs-com';
 
 
 const Basket = () => {
-  // State and context
   const [basketItems, setBasketItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [step, setStep] = useState(0);
@@ -32,39 +29,34 @@ const Basket = () => {
   const containerRef = useRef();
   const itemsPerPage = 3;
 
-  // Load products from the store
   useEffect(() => {
     dispatch(getProductsAll.request());
   }, [dispatch]);
 
-  // Sync basket items with context
   useEffect(() => {
     setBasketItems(baskets);
   }, [baskets]);
 
-  // Calculate total price
   useEffect(() => {
     const totalPrice = basketItems.reduce((acc, item) => {
-      const itemPrice = item?.variants?.[0]?.price || 0;
+      const itemPrice = item?.price || 0;
       return acc + itemPrice * (item.quantity || 1);
     }, 0);
+
     setTotal(totalPrice);
   }, [basketItems]);
 
-  // Check if scrolling is needed
   useEffect(() => {
     if (baskets.length > itemsPerPage) {
       setIsShow(true);
     }
   }, [baskets]);
 
-  // Load basket items from local storage
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem("basket")) || [];
     setBasketItems(storedItems);
   }, []);
 
-  // Handle item removal
   const handleRemove = (itemToRemove) => {
     setCount((prev) => ({
       ...prev,
@@ -73,7 +65,6 @@ const Basket = () => {
     remove(itemToRemove);
   };
 
-  // Update basket item quantity
   const updateBasketItemQuantity = (itemId, newQuantity) => {
     const updatedBasket = basketItems.map((item) =>
       item.id === itemId ? {...item, quantity: newQuantity} : item
@@ -85,9 +76,6 @@ const Basket = () => {
   // Handle buy button click
   const handleBuy = () => setStep(1);
 
-  const handleSendEmail = async () => {
-
-  };
 
   const handleSubmit = async () => {
     try {
@@ -123,12 +111,10 @@ const Basket = () => {
     }
   };
 
-  // Dynamic scrolling styles
   const styleScrolling = {
     overflowY: isShow ? "scroll" : "auto",
     height: isShow ? "450px" : "auto",
   };
-
   return (
     <div>
       {step === 0 ? (

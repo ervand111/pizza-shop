@@ -16,13 +16,10 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
   const [metal, setMetal] = useState(""); // Localized metal description
   const router = useRouter();
   const {locale} = router;
-
-  // Update the item quantity whenever it changes
   useEffect(() => {
     updateBasketItemQuantity(item.id, quantity);
   }, [item.id, quantity]);
 
-  // Set localized values for the title and metal
   useEffect(() => {
     const localizedTitle = locale === 'en' ? item?.title_en : locale === 'ru' ? item?.title_ru : item?.title;
     const localizedMetal = locale === 'en' ? item?.metal_en : locale === 'ru' ? item?.metal_ru : item?.metal;
@@ -46,7 +43,6 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
 
   return (
     <div className={styles.basketDiv}>
-      {/* Product Image */}
       <div>
         <div className={styles.basketPicture}>
           <Image preview={false} src={`${process.env.IMAGE_URL2}${item.avatar}`} alt={title}/>
@@ -66,15 +62,13 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
           <button onClick={increment}>+</button>
         </div>
 
-        {/* Price Display */}
         <div className={styles.price}>
     <span>
-        {item?.variants?.length > 0 ? `${item.variants[0].price} руб` : null}
+       {item?.price} руб
     </span>
         </div>
 
 
-        {/* Action Icons */}
         <div className={styles.icons}>
           <ul>
             <li>
@@ -90,7 +84,6 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
           </ul>
         </div>
 
-        {/* Mobile View Title */}
         <div className={styles.mobileTitle}>
           <div className={styles.basketText}>
             <div className={styles.basketSpan}>

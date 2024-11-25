@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from 'react';
 const BasketContext = createContext();
 
 export const BasketProvider = ({ children }) => {
-    // Lazy initialization to get localStorage data on first render (only in the client)
     const [baskets, setBaskets] = useState(() => {
         if (typeof window !== 'undefined') {
             return JSON.parse(localStorage.getItem('basket')) || [];
@@ -18,24 +17,20 @@ export const BasketProvider = ({ children }) => {
         return [];
     });
 
-    // Sync baskets with localStorage whenever baskets state changes
     useEffect(() => {
         if (typeof window !== 'undefined') {
             localStorage.setItem('basket', JSON.stringify(baskets));
         }
     }, [baskets]);
 
-    // Sync favorites with localStorage whenever favorites state changes
     useEffect(() => {
         if (typeof window !== 'undefined') {
             localStorage.setItem('favorites', JSON.stringify(favorites));
         }
     }, [favorites]);
 
-    // Add item to basket
     function add(item) {
         const existingProductIndex = baskets.findIndex((x) => x.id === item.id);
-
         if (existingProductIndex !== -1) {
             const updatedBasket = [...baskets];
             updatedBasket[existingProductIndex] = {

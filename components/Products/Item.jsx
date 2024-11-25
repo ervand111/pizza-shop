@@ -44,6 +44,7 @@ const Item = ({item, addCart}) => {
         basket: ++prev.basket
       }
     });
+    item.price = item.variants[0].price;
     add(item)
     addCart()
   }, [item, add, addCart, setCount]);
@@ -60,7 +61,6 @@ const Item = ({item, addCart}) => {
   }, [item, addCart, addFavorite, setCount]);
 
   useEffect(() => {
-    console.log(item)
   }, [item])
   return (
     <div className={styles.item}>
