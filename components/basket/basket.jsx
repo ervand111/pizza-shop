@@ -76,6 +76,10 @@ const Basket = () => {
   // Handle buy button click
   const handleBuy = () => setStep(1);
 
+  const handleSendEmail = async () => {
+
+  };
+
 
   const handleSubmit = async () => {
     try {
