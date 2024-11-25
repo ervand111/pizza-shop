@@ -117,7 +117,7 @@ const Add = () => {
       <h1>Add Product</h1>
       <Form form={form} layout="vertical" onFinish={handleSubmit}>
         <Form.Item
-          label="Title Armenian"
+          label="Name product"
           name="title"
           rules={[{required: true, message: 'Please enter the name'}]}
         >
