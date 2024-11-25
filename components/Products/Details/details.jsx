@@ -62,7 +62,6 @@ const Details = () => {
       ...prev,
       basket: ++prev.basket,
     }));
-    console.log(product?.variants[0]?.price)
 
     const productWithDetails = {
       ...selectedVariant,
