@@ -12,9 +12,9 @@ const Success = () => {
           🍕
           <div className={styles.pizzaIcon}>🎉</div>
         </div>
-        <h2 className={styles.thankYou}>Спасибо! 🎈</h2>
+        <h2 className={styles.thankYou}>Спасибо 🎈</h2>
         <h4 className={styles.message}>
-          Ваш заказ принят! Мы скоро доставим вашу вкусную пиццу! 🚴‍♂️🍕🔥
+          Ваш заказ принят!🍕
         </h4>
         {/* Dynamic Confetti */}
         <div className={styles.confetti}>

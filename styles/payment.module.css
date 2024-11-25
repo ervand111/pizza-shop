@@ -42,13 +42,12 @@
 .message {
     font-size: 1.76rem;
     text-shadow: 2px 2px #ffcc00;
-
+    letter-spacing: 2px;
     color: #d35400; /* Pizza sauce color */
-
     margin: 15px 0;
     text-align: center;
     max-width: 80%;
-    animation: fadeIn 2s ease-in;
+    animation: fadeIn 2s infinite ease-in;
 }
 
 /* Confetti Section */
