@@ -31,6 +31,7 @@ const Index = () => {
             <Delivery/>
             <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
             <Review/>
+
         </>
     );
 };

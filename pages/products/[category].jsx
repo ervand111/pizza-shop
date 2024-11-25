@@ -181,7 +181,7 @@ const Index = () => {
               <Nav />
               <div className={styles.productsSection} onScroll={handleScroll}>
                   <div className={styles.productRow}>
-                      {products.length > 0 ? products.map((item) => (
+                      {products.length > 0 ? products.slice().reverse().map((item) => (
                         <Item addCart={addNotification} key={item.id} item={item} />
                       )) : (
                         <h2 className={styles.title}>{t("product_not_found")}</h2>
