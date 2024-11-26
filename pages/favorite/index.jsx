@@ -1,5 +1,3 @@
-import Header from "components/Header/header";
-import Footer from "components/Footer/footer";
 import Favorite from "components/Favorite/favorite";
 import App from "../../components/Layouts/app";
 import React from "react";

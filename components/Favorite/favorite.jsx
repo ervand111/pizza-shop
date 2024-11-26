@@ -1,14 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import styles from "../../styles/favorite.module.css"
 import Item from "./item";
-import Button from "../ui/button/button";
-import Footer from "../Footer/footer";
-import Header from "../Header/header";
 import Products from "../Products/products";
 import BasketContext from 'providers/BasketContext';
 import CountContext from 'providers/countContext';
 import {useDispatch, useSelector} from "react-redux";
-import App from "../Layouts/app";
 import {t} from "../../utils/utils";
 
 const Favorite = () => {

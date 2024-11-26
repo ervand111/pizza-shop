@@ -16,16 +16,14 @@ const Lastpage = ({ scroll }) => {
           <footer className={styles.footer}>
               <div className={styles.text}>
                   <div className={styles.paragraph}>
-                      <p>
-                          © 2024{' '}
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="https://www.linkedin.com/company/geeklab1/mycompany/"
-                          >
-                              GeekLab
-                          </a>
-                      </p>
+                      <p>© 2024 {'Алекс пицца. Все права защищены.'}</p>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.linkedin.com/company/geeklab1/mycompany/"
+                      >
+                          GeekLab
+                      </a>
                   </div>
                   <div className={styles.text}>
 
