@@ -1,7 +1,8 @@
 /* Product Section */
 .product {
     width: 100%;
-    height: 500px;
+    min-height: 500px;
+    padding: 30px;
 }
 
 .productRow {
@@ -369,7 +370,7 @@
     }
 
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
     .buttons button {
         padding: 10px 29px;
         font-size: 12px;
@@ -397,15 +398,19 @@
     }
     .text {
         height:auto;
-        width: 80%;
         margin: 20px;
         box-shadow: 0 0 0 2px silver;
 
     }
     .productRow {
       flex-wrap: wrap;
-        padding: 20px;
         height: auto;
+        padding: 20px;
+    }
+    .slider img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     .slider {
         width: 200px;
@@ -417,12 +422,20 @@
 
 @media only screen and (max-width: 500px) {
     .buttons button {
-        padding: 10px 8px;
-        font-size: 12px;
+        padding: 13px 10px;
+        font-size: 10px;
+        margin: 0 8px;
+
+
     }
 
     .buttons button svg {
         font-size: 12px;
+        margin: 0;
+    }
+    .buttons{
+        width: 100%;
+        margin: 3px;
     }
     .selectedPrice span{
         font-size: 14px;
@@ -437,26 +450,28 @@
     }
     .paragraph p{
         font-size: 16px;
+        padding: 10px;
+    }
+    .paragraph h2{
+        font-size: 20px;
     }
     .paragraph h3{
-        font-size: 18px;
+        font-size: 15px;
     }
-    .text {
-        height:auto;
-        width: 90%;
-        margin: 20px;
-        box-shadow: 0 0 0 2px silver;
-
+    .paragraph {
+        width: 100%;
+        padding: 0;
     }
     .productRow {
         flex-wrap: wrap;
-        padding: 20px;
         height: auto;
+        padding: 0;
     }
     .slider {
         width: 200px;
         height: 200px;
-        box-shadow: 0 0 0 3px #807e7e;
-    }
+        border: none;
+        margin: 10px;
+        }
 
 }

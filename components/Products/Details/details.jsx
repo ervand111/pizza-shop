@@ -9,6 +9,7 @@ import CountContext from "../../../providers/countContext";
 import BasketContext from "../../../providers/BasketContext";
 import {t} from "../../../utils/utils";
 import {Image, Skeleton} from "antd";
+import Products from "../products";
 
 const Details = () => {
   const product = useSelector((state) => state.product?.selectedProduct?.data);
