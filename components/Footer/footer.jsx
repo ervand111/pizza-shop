@@ -91,9 +91,9 @@ const Footer = ({contact, categories}) => {
           <div>
             <h4>Правовая информация</h4>
             <ul>
-              <li><Link href={'/Rule/publicOffer'}>Публичная оферта</Link></li>
-              <li><Link href={'/Rule/userAgreement'}>Пользовательское соглашение</Link></li>
-              <li><Link href={'/Rule/privacyPolicy'}>Политика конфиденциальности</Link></li>
+              <li><Link href={'/rule/publicOffer'}>Публичная оферта</Link></li>
+              <li><Link href={'/rule/userAgreement'}>Пользовательское соглашение</Link></li>
+              <li><Link href={'/rule/privacyPolicy'}>Политика конфиденциальности</Link></li>
             </ul>
           </div>
           <div>

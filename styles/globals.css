@@ -41,7 +41,8 @@ h1, h2, h3, h4, h5, h6, p, span, i, li, a, label {
 
 
 .slick-prev, .slick-next {
-    width: 12px !important;
+    width: 18px !important;
+    height: 24px!important;
 }
 
 .slick-dots {
@@ -49,10 +50,10 @@ h1, h2, h3, h4, h5, h6, p, span, i, li, a, label {
 }
 
 .slick-dots li button {
-    width: 30px !important;
-    height: 3px !important;
+    width: 40px !important;
+    height: 4px !important;
     flex-shrink: 0 !important;
-    background:white !important;
+    background:black !important;
     opacity: 0.2;
     padding: 0 !important;
 }
@@ -62,11 +63,12 @@ h1, h2, h3, h4, h5, h6, p, span, i, li, a, label {
 }
 
 .slick-dots li button:before {
-    color: transparent;
+    color: black;
+    display: none;
 }
 
 .slick-dots li.slick-active button:before {
-    color: transparent !important;
+    color: black !important;
 }
 
 .slick-dots li {

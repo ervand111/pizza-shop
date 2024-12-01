@@ -59,24 +59,6 @@ const Header = ({categories}) => {
             <header className={styles.header}>
                 <link rel="icon" type="image/png" href="/photos/logo.jpg"/>
                 <div className={styles.contentHeader}>
-                    <div>
-                        <ul className={styles.headerMenu}>
-                            {categories.map((item) => {
-                                const {name, id} = item;
-                                // eslint-disable-next-line react-hooks/rules-of-hooks
-                                const router = useRouter();
-                                const isActive = Number(router.query.category) === id;
-                                return (
-                                  <li key={id} className={isActive ? styles.activeCategory : null}>
-                                      <Link href={`/products/${id}`}>
-                                          {name}
-                                      </Link>
-                                  </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-
                     <div className={styles.mobileMenu}>
                        <span className={styles.btnMenu} onClick={handlerMenu}>
                            <MenuOutlined/>
@@ -97,7 +79,23 @@ const Header = ({categories}) => {
                             </Link>
                         </div>
                     </div>
-
+                    <div>
+                        <ul className={styles.headerMenu}>
+                            {categories.map((item) => {
+                                const {name, id} = item;
+                                // eslint-disable-next-line react-hooks/rules-of-hooks
+                                const router = useRouter();
+                                const isActive = Number(router.query.category) === id;
+                                return (
+                                  <li key={id} className={isActive ? styles.activeCategory : null}>
+                                      <Link href={`/products/${id}`}>
+                                          {name}
+                                      </Link>
+                                  </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
                     <div>
 
                         <div className={styles.icons}>

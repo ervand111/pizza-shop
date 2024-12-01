@@ -94,6 +94,8 @@
     font-size: 24px;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courie, serif;
 }
+.headerMenu{
+}
 .headerMenu a {
     color: #ffffff;
     text-decoration: none;
@@ -104,8 +106,8 @@
 
 .header ul {
     display: flex;
-    max-width: 100px;
-    justify-content: center;
+    width: auto;
+    justify-content: start;
 }
 
 .headerMenu li a::after {
@@ -229,10 +231,13 @@
 
 
 .logo {
-    width: 100px;
-    height: 90%;
+    width: 80px;
+    height: 80%;
     cursor: pointer;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .logoText{
@@ -254,11 +259,11 @@
 }
 .contentHeader {
     display: flex;
-    width: calc(100% );
+    width: 92% ;
     margin: auto;
     align-items: center;
     height: 100%;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 
 .boxSearch {
@@ -399,13 +404,13 @@
     display: none;
 }
 
-@media only screen and (max-width: 1800px) {
-    .contentHeader {
-        width: calc(80%);
-        display: flex;
-        justify-content: space-between;
-    }
-}
+/*@media only screen and (max-width: 1800px) {*/
+/*    .contentHeader {*/
+/*        width: calc(80%);*/
+/*        display: flex;*/
+/*        justify-content: space-between;*/
+/*    }*/
+/*}*/
 
 @media only screen and (max-width: 1280px) {
     .headerMenu li {
@@ -444,7 +449,7 @@
         transform: translateX(0%);
     }
 
-    .headerMenu, .contentHeader > div:first-child {
+    .headerMenu, .contentHeader > div:nth-child(3) {
         display: none;
     }
 
