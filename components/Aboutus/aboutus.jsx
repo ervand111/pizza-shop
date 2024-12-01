@@ -36,19 +36,23 @@ const Aboutus = () => {
             <div className={styles.page}>
                 <div className={styles.pageRaw}>
                     <div className={styles.text}>
-                        <h3>{t("about_us")}</h3>
-                        <p dangerouslySetInnerHTML={{__html: content}}></p>
+                        {/*<h3>{t("about_us")}</h3>*/}
+                        {/*<p dangerouslySetInnerHTML={{__html: content}}></p>*/}
+                        <h1> ИП - Агабекян Сюзана Вазгеновна</h1>
+                          <h2>  ИНН: 425003639574</h2>
+                        <h2>ОГРНИП: 324420500112391</h2>
+                        <h2> Дата регистрации: 14.11.2024</h2>
                     </div>
                     <div className={styles.picture}>
                     <Image preview={false} src={process.env.IMAGE_URL2 +about.image1} alt=""/>
                     </div>
                 </div>
                 <div className={`${styles.pageRaw} ${styles.mobileReverse}`}>
-                    <div className={styles.picture}>
-                        <Image preview={false} src={process.env.IMAGE_URL2  + about.image2} alt=""/>
-                    </div>
+                    {/*<div className={styles.picture}>*/}
+                    {/*    <Image preview={false} src={process.env.IMAGE_URL2  + about.image2} alt=""/>*/}
+                    {/*</div>*/}
                     <div className={styles.text}>
-                        <p dangerouslySetInnerHTML={{__html: content1}}></p>
+                        {/*<p dangerouslySetInnerHTML={{__html: content1}}></p>*/}
 
                     </div>
                 </div>

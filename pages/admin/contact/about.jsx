@@ -131,23 +131,13 @@ const About = () => {
                         </Upload>
                         <hr/>
                         <br/>
-                        <Form.Item label="Content" name="content_1">
-                            <ReactQuill/>
-                        </Form.Item>
-                        <Form.Item label="Content English" name="content_1_en">
-                            <ReactQuill/>
-                        </Form.Item>
+
                         <Form.Item label="Content Russian" name="content_1_ru">
                             <ReactQuill/>
                         </Form.Item>
                         <hr/>
                         <br/>
-                        <Form.Item label="Content" name="content_2">
-                            <ReactQuill/>
-                        </Form.Item>
-                        <Form.Item label="Content English" name="content_2_en">
-                            <ReactQuill/>
-                        </Form.Item>
+
                         <Form.Item label="Content Russian" name="content_2_ru">
                             <ReactQuill/>
                         </Form.Item>

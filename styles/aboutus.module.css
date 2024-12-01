@@ -2,6 +2,7 @@
     width: 85%;
     box-shadow: 0 0 15px 12px silver;
     margin: 150px auto;
+
 }
 .pageRaw{
     display: flex;
@@ -9,7 +10,7 @@
 
 }
 .picture{
-    width: 40%;
+    width: 20%;
     margin: 50px;
 }
 
@@ -20,58 +21,100 @@
 }
 
 .text{
-    width: 60%;
+    width: 80%;
     padding:55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.text h3{
-    font-family: Mardoto, serif;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 35px;
-    margin-bottom: 40px;
-    color: white;
+.text h1 {
+    padding: 10px;
+}
+.text h2{
+    padding: 10px;
+    font-weight: lighter;
 
 }
-.text p{
-    font-family: Mardoto, serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    margin-bottom: 20px;
-    color: black;
-}
+/*.text h3{*/
+/*    font-family: Mardoto, serif;*/
+/*    font-size: 30px;*/
+/*    font-weight: 500;*/
+/*    line-height: 35px;*/
+/*    margin-bottom: 40px;*/
+/*    color: white;*/
+
+/*}*/
+/*.text p{*/
+/*    font-family: Mardoto, serif;*/
+/*    font-size: 20px;*/
+/*    font-weight: 400;*/
+/*    line-height: 28px;*/
+/*    margin-bottom: 20px;*/
+/*    color: black;*/
+/*}*/
 .mobileReverse{}
-
-
-@media screen  and (max-width: 1100px){
-    .text p{
-        font-size: 18px;
+@media screen and (max-width: 1200px){
+    .text h2{
+        font-size: 20px;
+    }
+    .text h1{
+        font-size: 25px;
     }
     .text{
-        width: 85%;
-    }
-    .picture{
-        width: 80%;
-    }
-    .pageRaw {
-        flex-wrap: wrap;
+        width: 100%;
+        padding:20px;
     }
 
-    .mobileReverse{
-        flex-direction: column-reverse;
+    .picture{
+        width: 30%;
+        margin: auto;
     }
 }
-@media screen and (max-width: 550px){
-    .text p{
+@media screen and (max-width: 850px){
+    .pageRaw{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .text h2{
         font-size: 16px;
+
+    }
+    .text h1{
+        font-size: 20px;
     }
     .text{
         width: 100%;
-        padding:0;
+        padding:10px;
     }
 
     .picture{
+        width: 30%;
+        margin: auto;
+    }
+}
+
+
+@media screen and (max-width: 550px){
+    .pageRaw{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .text h2{
+        font-size: 13px;
+
+    }
+    .text h1{
+        font-size: 14px;
+    }
+    .text{
         width: 100%;
-        margin: 0;
+        padding:10px;
+    }
+
+    .picture{
+        width: 30%;
+        margin: auto;
     }
 }
