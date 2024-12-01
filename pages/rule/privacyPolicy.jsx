@@ -1,6 +1,6 @@
 import React from 'react';
-import App from "../../components/Layouts/app";
-import PolicyIndex from "../../components/rule/policyIndex";
+import App from '../../components/Layouts/app';
+import PolicyIndex from '../../components/rule/policyIndex';
 
 const PrivacyPolicy = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import App from "../../components/Layouts/app";
-import OfferIndex from "../../components/rule/offerIndex";
+import App from '../../components/Layouts/app';
+import OfferIndex from '../../components/rule/offerIndex';
 
 const PublicOffer = () => {
   return (
