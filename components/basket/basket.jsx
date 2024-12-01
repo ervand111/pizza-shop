@@ -7,7 +7,6 @@ import BasketContext from "providers/BasketContext";
 import Products from "../Products/products";
 import {useDispatch, useSelector} from "react-redux";
 import {getProductsAll} from "../../store/products/actions";
-import RateContext from "../../providers/rateContext";
 import {t} from "../../utils/utils";
 import Step1 from "./step_1";
 import Step3 from "./step_3";
@@ -21,7 +20,6 @@ const Basket = () => {
   const [values, setValues] = useState({});
 
   const dispatch = useDispatch();
-  const {price, currentRate} = useContext(RateContext);
   const {setCount} = useContext(CountContext);
   const {baskets, remove, removeFromFavorite} = useContext(BasketContext);
 
@@ -177,7 +175,7 @@ const Basket = () => {
         />
       ) : null}
 
-      <Products products={products}/>
+      {/*<Products products={products}/>*/}
     </div>
   );
 };

@@ -16,7 +16,7 @@ const App = ({children}) => {
         dispatch(getContact.request())
     }, [dispatch])
     return (
-        <div>
+        <div >
                 <Header categories={categories}/>
                 <div style={{marginTop:'90px'}}>
                     {children}

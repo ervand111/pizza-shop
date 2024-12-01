@@ -44,7 +44,7 @@ const Item = ({item, addCart}) => {
         basket: ++prev.basket
       }
     });
-    item.price = item.variants[0].price;
+    item.price = item?.variants[0]?.price;
     add(item)
     addCart()
   }, [item, add, addCart, setCount]);

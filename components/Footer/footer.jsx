@@ -89,6 +89,14 @@ const Footer = ({contact, categories}) => {
             </ul>
           </div>
           <div>
+            <h4>Правовая информация</h4>
+            <ul>
+              <li><Link href={'/rule/publicOffer'}>Публичная оферта</Link></li>
+              <li><Link href={'/rule/userAgreement'}>Пользовательское соглашение</Link></li>
+              <li><Link href={'/rule/privacyPolicy'}>Политика конфиденциальности</Link></li>
+            </ul>
+          </div>
+          <div>
             <h4>{t("feedback")}</h4>
             <ul>
               <li><span><MailOutlined/></span><a href={"mailto:" + contact.email}>{contact.email}</a></li>
@@ -97,13 +105,13 @@ const Footer = ({contact, categories}) => {
                   href={`whatsapp://send?phone=${contact.phone}`}>{contact.phone}</a>
               </li>
 
-                <li>
-                  <p>
-                    <span><PushpinOutlined/></span>
-                    <a target="_blank" rel="noopener noreferrer"
-                       href={`https://maps.google.com?q=${encodeURIComponent(addresses[0])}`}>{addresses[0]}</a>
-                  </p>
-                </li>
+              <li>
+                <p>
+                  <span><PushpinOutlined/></span>
+                  <a target="_blank" rel="noopener noreferrer"
+                     href={`https://maps.google.com?q=${encodeURIComponent(addresses[0])}`}>{addresses[0]}</a>
+                </p>
+              </li>
             </ul>
 
           </div>

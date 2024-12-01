@@ -16,7 +16,6 @@ function Home() {
     const importantProducts = useSelector((state) => state.product.importantProducts) || [];
     const slides = useSelector(state => state.slide.slides) || {instagrams: [], slides: []};
 
-
     useEffect(() => {
         dispatch(getProductsAll.request());
         dispatch(getSlides.request());

@@ -1,8 +1,9 @@
+
 .row {
     display: flex;
     margin: auto;
-
 }
+
 
 .nav {
     width: auto;
@@ -37,6 +38,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     width:100%;
+
 }
 
 .productRow > div {
@@ -89,6 +91,8 @@
 .productsSection {
     width: calc(100% - 360px);
     padding: 30px 50px 35px;
+
+
 }
 
 .filterList {

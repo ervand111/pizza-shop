@@ -1,0 +1,71 @@
+.container {
+    width: 90%;
+    height: 700px;
+    margin: 120px auto;
+    overflow-y: auto; /* Allows vertical scrolling if content exceeds height */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for better readability */
+    border: 1px solid #ddd; /* Subtle border for structure */
+    border-radius: 10px; /* Rounded corners for modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    color: #333; /* Dark text for contrast */
+}
+
+
+.container p {
+    margin: 6px 0;
+    line-height: 1.8; /* Improves readability */
+    font-size: 16px; /* Comfortable font size */
+    color: #555; /* Slightly lighter text color */
+}
+
+
+
+.container h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #ddd; /* Thinner underline for H2 */
+    padding-bottom: 5px;
+}
+
+
+
+
+
+.container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+@media only screen and (max-width: 730px) {
+    .container h2{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 530px) {
+    .container p{
+        font-size: 14px;
+        line-height: 30px;
+    }
+    .container h2{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 380px) {
+    .container p{
+        font-size: 14px;
+        line-height: 30px;
+    }
+}

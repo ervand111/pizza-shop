@@ -49,7 +49,7 @@ const Favorite = () => {
                             <h2 className={styles.title2}>{t("wishlist_empty")}</h2>
                         </div>}
                 </div>
-                <Products products={products}/>
+                {/*<Products products={products}/>*/}
 
         </div>
     )
