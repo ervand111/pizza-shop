@@ -1,6 +1,6 @@
 import React from 'react';
 import App from '../../components/Layouts/app';
-import PolicyIndex from '../../components/rule/policyIndex';
+import PolicyIndex from '../../components/Rule/policyIndex';
 
 const PrivacyPolicy = () => {
   return (
@@ -9,12 +9,13 @@ const PrivacyPolicy = () => {
     </div>
   );
 };
+
 PrivacyPolicy.getLayout = function getLayout(page) {
   return (
     <App>
       {page}
     </App>
-  )
-}
+  );
+};
 
 export default PrivacyPolicy;

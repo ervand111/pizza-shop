@@ -1,5 +1,5 @@
 import React from 'react';
-import AgreementIndex from '../../components/rule/agreementIndex';
+import AgreementIndex from '../../components/Rule/agreementIndex';
 import App from '../../components/Layouts/app';
 
 const UserAgreement = () => {
