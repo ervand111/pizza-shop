@@ -299,54 +299,54 @@ const AllCategoryPage = () => {
                         >
                             <Input placeholder="Enter the Title"/>
                         </Form.Item>
-                        <Form.Item
-                            label="Title English"
-                            name="title_en"
-                            rules={[{required: true, message: 'Please enter the name'}]}
-                        >
-                            <Input placeholder="Enter the Title"/>
-                        </Form.Item>
-                        <Form.Item
-                            label="Title Russian"
-                            name="title_ru"
-                            rules={[{required: true, message: 'Please enter the name'}]}
-                        >
-                            <Input placeholder="Enter the Title"/>
-                        </Form.Item>
-                        <Form.Item
-                            label="Model"
-                            name="model"
-                        >
-                            <Input type="text" placeholder=""/>
-                        </Form.Item>
-                        <Form.Item
-                            label="Weight"
-                            name="weight"
-                            // rules={[{ required: true, message: 'Please enter the number of passengers' }]}
-                        >
-                            <Input type="text" placeholder="Enter the weight"/>
-                        </Form.Item>
-                        <Form.Item
-                            label="Type"
-                            name="metal"
-                            // rules={[{ required: true, message: 'Please enter the type of product' }]}
-                        >
-                            <Input type="text" placeholder="Ոսկյա մատանի"/>
-                        </Form.Item>
-                        <Form.Item
-                            label="Type English"
-                            name="metal_en"
-                            // rules={[{ required: true, message: 'Please enter the type of product' }]}
-                        >
-                            <Input type="text" placeholder="Ոսկյա մատանի"/>
-                        </Form.Item>
-                        <Form.Item
-                            label="Type Russian"
-                            name="metal_ru"
-                            // rules={[{ required: true, message: 'Please enter the type of product' }]}
-                        >
-                            <Input type="text" placeholder="Ոսկյա մատանի"/>
-                        </Form.Item>
+                        {/*<Form.Item*/}
+                        {/*    label="Title English"*/}
+                        {/*    name="title_en"*/}
+                        {/*    rules={[{required: true, message: 'Please enter the name'}]}*/}
+                        {/*>*/}
+                        {/*    <Input placeholder="Enter the Title"/>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Title Russian"*/}
+                        {/*    name="title_ru"*/}
+                        {/*    rules={[{required: true, message: 'Please enter the name'}]}*/}
+                        {/*>*/}
+                        {/*    <Input placeholder="Enter the Title"/>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Model"*/}
+                        {/*    name="model"*/}
+                        {/*>*/}
+                        {/*    <Input type="text" placeholder=""/>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Weight"*/}
+                        {/*    name="weight"*/}
+                        {/*    // rules={[{ required: true, message: 'Please enter the number of passengers' }]}*/}
+                        {/*>*/}
+                        {/*    <Input type="text" placeholder="Enter the weight"/>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Type"*/}
+                        {/*    name="metal"*/}
+                        {/*    // rules={[{ required: true, message: 'Please enter the type of product' }]}*/}
+                        {/*>*/}
+                        {/*    <Input type="text" placeholder="Ոսկյա մատանի"/>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Type English"*/}
+                        {/*    name="metal_en"*/}
+                        {/*    // rules={[{ required: true, message: 'Please enter the type of product' }]}*/}
+                        {/*>*/}
+                        {/*    <Input type="text" placeholder="Ոսկյա մատանի"/>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Type Russian"*/}
+                        {/*    name="metal_ru"*/}
+                        {/*    // rules={[{ required: true, message: 'Please enter the type of product' }]}*/}
+                        {/*>*/}
+                        {/*    <Input type="text" placeholder="Ոսկյա մատանի"/>*/}
+                        {/*</Form.Item>*/}
                         {/*<Form.Item*/}
                         {/*    label="Respect"*/}
                         {/*    name="respect"*/}
@@ -377,30 +377,30 @@ const AllCategoryPage = () => {
                                 style={{width: '100%'}}
                             />
                         </Form.Item>
-                        <Form.Item
-                            label="Blog"
-                            name="blog_id"
-                        >
-                            <Select placeholder="Select a category" value={editingProduct?.blog_id}>
-                                <Option value={0}>No blog</Option>
-                                {blogs?.length > 0 ?
-                                    blogs.map(blog => (
-                                        <Option key={blog.id} value={blog.id}>
-                                            {blog.title}
-                                        </Option>
-                                    ))
-                                    :
-                                    null
-                                }
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            label="Price"
-                            name="price"
-                            rules={[{required: true, message: 'Please enter the price'}]}
-                        >
-                            <Input type="number" min={0} placeholder="Enter the price"/>
-                        </Form.Item>
+                        {/*<Form.Item*/}
+                        {/*    label="Blog"*/}
+                        {/*    name="blog_id"*/}
+                        {/*>*/}
+                        {/*    <Select placeholder="Select a category" value={editingProduct?.blog_id}>*/}
+                        {/*        <Option value={0}>No blog</Option>*/}
+                        {/*        {blogs?.length > 0 ?*/}
+                        {/*            blogs.map(blog => (*/}
+                        {/*                <Option key={blog.id} value={blog.id}>*/}
+                        {/*                    {blog.title}*/}
+                        {/*                </Option>*/}
+                        {/*            ))*/}
+                        {/*            :*/}
+                        {/*            null*/}
+                        {/*        }*/}
+                        {/*    </Select>*/}
+                        {/*</Form.Item>*/}
+                        {/*<Form.Item*/}
+                        {/*    label="Price"*/}
+                        {/*    name="price"*/}
+                        {/*    rules={[{required: true, message: 'Please enter the price'}]}*/}
+                        {/*>*/}
+                        {/*    <Input type="number" min={0} placeholder="Enter the price"/>*/}
+                        {/*</Form.Item>*/}
                         <UploadAvatar avatarFile={avatarFile} avatarPreview={avatarPreview}
                                       handleAvatarChange={handleAvatarChange}/>
 

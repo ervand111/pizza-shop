@@ -72,9 +72,8 @@ const Orders = () => {
         {title: "Surname", dataIndex: "surname", key: "surname", width: 120 },
         { title: "Email", dataIndex: "email", key: "email", width: 200 },
         { title: "Phone", dataIndex: "phone", key: "phone", width: 200 },
-        { title: "Message", dataIndex: "message", key: "message", width: 200 },
-        { title: "Region", dataIndex: "region", key: "region", width: 200 },
         { title: "Address", dataIndex: "address", key: "address", width: 200 },
+
         {
             title: "Products",
             dataIndex: "products",
@@ -82,6 +81,8 @@ const Orders = () => {
             width: 200,
             render: renderProductPopover,
         },
+        { title: "Message", dataIndex: "message", key: "message", width: 200 },
+        { title: "Region", dataIndex: "region", key: "region", width: 200 },
         { title: "Delivery Amount", dataIndex: "total", key: "total", width: 200 },
         {
             title: "Date",

@@ -55,7 +55,6 @@ const UploadImages = ({images, setFiles}) => {
 
     function Uploads() {
         useEffect(() => {
-            console.log(fileList)
         }, [fileList])
         return (
             <Upload
@@ -72,11 +71,11 @@ const UploadImages = ({images, setFiles}) => {
         )
     }
 
-    return (
-        <Form.Item label="Images" name="images" valuePropName="fileList" getValueFromEvent={normFile}>
-            <Uploads/>
-        </Form.Item>
-    );
+    // return (
+    //     <Form.Item label="Images" name="images" valuePropName="fileList" getValueFromEvent={normFile}>
+    //         <Uploads/>
+    //     </Form.Item>
+    // );
 };
 
 export default UploadImages;
