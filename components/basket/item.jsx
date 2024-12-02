@@ -33,7 +33,14 @@ const Item = ({item, onRemove, updateBasketItemQuantity, removeFavorite}) => {
 
   const addToFavorites = () => {
     setCount(prev => ({...prev, favorite: prev.favorite + 1}));
-    addFavorite(item);
+
+    const favoriteItem = {
+      ...item,
+      price: item?.variants?.length > 0 ? item.variants[0].price : 0,
+      variants: item.variants || [],
+    };
+    addFavorite(favoriteItem);
+
   };
 
   const removeFromFavorites = () => {
