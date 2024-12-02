@@ -88,7 +88,6 @@ const Basket = () => {
         },
         body: JSON.stringify({...values, products: basketItems}),
       });
-
       if (response.ok) {
         const emailPayload = {
           subject: "Подтверждение заказа",
@@ -112,11 +111,11 @@ const Basket = () => {
       console.error("Error during payment:", error);
     }
   };
-
   const styleScrolling = {
     overflowY: isShow ? "scroll" : "auto",
     height: isShow ? "450px" : "auto",
   };
+  console.log(basketItems)
   return (
     <div>
       {step === 0 ? (
@@ -140,7 +139,7 @@ const Basket = () => {
                   <ul>
                     <li>
                       <span>{t("pricesTotal")}:</span>
-                      <span>{total} руб</span>
+                      <span>{total}  руб</span>
                     </li>
                     <li>
                       <span>{t("general")}:</span>

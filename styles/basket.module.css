@@ -143,6 +143,9 @@
     background: white!important;
     color: black;
 }
+.buttonsForm button:first-child:hover{
+    color: black!important;
+}
 .buttonsForm button:last-child{
     border: 1px solid black;
     background: black!important;
@@ -169,6 +172,7 @@
 .paymentTypes:hover{
     border-color: black;
     cursor: pointer;
+
 }
 .paymentTypes h3{
     margin-left:22px;
@@ -197,7 +201,6 @@
     width:100%;
     justify-content: end;
     padding-right: 30px;
-
     box-shadow: 0 0 20px 5px silver;
 
 }
@@ -228,18 +231,15 @@
     margin-top: 30px;
 }
 
-.shoppingResult ul {
-}
 
 .shoppingResult li {
     font-family: Mardoto, serif;
     display: flex;
-    justify-content: space-between;
     color: black;
+    padding: 10px;
 }
 .shoppingResult li:last-child {
     font-family: "Mardoto Black", serif;
-    margin-top: 10px;
 }
 
 .basketDiv > div:first-child {

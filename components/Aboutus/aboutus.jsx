@@ -44,18 +44,18 @@ const Aboutus = () => {
                         <h2> Дата регистрации: 14.11.2024</h2>
                     </div>
                     <div className={styles.picture}>
-                    <Image preview={false} src={process.env.IMAGE_URL2 +about.image1} alt=""/>
+                    <Image preview={false} src={process.env.IMAGE_URL2 + about.image1} alt=""/>
                     </div>
                 </div>
-                <div className={`${styles.pageRaw} ${styles.mobileReverse}`}>
-                    {/*<div className={styles.picture}>*/}
-                    {/*    <Image preview={false} src={process.env.IMAGE_URL2  + about.image2} alt=""/>*/}
-                    {/*</div>*/}
-                    <div className={styles.text}>
-                        {/*<p dangerouslySetInnerHTML={{__html: content1}}></p>*/}
+                {/*<div className={`${styles.pageRaw} ${styles.mobileReverse}`}>*/}
+                {/*    /!*<div className={styles.picture}>*!/*/}
+                {/*    /!*    <Image preview={false} src={process.env.IMAGE_URL2  + about.image2} alt=""/>*!/*/}
+                {/*    /!*</div>*!/*/}
+                {/*    <div className={styles.text}>*/}
+                {/*        /!*<p dangerouslySetInnerHTML={{__html: content1}}></p>*!/*/}
 
-                    </div>
-                </div>
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
 
         </div>

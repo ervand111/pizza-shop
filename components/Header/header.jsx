@@ -63,8 +63,11 @@ const Header = ({categories}) => {
                        <span className={styles.btnMenu} onClick={handlerMenu}>
                            <MenuOutlined/>
                        </span>
-                        <div className={`${styles.menuStyle} ${isMenu ? styles.active : null}`}>
-                            <MobileMenu handlerClosing={handleClose} handlerClose={handlerMenu}/>
+
+                        <div className={`${styles.menuStyle} ${isMenu ? styles.active : ''}`} onClick={handleClose}>
+                            <div className={styles.menuContent}>
+                                <MobileMenu handlerClosing={handleClose} handlerClose={handlerMenu}/>
+                            </div>
                         </div>
                     </div>
                     <div>

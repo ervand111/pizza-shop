@@ -47,7 +47,10 @@ const Footer = ({contact, categories}) => {
       <footer className={styles.footer}>
         <div>
           <div className={styles.logo}>
-            <Image preview={false} src="/photos/logo.jpg" alt="logo" className="logo" />
+            <Link href='/home'>
+              <Image preview={false} src="/photos/logo.jpg" alt="logo" className="logo" />
+
+            </Link>
           </div>
           <div className={styles.socials}>
             <div className={styles.itemSocial}>
