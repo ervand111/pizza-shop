@@ -20,34 +20,43 @@ const Orders = () => {
     };
 
     const renderProductPopover = (products) => {
-        const parsedProducts = JSON.parse(products);
+        let parsedProducts = [];
+        try {
+            parsedProducts = JSON.parse(products);
+        } catch (error) {
+            console.error("Error parsing products:", error);
+            return <div>Invalid product data</div>;
+        }
+
+        if (!Array.isArray(parsedProducts)) {
+            console.error("Parsed products is not an array");
+            return <div>Invalid product data</div>;
+        }
+
         return (
           <Space direction="vertical">
               {parsedProducts.map((product) => (
                 <Popover
                   key={product.id}
                   content={
-                      <div style={{width: 300}}>
-
+                      <div style={{ width: 300 }}>
                           <div>
-                              <a href={"https://www.alekspizza.ru/product/" + product.id} target="_blank"
-                                 rel="noreferrer">
+                              <a href={`https://www.alekspizza.ru/product/${product.id}`} target="_blank" rel="noreferrer">
                                   {product.title}
                               </a>
                           </div>
                           <div>
-                              <strong>Size:</strong> {product?.variants.map(elm => elm.value)}
+                              <strong>Size:</strong> {product?.variants?.map((elm) => elm.value).join(", ")}
                           </div>
                           <div>
-                              <strong>Price:</strong> {product?.variants?.map(elm => elm.price)}
+                              <strong>Price:</strong> {product?.variants?.map((elm) => elm.price).join(", ")}
                           </div>
                       </div>
                   }
                   title="Product Details"
                   trigger="hover"
                 >
-                    <a href={"https://www.alekspizza.ru/product/" + product.id} target="_blank"
-                       rel="noreferrer">
+                    <a href={`https://www.alekspizza.ru/product/${product.id}`} target="_blank" rel="noreferrer">
                         {product.title} ({product.model}) - {product.price}
                     </a>
                 </Popover>
@@ -55,6 +64,7 @@ const Orders = () => {
           </Space>
         );
     };
+
 
     const columns = [
         {title: "Id", dataIndex: "id", key: "id", width: 100},
