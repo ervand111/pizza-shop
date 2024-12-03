@@ -132,6 +132,7 @@
 .loaderPage img {
     width: 100px;
     animation: 1s animateLoader infinite;
+    border-radius: 50%;
 }
 
 @keyframes animateLoader {

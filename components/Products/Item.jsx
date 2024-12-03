@@ -76,8 +76,8 @@ const Item = ({item, addCart}) => {
                 src={process.env.IMAGE_URL2 + item.avatar}
                 style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
                 onLoad={() => setIsLoader(false)}
-                width={300}
-                height={100}
+                width={240}
+                height={240}
                 alt={item.title}
                 priority
               />

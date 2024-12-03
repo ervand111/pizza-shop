@@ -25,7 +25,6 @@
     animation: textGlow 2s infinite alternate;
 }
 
-/* Animation for subtle glowing text */
 @keyframes textGlow {
     from {
         text-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
@@ -57,7 +56,7 @@
 }
 
 .item:hover{
-    box-shadow: 0 0 30px 5px rgba(189, 189, 189, 0.65);
+    box-shadow: 0 0 50px 5px rgba(189, 189, 189, 0.65);
 }
 .productItem {
     width: 96%;
@@ -76,14 +75,15 @@
     transition: all 0.3s ease;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .productItemImg img {
-    width: 100%;
-    height: 100%;
     transition: 0.5s all ease!important;
-    object-fit: contain;
+    object-fit: cover;
 
 }
 
@@ -162,16 +162,14 @@
 }
 
 .wishlist svg {
-    transition: transform 0.2s ease; /* Smooth transition for icon movement */
+    transition: transform 0.2s ease;
 }
 
 .wishlist:hover svg {
-    transform: scale(1.4); /* Grow the heart when hovered for more interaction */
+    transform: scale(1.4);
 }
 
-.productItemImg:hover img{
-    transform: scale(1.04) rotate(15deg);
-}
+
 
 .productItemText {
     width: 100%;
@@ -237,9 +235,9 @@
 
 @media screen and (max-width: 1100px) {
     .item img {
-        width: 90%;
+        width: 100%;
         object-fit: contain;
-        object-position: center;
+
     }
 
     .offers h2 {
