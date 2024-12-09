@@ -6,6 +6,9 @@ const Delivery = () => {
     return (
         <div className={styles.delivery}>
             <div className={styles.deliveryItem}></div>
+            <div className={styles.deliveryItemCenter}>
+                <img src="/photos/deliveres.webp" alt=""/>
+            </div>
             <div className={styles.deliveryText}>
                 <h3>Бесплатная доставка</h3>
                 <p>Наслаждайтесь горячей пиццей прямо у вашего порога! Быстро, вкусно и удобно.</p>

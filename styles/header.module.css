@@ -1,13 +1,12 @@
 
-.header {
-    width: 100%;
-    height: 120px;
-    background: linear-gradient(to right  top, #ff9800, #ff5722);
-    position: fixed;
-    z-index: 22222;
-    top: 0;
-
-}
+    .header {
+        width: 100%;
+        height: 120px;
+        position: fixed;
+        z-index: 22222;
+        top: 0;
+       background-color: #A90000;
+    }
 
 .loaderPage {
     width: 100%;
@@ -42,7 +41,7 @@
     align-items: center;
     padding: 8px 20px;
     margin-left: 10px;
-    background: transparent;
+    background: none;
     border: 2px solid #fff;
     border-radius: 20px;
     color: white;
@@ -59,7 +58,7 @@
         box-shadow: 0 0 0 rgba(0, 0, 0,0);
     }
     to{
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
 
 
     }
@@ -68,17 +67,17 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -200%;
     width: 200%;
     height: 100%;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
-    transition: all 0.4s ease-in-out;
+    transition: all 0.8s ease-in-out;
 }
 
 
 
 .btnDelivery:hover::before {
-    left: 0;
+    left: 100%;
     transition: all 0.4s ease-in-out;
 }
 
