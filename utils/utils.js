@@ -85,7 +85,7 @@ export const regions = [
     {"id": 9, "label_en": "Armavir", "label_ru": "Армавир", "label": "Արմավիր", "value": "Armavir"},
     {"id": 10, "label_en": "Gegharkunik", "label_ru": "Гегаркунак", "label": "Գեղարքունիք", "value": "Gegharkunik"},
     {"id": 11, "label_en": "Aragatsotn", "label_ru": "Арагацотн", "label": "Արագածոտն", "value": "Aragatsotn"},
-    {"id": 12, "label_en": "Russia", "label_ru": "Россия", "label": "Ռուսաստան", "value": "Russia"},
+    {"id": 12, "label_en": "Krasnodar", "label_ru": "Krasnodar", "label": "Ռուսաստան", "value": "Krasnodar"},
     {"id": 13, "label_en": "USA", "label_ru": "USA", "label": "ԱՄՆ", "value": "USA"}
 ]
 

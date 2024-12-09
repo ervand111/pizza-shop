@@ -1,0 +1,69 @@
+.tableContainer {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+
+.ant-table {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.ant-table-thead > tr > th {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    z-index: 2;
+}
+
+.ant-table-tbody > tr:hover {
+    background-color: #f1f1f1;
+}
+
+.ant-table-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ant-table-row:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.ant-table-row:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.ant-table-cell {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.ant-table-scroll {
+    overflow-y: auto;
+}
+
+.productContainer {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productTitle {
+    color: #1890ff;
+    font-weight: bold;
+}
+
+.productInfo {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}

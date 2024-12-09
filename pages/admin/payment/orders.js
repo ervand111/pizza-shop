@@ -6,7 +6,7 @@ import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { filterPayments, getOrders, doneOrInProgress } from "../../../store/payment/actions";
 import { jsonToExcel } from "../../../utils/utils";
-
+import styles from '../../../styles/orders.module.css'
 const { RangePicker } = DatePicker;
 const { Text } = Typography;
 
@@ -39,25 +39,34 @@ const Orders = () => {
                 <Popover
                   key={product.id}
                   content={
-                      <div style={{ width: 300 }}>
+                      <div className={styles.productContainer}>
                           <div>
-                              <a href={`https://www.alekspizza.ru/product/${product.id}`} target="_blank" rel="noreferrer">
+                              <a
+                                className={styles.productTitle}
+                                href={`https://www.alekspizza.ru/product/${product.id}`}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
                                   {product.title}
                               </a>
+
+                              -
+                              ( {product.quantity} шт.)
                           </div>
-                          <div>
+                          <div className={styles.productInfo}>
                               <strong>Size:</strong> {product?.variants?.map((elm) => elm.value).join(", ")}
                           </div>
-                          <div>
+                          <div className={styles.productInfo}>
                               <strong>Price:</strong> {product?.variants?.map((elm) => elm.price).join(", ")}
                           </div>
                       </div>
+
                   }
                   title="Product Details"
                   trigger="hover"
                 >
                     <a href={`https://www.alekspizza.ru/product/${product.id}`} target="_blank" rel="noreferrer">
-                        {product.title} ({product.model}) - {product.price}
+                        {product.title} ({product.model}) - {product.price} - ( {product.quantity} шт. )
                     </a>
                 </Popover>
               ))}
@@ -78,12 +87,13 @@ const Orders = () => {
             title: "Products",
             dataIndex: "products",
             key: "products",
-            width: 200,
+            width: 400,
             render: renderProductPopover,
         },
+        { title: "Delivery Amount", dataIndex: "total", key: "total", width: 200 },
+
         { title: "Message", dataIndex: "message", key: "message", width: 200 },
         { title: "Region", dataIndex: "region", key: "region", width: 200 },
-        { title: "Delivery Amount", dataIndex: "total", key: "total", width: 200 },
         {
             title: "Date",
             dataIndex: "created_at",
@@ -151,7 +161,18 @@ const Orders = () => {
               <Button onClick={downloadExcel} type="primary" style={{ marginBottom: 16 }}>
                   Download XML
               </Button>
-              <Table dataSource={orders} columns={columns} scroll={{ y: true }} rowKey="id" />
+              <Table
+                className={styles.tableContainer}
+                dataSource={orders}
+                columns={columns}
+                scroll={{ y: true }}
+                rowKey="id"
+              />
+              <div className={styles.totalAmountContainer}>
+                  <Text strong>Total Delivery Amount: </Text>
+                  <Text>{total.toFixed(2)}</Text>
+              </div>
+
               <div style={{ marginTop: 16 }}>
                   <Text strong>Total Delivery Amount: </Text>
                   <Text>{total.toFixed(2)}</Text>

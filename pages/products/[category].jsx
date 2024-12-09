@@ -19,7 +19,6 @@ const Index = () => {
   const products = useSelector((state) => state.product.products) || [];
   const isFetching = useSelector((state) => state.product.isFetching);
   const dispatch = useDispatch();
-
   const [isNav, setIsNav] = useState(typeof window !== 'undefined' && window.innerWidth >= 900);
   const [isShow, setIsShow] = useState(false);
   const [form] = Form.useForm();

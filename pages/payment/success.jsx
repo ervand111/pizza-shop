@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import App from "../../components/Layouts/app";
 import styles from "../../styles/payment.module.css";
+import BasketContext from "../../providers/BasketContext";
+import CountContext from "../../providers/countContext";
 
 const Success = () => {
   const emojis = ['🎊', '🎉', '🥳', '✨', '🌟', '🍩', '🎂', '🧁', '🍹', '🍫', '🍿', '🎈', '🎀', '🎁'];
+  const {emptyBasket} = useContext(BasketContext)
+  const {setCount, count} = useContext(CountContext)
 
+  useEffect(() => {
+    emptyBasket()
+    setCount({favorite:count.favorite, basket:0})
+  },[])
   return (
     <App>
       <div className={styles.successWrapper}>
