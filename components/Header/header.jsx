@@ -20,6 +20,8 @@ const Header = ({categories}) => {
     const {locale} = router;
     const [isOpenDrb, setIsOpenDrb] = useState(false)
     const [isOpenDrbFlag, setIsOpenDrbFlag] = useState(false)
+
+
     useEffect(() => {
         const handleRouteChange = () => {
             setIsSearchBox(false);
@@ -107,7 +109,6 @@ const Header = ({categories}) => {
                                     {/*<div className={styles.searchBox}>*/}
                                     {/*    <span onClick={openSearchBox}>*/}
                                     {/*        {isSearchBox ? <CloseOutlined onClick={openSearchBox}/> : <SearchOutlined/>}*/}
-
                                     {/*    </span>*/}
                                     {/*    {isSearchBox ?*/}
                                     {/*      <SearchBox onClose={openSearchBox}/>*/}

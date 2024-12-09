@@ -1,5 +1,6 @@
 .footer {
-    background-color: #222222; /* Dark background for the footer */
+    background: linear-gradient(to left bottom, #ff9800, #ff5722);
+
     padding: 20px;
     color: white;
     font-family: 'Arial', sans-serif;
@@ -43,11 +44,11 @@
     color: #ffcc00; /* Bright yellow for hover effect */
 }
 
-/* Scroll to Top Button */
 .span span {
     width: 55px;
     height: 55px;
-    background: #768200FF;
+    background: linear-gradient(to right  top, #ff9800, #ff5722);
+
     position: fixed;
     bottom: 20px;
     right: 20px;

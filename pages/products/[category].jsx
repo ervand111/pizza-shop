@@ -98,6 +98,7 @@ const Index = () => {
 
   const handleSubmit = (values) => {
     const jsonCategories = JSON.stringify(ids);
+    console.log(jsonCategories)
     const query = {
       min: (values.start * currentRate.value) || 0,
       max: (values.end * currentRate.value) || 10000000,
@@ -130,75 +131,75 @@ const Index = () => {
 
   const Nav = () => (
 
-    <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
-      <div className={styles.headerNav}>
+      <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
+        <div className={styles.headerNav}>
         <span onClick={() => setIsNav(false)}>
           <CloseIcon />
         </span>
-      </div>
-      <Form onFinish={handleSubmit} form={form}>
-        <ul className={styles.filterList}>
-          {categories.map((item) => {
-            return (
-              <li key={item.id}>
-                <span>{item.name}</span>
-                <span>
-                  <Form.Item name={['checkboxs', item.id]} valuePropName="checked">
+        </div>
+        <Form onFinish={handleSubmit} form={form}>
+          <ul className={styles.filterList}>
+            {categories.map((item) => {
+              return (
+                  <li key={item.id}>
+                    <span>{item.name}</span>
+                    <span>
+                  <Form.Item name={['checkbox', item.id]} valuePropName="checked">
                     <Checkbox onChange={(e) => changes(item.id, e)} />
                   </Form.Item>
                 </span>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={styles.filterList}>
-          <h3>{t('price')}</h3>
-          <div className={styles.priceList}>
-            <Form.Item name="start">
-              <Input placeholder="From" name="startPrice" type="number" />
-            </Form.Item>
-            <Form.Item name="end">
-              <Input placeholder="To" min={0} name="endPrice" type="number" />
-            </Form.Item>
+                  </li>
+              );
+            })}
+          </ul>
+          <div className={styles.filterList}>
+            <h3>{t('price')}</h3>
+            <div className={styles.priceList}>
+              <Form.Item name="start">
+                <Input placeholder="от" name="startPrice" type="number" />
+              </Form.Item>
+              <Form.Item name="end">
+                <Input placeholder="до" min={0} name="endPrice" type="number" />
+              </Form.Item>
+            </div>
           </div>
-        </div>
-        <div className={styles.lastSection}>
-          <Button htmlType="submit">{t('filter')}</Button>
-          <Button onClick={clearFilter}>{t('clear')}</Button>
-        </div>
-      </Form>
-    </div>
+          <div className={styles.lastSection}>
+            <Button htmlType="submit">{t('filter')}</Button>
+            <Button onClick={clearFilter}>{t('clear')}</Button>
+          </div>
+        </Form>
+      </div>
   );
 
   return (
 
-    <Skeleton loading={isFetching} active>
-      <div className={styles.mobileContainer}>
+      <Skeleton loading={isFetching} active>
+        <div className={styles.mobileContainer}>
         <span className={styles.filterButton} onClick={openNav}>
           <FilterOutlined />
         </span>
-      </div>
-      <div className={styles.row} onScroll={handleScroll}>
-        <Nav />
-        <div className={styles.productsSection}>
-          <div className={styles.productRow}>
-            {products.length > 0
-              ? products.reverse().map((item) => (
-                <Item addCart={addNotification} key={item.id} item={item} />
-              ))
-              : (
-                <h2 className={styles.title}>{t('product_not_found')}</h2>
-              )}
+        </div>
+        <div className={styles.row} onScroll={handleScroll}>
+          <Nav />
+          <div className={styles.productsSection}>
+            <div className={styles.productRow}>
+              {products.length > 0
+                  ? products.reverse().map((item) => (
+                      <Item addCart={addNotification} key={item.id} item={item} />
+                  ))
+                  : (
+                      <h2 className={styles.title}>{t('product_not_found')}</h2>
+                  )}
+            </div>
           </div>
         </div>
-      </div>
-      <Notification style={stylesNotification}>
+        <Notification style={stylesNotification}>
         <span className="icon">
           <CheckOutlined />
         </span>
-        <span>{t('added_basket')}</span>
-      </Notification>
-    </Skeleton>
+          <span>{t('added_basket')}</span>
+        </Notification>
+      </Skeleton>
 
   );
 };

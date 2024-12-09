@@ -81,7 +81,6 @@ const Products = ({products, title = ""}) => {
     <div>
       <div className={styles.pageProduct}>
         <div className={styles.offers}>
-
           <h2>{title}</h2>
         </div>
         <div className={styles.products}>

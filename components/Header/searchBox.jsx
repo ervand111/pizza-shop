@@ -11,7 +11,6 @@ const SearchBox = ({ onClose }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const filteredSearch = useSelector((state) => state?.product?.searchResult?.data);
     const [searchTimeout, setSearchTimeout] = useState(null);
-
     useEffect(() => {
         if (searchTerm !== '') {
             if (searchTimeout) {

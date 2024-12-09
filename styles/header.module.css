@@ -2,7 +2,7 @@
 .header {
     width: 100%;
     height: 120px;
-    background-color: #768200FF;
+    background: linear-gradient(to right  top, #ff9800, #ff5722);
     position: fixed;
     z-index: 22222;
     top: 0;
@@ -274,8 +274,9 @@
     transform: translateX(-50%);
     top: 100%;
     z-index: 222222;
-    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
+    background-color: gray;
 }
 
 .activeCategory a {
