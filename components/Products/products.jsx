@@ -98,15 +98,15 @@ const Products = ({ products, title = "" }) => {
   return (
       <div>
         <div className={styles.pageProduct}>
-          <div className={styles.offers}>
-            <div className={styles.Leftchef}>
-              <img src="/photos/leftChef_preview_rev_1.png" alt=""/>
+            <div className={styles.offers}>
+              <div className={styles.Leftchef}>
+                <img src="/photos/leftChef_preview_rev_1.png" alt=""/>
+              </div>
+              <h2>{title}</h2>
+              <div className={styles.Rightchef}>
+                <img src="/photos/chef_preview_rev_1.png" alt=""/>
+              </div>
             </div>
-            <h2>{title}</h2>
-            <div className={styles.Rightchef}>
-              <img src="/photos/chef_preview_rev_1.png" alt=""/>
-            </div>
-          </div>
           <div className={styles.products}>
             <Slider {...settings}>
               {products?.map((item) => (
