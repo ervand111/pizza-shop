@@ -72,6 +72,7 @@ const AllCategoryPage = () => {
 
 
     useEffect(() => {
+        console.log(categories)
         const newData = categories.map((item) => {
             item.value = item.id;
             item.title = item.name;

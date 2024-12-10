@@ -5,42 +5,52 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    backdrop-filter: blur(8px); /* Background blur effect */
+    background-image: url("/photos/bg-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    background-position: center;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Hover effect for interaction */
+.offers:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+}
+
+/* Typography for the heading */
 .offers h2 {
     font-weight: 800;
     font-size: 60px;
     letter-spacing: 4px;
-    font-family: 'MardotoLight', serif;
-    color: #A90000;
+    font-family: "Malgun Gothic Semilight", serif;
+    color: #fff; /* Changed to white for better contrast */
     text-align: center;
-    background: #A90000;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textMoveGlow 2.5s ease-out forwards;
-    text-shadow: 0 0 15px rgba(169, 0, 0, 0.7), 0 0 30px rgba(169, 0, 0, 0.5); /* Glow effect */
+    text-transform: uppercase; /* Added for a more impactful look */
+    animation: textMoveGlow 0.8s ease-out  forwards;
 }
 
 @keyframes textMoveGlow {
     0% {
-        transform: translateX(-100%) rotate(-30deg); /* Start offscreen left with rotation */
+        transform: translateX(-100%) rotate(-30deg);
         text-shadow: 0 0 10px #A90000, 0 0 20px #A90000;
     }
     50% {
-        transform: translateX(0) rotate(0); /* Move to center without rotation */
-        text-shadow: 0 0 30px #A90000, 0 0 40px #A90000;
+        transform: translateX(0) rotate(0);
+        text-shadow: 0 0 20px #A90000, 0 0 20px #A90000; /* Glow intensity increased */
     }
     100% {
-        transform: translateX(0) rotate(0); /* Stay at the center */
-        text-shadow: 0 0 30px #A90000, 0 0 50px #A90000;
+        transform: translateX(0) rotate(0);
+        text-shadow: 0 0 40px #A90000, 0 0 40px #A90000
     }
 }
 
+/* Chef animations */
 @keyframes chefMove {
     0% {
         transform: translateX(100%) rotate(20deg);
@@ -55,7 +65,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(100%) rotate(-20deg); /* Move to right */
+        transform: translateX(100%) rotate(-20deg);
     }
 }
 
@@ -64,14 +74,15 @@
     height: 270px;
     position: absolute;
     right: 0;
-    z-index: 10;
-    animation: chefMove 6s infinite alternate linear forwards;
+    z-index: 100;
+    animation: chefMove 6s infinite alternate linear;
 }
 
 .Rightchef img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 8px; /* Rounded corners for images */
 }
 
 .Leftchef {
@@ -80,12 +91,14 @@
     position: absolute;
     left: 0;
     z-index: 1;
-    animation: LeftchefMove 6s infinite alternate linear forwards;
+    animation: LeftchefMove 6s infinite alternate linear;
 }
 
 .Leftchef img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 8px; /* Rounded corners for images */
 }
 
 @keyframes LeftchefMove {
@@ -102,10 +115,26 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%) rotate(-20deg); /* Move to right */
+        transform: translateX(-100%) rotate(-20deg);
     }
 }
 
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .offers {
+        height: 250px; /* Adjust height for smaller screens */
+        margin-top: 20px; /* Reduce margin */
+    }
+
+    .offers h2 {
+        font-size: 40px; /* Reduce font size */
+    }
+
+    .Rightchef, .Leftchef {
+        width: 200px; /* Resize chef images */
+        height: 220px;
+    }
+}
 
 .products {
     width: 100%;
