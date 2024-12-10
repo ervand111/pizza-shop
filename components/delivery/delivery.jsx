@@ -7,7 +7,7 @@ const Delivery = () => {
         <div className={styles.delivery}>
             <div className={styles.deliveryItem}></div>
             <div className={styles.deliveryItemCenter}>
-                <img src="/photos/deliveres.webp" alt=""/>
+                <img src="/photos/deliveres1_preview_rev_1.png" alt=""/>
             </div>
             <div className={styles.deliveryText}>
                 <h3>Бесплатная доставка</h3>

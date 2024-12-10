@@ -4,7 +4,7 @@
 }
 .parentBanner{
     width: 100%;
-    background-image: url("../public/photos/bg-2.jpg");
+    background-image: url("../public/photos/bg-4.jpg");
     background-size: cover;
     background-position: left;
     height: auto;
@@ -44,12 +44,20 @@
     height: 100%;
 }
 
+.bannerItem {
+    width: 100%;
+    margin: auto;
+    height:530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .products {
     display: flex;
     height: 90%;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 80%;
 
 }
 
@@ -77,15 +85,6 @@
     align-items: flex-start;
 }
 
-.bannerItem {
-    width: 93%;
-    margin: auto;
-    height:530px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 @media only screen and (max-width: 1180px) {
     .bannerItem{
         height: 400px;
