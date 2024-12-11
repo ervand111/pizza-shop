@@ -306,8 +306,9 @@
     }
 
     .productsSection {
-        width: 100%;
+        width:60%;
         display: flex;
+
 
     }
     .productRow{
@@ -327,5 +328,11 @@
 @media screen and (max-width: 500px) {
     .productHeader {
         flex-direction: column;
+    }
+    .productsSection {
+        width:90%;
+    }
+    .productRow > div {
+        height:auto;
     }
 }

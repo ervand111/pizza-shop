@@ -182,7 +182,9 @@
     width: 90%;
     box-shadow: 0 5px 30px 10px #a89f9f;
     padding: 20px;
-    margin: 150px auto;
+    margin: auto;
+    margin-bottom: 30px!important;
+    margin-top: 133px;
 }
 .basketDiv {
     height: 150px;

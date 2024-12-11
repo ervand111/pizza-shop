@@ -55,7 +55,7 @@
         text-shadow: 0 0 20px #A90000, 0 0 20px #A90000;
     }
     100% {
-        transform: translateX(0) translateY(5px ) rotate(0);
+        transform: translateX(0) translateY(0 ) rotate(0);
         text-shadow: 0 0 40px #A90000, 0 0 40px #A90000;
     }
 }
@@ -154,7 +154,7 @@
 }
 
 .item {
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,6 +198,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     align-items: center;
 
 }
@@ -213,6 +214,7 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    align-items: center;
 }
 .addCard button {
     padding: 15px 30px;
@@ -220,7 +222,6 @@
     color: white;
     font-weight: bold;
     border: none;
-    margin-top: 10px;
     position: relative;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -299,7 +300,7 @@
 
 .productItemText {
     width: 100%;
-    height: 40%;
+    height: 50%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -367,8 +368,9 @@
         height:200px;
         object-fit: contain;
         border-radius: 30px;
-        margin: auto;
+        margin:  auto;
         display: block;
+        margin-top: 30px!important;
 
     }
 
@@ -380,19 +382,7 @@
 }
 
 @media screen and (max-width: 900px) {
-    .addCard button {
-        padding: 7px 20px;
-        font-size: 16px;
-        color: white;
-        font-weight: bold;
-        border: none;
-        margin-top: 10px;
-        position: relative;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-transform: uppercase;
-        cursor: pointer;
-    }
+
     .text p {
         font-size: 18px; /* Adjusted font size */
     }
@@ -423,6 +413,7 @@
 
     .addCard button {
         font-size: 14px;
+        padding: 15px 20px;
     }
     .addCard svg{
         font-size: 16px;
@@ -455,11 +446,12 @@
     .wishlist {
         width: 30px;
         height: 30px;
+        top: 9px;
     }
 
     .addCard button {
         font-size: 14px;
-        padding: 14px 10px;
+        padding: 14px 20px;
         margin: 20px;
     }
     .addCard svg{
@@ -474,7 +466,9 @@
         text-align: center;
         margin: 2px;
     }
-
+    .productItem{
+        height: auto;
+    }
 
 }
 
