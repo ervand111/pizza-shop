@@ -159,7 +159,7 @@
 }
 
 .paragraph > p:hover {
-    color: #82B440FF;
+    color: #A90000;
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -188,7 +188,7 @@
 }
 
 .spanTextRaw > span:last-child:hover {
-    color: #82B440FF;
+    color:  #A90000;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -208,7 +208,7 @@
 }
 
 .priceText span:hover {
-    color: #82B440FF;
+    color:  #A90000;
     transform: translateX(5px);
     font-weight: 700;
 }
@@ -219,19 +219,22 @@
 }
 
 .buttons button {
-    margin-left: 10px;
-    padding: 18px 30px;
+    padding: 15px 30px;
     font-size: 16px;
-    border-radius: 50px;
-    background-color: #82B440FF;
     color: white;
     font-weight: bold;
     border: none;
-    margin-top: 10px;
+    margin: 10px;
+    position: relative;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
     cursor: pointer;
+    background-color: #A90000;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .buttons button svg {
@@ -285,16 +288,16 @@
 }
 
 .variantSelector label:hover {
-    color: #82B440FF;
+    color: #A90000;
     text-decoration: underline;
 
 }
 .variantSelector select:hover {
-    border-color: #82B440FF;
+    border-color: #A90000;
 }
 
 .variantSelector select:focus {
-    border-color: #82B440FF;
+    border-color:#A90000;
     box-shadow: 0 0 5px rgba(130, 180, 64, 0.5);
 }
 .variantSelector select::after {

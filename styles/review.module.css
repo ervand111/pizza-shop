@@ -3,7 +3,7 @@
     width: 100%;
     height: auto;
     padding: 20px;
-    box-shadow: 20px 10px 34px 10px #544f4f;
+    box-shadow: 10px 10px 34px 10px #bab5b5;
     border-radius: 15px;
     position: relative;
 
@@ -134,7 +134,6 @@
 }
 .contactCard:nth-child(2) {
     width: 400px;
-
 }
 .contactCard::before {
     content: "";
@@ -199,6 +198,22 @@
     margin-top: 10px;
     font-size: 16px;
     color: #333;
+}
+@media screen  and (max-width: 1800px){
+    .gif {
+        left: 30px;
+    }
+    .gif1 {
+        right: 30px;
+    }
+}
+@media screen  and (max-width: 1600px){
+    .gif {
+        display: none;
+    }
+    .gif1 {
+        display: none;
+    }
 }
 
 @media screen  and (max-width: 800px) {

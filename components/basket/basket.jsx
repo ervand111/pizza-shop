@@ -133,29 +133,13 @@ const Basket = () => {
                   />
                 ))}
               </div>
-
-              <div className={styles.shoppingLast}>
-                <div className={styles.shoppingResult}>
-                  <ul>
-                    <li>
-                      <span>{t("pricesTotal")}:</span>
-                      <span>{total}  руб</span>
-                    </li>
-                    <li>
-                      <span>{t("general")}:</span>
-                      <span>{total} руб</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Buy Button */}
-              <div className={styles.shoppingStep}>
+              <div className={styles.shoppingResult}>
+                <span>{t("general")}: {total} руб</span>
                 <Button onClick={handleBuy}>{t("buy")}</Button>
               </div>
             </div>
           ) : (
-            <h2 className={styles.title2} style={{color: "black"}}>
+              <h2 className={styles.title2} style={{color: "black"}}>
               {t("empty_basket")}
             </h2>
           )}

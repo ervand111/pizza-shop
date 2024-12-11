@@ -17,22 +17,24 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Hover effect for interaction */
 .offers:hover {
     transform: scale(1.05); /* Slight zoom effect */
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); /* Stronger shadow */
 }
 
-/* Typography for the heading */
+
 .offers h2 {
     font-weight: 800;
     font-size: 60px;
     letter-spacing: 4px;
     font-family: "Malgun Gothic Semilight", serif;
-    color: #fff; /* Changed to white for better contrast */
+    color: #fff;
     text-align: center;
-    text-transform: uppercase; /* Added for a more impactful look */
-    animation: textMoveGlow 0.8s ease-out  forwards;
+    text-transform: uppercase;
+    animation: textMoveGlow 0.8s ease-out forwards;
+    animation-delay: 4s;
+    transform: translateX(-400%) ;
+
 }
 
 @keyframes textMoveGlow {
@@ -41,12 +43,20 @@
         text-shadow: 0 0 10px #A90000, 0 0 20px #A90000;
     }
     50% {
-        transform: translateX(0) rotate(0);
+        transform: translateX(0) translateY(-20px) rotate(0);
         text-shadow: 0 0 20px #A90000, 0 0 20px #A90000; /* Glow intensity increased */
     }
+    65% {
+        transform: translateY(10px) rotate(0);
+        text-shadow: 0 0 20px #A90000, 0 0 20px #A90000; /* Glow intensity increased */
+    }
+    75% {
+        transform: translateY(-10px) rotate(0);
+        text-shadow: 0 0 20px #A90000, 0 0 20px #A90000;
+    }
     100% {
-        transform: translateX(0) rotate(0);
-        text-shadow: 0 0 40px #A90000, 0 0 40px #A90000
+        transform: translateX(0) translateY(5px ) rotate(0);
+        text-shadow: 0 0 40px #A90000, 0 0 40px #A90000;
     }
 }
 
@@ -97,7 +107,7 @@
 .Leftchef img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px; /* Rounded corners for images */
 }
 
@@ -353,7 +363,7 @@
 
     }
     .item img {
-        width: 90%;
+        width: 80%;
         height:200px;
         object-fit: contain;
         border-radius: 30px;
@@ -450,13 +460,13 @@
     .addCard button {
         font-size: 14px;
         padding: 14px 10px;
-        margin: auto;
+        margin: 20px;
     }
     .addCard svg{
         font-size: 16px;
     }
     .text  h3{
-        font-size: 24px;
+        font-size: 16px;
         text-align: center;
     }
     .text  p{

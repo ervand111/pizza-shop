@@ -3,20 +3,18 @@ import Details from "../../components/Products/Details/details";
 import Products from "../../components/Products/products";
 import { useDispatch, useSelector } from "react-redux";
 import App from "../../components/Layouts/app";
-import styles from "../../styles/products.module.css";
 import { getImportantProducts, getProductsAll } from "../../store/products/actions";
 
 const Index = () => {
-    const [category, setCategory] = useState(''); // Store the selected category
+    const [category, setCategory] = useState('');
     const products = useSelector((state) => state?.product?.importantProducts);
     const dispatch = useDispatch();
 
-    // Fetch products based on category or all important products
     useEffect(() => {
         if (category) {
-            dispatch(getProductsAll.request(category)); // Fetch products for the selected category
+            dispatch(getProductsAll.request(category));
         } else {
-            dispatch(getImportantProducts.request()); // Fetch all important products
+            dispatch(getImportantProducts.request());
         }
     }, [dispatch, category]);
 
@@ -24,7 +22,7 @@ const Index = () => {
       <div>
           <Details />
           <div>
-              <Products products={products} />
+              {/*<Products products={products} />*/}
           </div>
       </div>
     );

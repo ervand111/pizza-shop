@@ -126,7 +126,6 @@
         justify-content: center;
     }
 }
-
 @media only screen and (max-width: 970px) {
     .pages li {
         font-size: 12px;
@@ -137,7 +136,9 @@
         font-weight: bold;
 
     }
-
+            .pages{
+                gap: 40px;
+            }
     .footer > div:last-child {
         width: 100%;
         justify-content: space-evenly;
@@ -161,7 +162,9 @@
         font-weight: bold;
 
     }
-
+        .pages{
+            gap: 25px;
+        }
     .footer > div:last-child {
         width: 100%;
         justify-content: space-evenly;
@@ -172,19 +175,17 @@
         display: none;
     }
 
-
-
     .pages li {
         font-size: 12px;
         text-align: center;
+
     }
 
     .pages h4 {
-        font-size: 15px;
+        font-size: 12px;
         text-align: center;
         margin: 0;
         font-weight: bold;
-
     }
 
     .footer > div:last-child {
@@ -200,14 +201,16 @@
     }
 
     .pages h4 {
-        font-size: 13px;
+        font-size: 10px;
         text-align: left;
         margin: 0;
         font-weight: bold;
-
-
     }
 
+    .pages{
+        justify-content: start;
+
+    }
     .footer > div:last-child {
         width: 100%;
         justify-content: space-evenly;
@@ -215,6 +218,9 @@
     }
 }
 @media only screen and (max-width: 340px) {
+    .pages{
+        gap: 20px;
+    }
     .pages li {
         font-size: 10px;
         text-align: left;
@@ -227,6 +233,9 @@
 
     }
 
+    .pages{
+        justify-content: start;
+    }
     .footer > div:last-child {
         width: 100%;
         justify-content: space-evenly;
