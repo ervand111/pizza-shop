@@ -100,14 +100,16 @@
 /* Text */
 .text {
     align-items: center;
-    min-width:50%;
+    min-width: 50%;
     box-shadow: 0 10px 10px 20px silver;
     padding: 20px;
 
 }
-.selectedPrice span{
+
+.selectedPrice span {
     font-size: 22px;
 }
+
 .title h1 {
     font-family: Mardoto, serif;
     font-size: 40px;
@@ -141,16 +143,19 @@
     transform: translateX(5px);
 }
 
-.paragraph{
+.paragraph {
     padding: 30px;
 }
-.paragraph h3{
+
+.paragraph h3 {
     margin: 10px;
     font-size: 24px;
 }
-.paragraph h2{
+
+.paragraph h2 {
     margin: 10px;
 }
+
 .paragraph > p {
     font-size: 18px;
     padding: 10px;
@@ -188,7 +193,7 @@
 }
 
 .spanTextRaw > span:last-child:hover {
-    color:  #A90000;
+    color: #A90000;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -208,7 +213,7 @@
 }
 
 .priceText span:hover {
-    color:  #A90000;
+    color: #A90000;
     transform: translateX(5px);
     font-weight: 700;
 }
@@ -252,6 +257,7 @@
     outline: none;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 }
+
 .variantSelector {
     display: flex;
     flex-direction: column;
@@ -292,14 +298,16 @@
     text-decoration: underline;
 
 }
+
 .variantSelector select:hover {
     border-color: #A90000;
 }
 
 .variantSelector select:focus {
-    border-color:#A90000;
+    border-color: #A90000;
     box-shadow: 0 0 5px rgba(130, 180, 64, 0.5);
 }
+
 .variantSelector select::after {
     content: '▼';
     font-size: 18px;
@@ -339,9 +347,11 @@
     .buttons button svg {
         font-size: 14px;
     }
-    .selectedPrice span{
+
+    .selectedPrice span {
         font-size: 16px;
     }
+
     .variantSelector label {
         font-size: 14px;
     }
@@ -350,15 +360,18 @@
         padding: 8px 16px;
         width: 80%;
     }
-    .paragraph p{
+
+    .paragraph p {
         font-size: 16px;
         padding: 2px;
     }
-    .paragraph h3{
+
+    .paragraph h3 {
         font-size: 18px;
     }
+
     .text {
-        height:auto;
+        height: auto;
     }
 
     .slider {
@@ -373,6 +386,7 @@
     }
 
 }
+
 @media only screen and (max-width: 800px) {
     .buttons button {
         padding: 10px 29px;
@@ -382,9 +396,11 @@
     .buttons button svg {
         font-size: 12px;
     }
-    .selectedPrice span{
+
+    .selectedPrice span {
         font-size: 14px;
     }
+
     .variantSelector label {
         font-size: 12px;
     }
@@ -393,28 +409,34 @@
         padding: 8px 12px;
         width: 75%;
     }
-    .paragraph p{
+
+    .paragraph p {
         font-size: 16px;
     }
-    .paragraph h3{
+
+    .paragraph h3 {
         font-size: 18px;
     }
+
     .text {
-        height:auto;
+        height: auto;
         margin: 20px;
         box-shadow: 0 0 0 2px silver;
 
     }
+
     .productRow {
-      flex-wrap: wrap;
+        flex-wrap: wrap;
         height: auto;
         padding: 20px;
     }
-    .slider img{
+
+    .slider img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
     .slider {
         width: 200px;
         height: 200px;
@@ -425,24 +447,28 @@
 
 @media only screen and (max-width: 500px) {
     .buttons button {
-        padding: 13px 10px;
+        padding: 10px 20px;
         font-size: 10px;
-        margin: 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 10px 10px 0!important;
 
+    }
 
+    .buttons {
+        width: 100%;
     }
 
     .buttons button svg {
         font-size: 12px;
-        margin: 0;
-    }
-    .buttons{
-        width: 100%;
         margin: 3px;
     }
-    .selectedPrice span{
+
+    .selectedPrice span {
         font-size: 14px;
     }
+
     .variantSelector label {
         font-size: 12px;
     }
@@ -451,30 +477,36 @@
         padding: 8px 12px;
         width: 75%;
     }
-    .paragraph p{
+
+    .paragraph p {
         font-size: 16px;
         padding: 10px;
     }
-    .paragraph h2{
+
+    .paragraph h2 {
         font-size: 20px;
     }
-    .paragraph h3{
+
+    .paragraph h3 {
         font-size: 15px;
     }
+
     .paragraph {
         width: 100%;
         padding: 0;
     }
+
     .productRow {
         flex-wrap: wrap;
         height: auto;
         padding: 0;
     }
+
     .slider {
         width: 200px;
         height: 200px;
         border: none;
         margin: 10px;
-        }
+    }
 
 }

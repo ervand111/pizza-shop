@@ -1,32 +1,30 @@
-import React, {useState, useEffect, useContext, useCallback} from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import styles from "../../../styles/details.module.css";
-import {CheckOutlined, HeartOutlined, ShoppingOutlined} from "@ant-design/icons";
+import { CheckOutlined, HeartOutlined, ShoppingOutlined } from "@ant-design/icons";
 import Notification from "../../notification/notification";
-import {useRouter} from "next/router";
-import {useDispatch, useSelector} from "react-redux";
-import {getProduct} from "../../../store/products/actions";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { getProduct } from "../../../store/products/actions";
 import CountContext from "../../../providers/countContext";
 import BasketContext from "../../../providers/BasketContext";
-import {t} from "../../../utils/utils";
-import {Image, Skeleton} from "antd";
-import Products from "../products";
+import { t } from "../../../utils/utils";
+import { Skeleton } from "antd";
 
 const Details = () => {
   const product = useSelector((state) => state.product?.selectedProduct?.data);
   const isFetching = useSelector((state) => state.product?.isFetching);
   const [isShow, setIsShow] = useState(false);
-  const {setCount} = useContext(CountContext);
-  const {add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite} = useContext(BasketContext);
-  const [title, setTitle] = useState("");
-  const [metal, setMetal] = useState("");
+  const { setCount } = useContext(CountContext);
+  const { add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite } = useContext(BasketContext);
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [price, setPrice] = useState(null);
   const dispatch = useDispatch();
   const router = useRouter();
-  const {name} = router.query;
-  const {locale} = router;
+  const { name } = router.query;
+  const { locale } = router;
+
   const stylesNotification = {
-    transform: isShow ? "translate(0%)" : "translate(150%)"
+    transform: isShow ? "translate(0%)" : "translate(150%)",
   };
 
   function addNotification() {
@@ -37,24 +35,23 @@ const Details = () => {
   }
 
   useEffect(() => {
-    dispatch(getProduct.request({id: name}));
+    if (name) {
+      dispatch(getProduct.request({ id: name }));
+    }
   }, [dispatch, name]);
 
   useEffect(() => {
-    const t = (locale === 'en') ? product?.title_en : (locale === 'ru') ? product?.title_ru : product?.title;
-    const m = (locale === 'en') ? product?.metal_en : (locale === 'ru') ? product?.metal_ru : product?.metal;
-    setTitle(t);
-    setMetal(m);
-    if (product?.variants && product?.variants.length > 0) {
-      setSelectedVariant(product?.variants[0]);
-      setPrice(product?.variants[0]?.price);
+    if (product) {
+      const defaultVariant = product.variants?.[0] || null;
+      setSelectedVariant(defaultVariant);
+      setPrice(defaultVariant?.price || 0);
     }
-  }, [locale, product]);
+  }, [product]);
 
   const handleVariantChange = (event) => {
-    const selectedVariant = product?.variants.find((variant) => variant.id === parseInt(event.target.value));
-    setSelectedVariant(selectedVariant);
-    setPrice(selectedVariant?.price);
+    const selected = product?.variants.find((variant) => variant.id === parseInt(event.target.value));
+    setSelectedVariant(selected);
+    setPrice(selected?.price || 0);
   };
 
   const addToBaskets = useCallback(() => {
@@ -69,7 +66,6 @@ const Details = () => {
       title: product?.title,
       avatar: product?.avatar,
     };
-    //
     add(productWithDetails);
   }, [selectedVariant, product, add, setCount]);
 
@@ -83,7 +79,15 @@ const Details = () => {
 
   const addToFavorites = () => {
     addNotification();
-    addFavorite(selectedVariant);
+
+    const productWithDetails = {
+      ...selectedVariant,
+      title: product?.title,
+      avatar: product?.avatar,
+      price: selectedVariant?.price,
+    };
+
+    addFavorite(productWithDetails);
     setCount((prev) => ({
       ...prev,
       favorite: ++prev.favorite,
@@ -103,20 +107,22 @@ const Details = () => {
       <Skeleton loading={isFetching} active>
         <div className={styles.productRow}>
           <div className={styles.slider}>
-            <img src={process.env.IMAGE_URL2 + product?.avatar} alt={title || "Product Image"} />
+            <img
+              src={process.env.IMAGE_URL2 + product?.avatar}
+              alt={product?.title || "Product Image"}
+            />
           </div>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>{title}</h1>
+              <h1>{product?.title}</h1>
             </div>
             <div className={styles.paragraph}>
               <h2>{t("infoOfProduct")}</h2>
-              <h3>{product?.title}</h3>
               <p>{product?.description}</p>
             </div>
             <div className={styles.variants}>
               <div className={styles.variantSelector}>
-                <label>Выберите размер:</label>
+                <label>{t("choose_size")}</label>
                 <select onChange={handleVariantChange} value={selectedVariant?.id || ""}>
                   {product?.variants?.map((variant) => (
                     <option key={variant.id} value={variant.id}>
@@ -126,7 +132,7 @@ const Details = () => {
                 </select>
               </div>
               <div className={styles.selectedPrice}>
-                <span> Цена: {price} руб.</span>
+                <span>{t("price")}: {price} руб.</span>
               </div>
             </div>
             <div className={styles.buttons}>

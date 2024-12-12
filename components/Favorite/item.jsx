@@ -77,7 +77,7 @@ const Item = ({ item, onRemove }) => {
           <div className={styles.favoriteItem}>
               <div className={styles.favoriteRow}>
                   <div className={styles.price}>
-                      <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
+                      <p>{item?.price} руб</p>
                   </div>
                   <div className={styles.rowR}>
                       <div className={styles.mobileIcons}>
