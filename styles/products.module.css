@@ -81,7 +81,7 @@
 
 .Rightchef {
     width: 240px;
-    height: 270px;
+    height: 210px;
     position: absolute;
     right: 0;
     z-index: 100;
@@ -168,13 +168,13 @@
     border-bottom-right-radius: 100px;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
-
-
 }
 
-.item:hover{
+.item:hover {
     box-shadow: 0 0 50px 5px rgba(189, 189, 189, 0.65);
+    transform: scale(1.02);  /* Adds a subtle zoom-in effect */
 }
+
 .productItem {
     width: 96%;
     height: 100%;
@@ -240,6 +240,11 @@
 .addCard button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #B30000; /* Slightly darker red */
+}
+
+.addCard button:active {
+    background-color: #800000; /* Darker shade when clicked */
 }
 
 .addCard button:focus {
@@ -273,6 +278,10 @@
     box-shadow: 0 0 8px 2px #A90000;
     cursor: pointer; /* Makes the div look clickable */
     animation: pulse 1s ease-out infinite; /* Adds the pulse animation */
+}
+.wishlist:hover svg {
+    transform: scale(1.3) rotate(10deg);  /* Adds a slight rotation on hover */
+    color: #FF5733;  /* Changes the icon color on hover */
 }
 
 @keyframes pulse {
@@ -324,20 +333,19 @@
 
 .text h3 {
     font-family: "Modern No. 20", serif;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;  /* Dark color for better readability */
     padding: 4px;
-    transition: all 0.3s ease;
 }
-
 
 
 .text p {
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
+    color: #888;  /* Lighter color for description text */
     padding: 4px;
-    transition: all 0.3s ease;
 }
-
 
 
 .text span {

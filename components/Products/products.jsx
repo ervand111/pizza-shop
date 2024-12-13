@@ -104,7 +104,7 @@ const Products = ({ products, title = "" }) => {
               </div>
               <h2>{title}</h2>
               <div className={styles.Rightchef}>
-                <img src="/photos/chef_preview_rev_1.png" alt=""/>
+                <img src="/photos/chef1-removebg-preview.png" alt=""/>
               </div>
             </div>
           <div className={styles.products}>
