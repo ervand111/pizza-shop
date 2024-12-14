@@ -20,115 +20,77 @@ const Index = () => {
   const isFetching = useSelector((state) => state.product.isFetching);
   const dispatch = useDispatch();
   const [isNav, setIsNav] = useState(typeof window !== 'undefined' && window.innerWidth >= 900);
-  const [isShow, setIsShow] = useState(false);
+  const [isNotificationVisible, setIsNotificationVisible] = useState(false);
   const [form] = Form.useForm();
   const router = useRouter();
   const { category } = router.query;
   const { currentRate } = useContext(RateContext);
-  const [ids, setIDs] = useState([]);
-  const { locale } = router;
-
-  const stylesNotification = {
-    transform: isShow ? 'translate(0%)' : 'translate(150%)',
-  };
-
-  const [visibleProduct, setVisibleProduct] = useState(4);
-
-  const loadMoreProducts = () => {
-    if (visibleProduct < products.length) {
-      setVisibleProduct(prev => prev + 2);
-    }
-  };
-  const handleScroll = (e) => {
-    const target = e.target;
-    if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-      loadMoreProducts(); // Call the function to load more products
-    }
-  };
-
-
-
-  useEffect(() => {
-    const { min, max, ids } = router.query;
-    if (min && max && ids) {
-      form.setFieldsValue({
-        start: min || 0,
-        end: max || 0,
-      });
-    }
-  }, [router.query, form]);
-
-  const addNotification = () => {
-    setIsShow(true);
-    setTimeout(() => {
-      setIsShow(false);
-    }, 2000);
-  };
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [displayLimit, setDisplayLimit] = useState();
 
   useEffect(() => {
     form.resetFields();
     dispatch(getSubCategories.request({ id: category }));
     dispatch(getProductsCategories.request({ id: category }));
-  }, [form, category, dispatch]);
+  }, [category, dispatch]);
 
   useEffect(() => {
-    const updateIsNav = () => {
-      setIsNav(window.innerWidth >= 900);
-    };
-    window.addEventListener('resize', updateIsNav);
-    return () => {
-      window.removeEventListener('resize', updateIsNav);
-    };
+    setFilteredProducts(products);
+  }, [products]);
+
+  useEffect(() => {
+    const updateNavVisibility = () => setIsNav(window.innerWidth >= 900);
+    window.addEventListener('resize', updateNavVisibility);
+    return () => window.removeEventListener('resize', updateNavVisibility);
   }, []);
 
-  useEffect(() => {
-    setVisibleProduct(4);
-  }, [products]);
-
-  useEffect(() => {
-    const reversedProducts = [...products].reverse(); // Reverse the products array directly.
-    setVisibleProduct(reversedProducts); // Use the reversed array for rendering.
-  }, [products]);
-
-  const setUrl = (start, end, categories, id) => {
-    const query = {
-      min: start || 0,
-      max: end || 1000000,
-      ids: categories,
-    };
-    router.push({
-      pathname: '/products/' + id,
-      query: query,
-    });
+  const showNotification = () => {
+    setIsNotificationVisible(true);
+    setTimeout(() => setIsNotificationVisible(false), 2000);
   };
 
-  const handleSubmit = (values) => {
-    const jsonCategories = JSON.stringify(ids);
-    const query = {
-      min: (values.start * currentRate.value) || 0,
-      max: (values.end * currentRate.value) || 10000000,
-      categories: jsonCategories,
-      id: category,
-    };
-    dispatch(filterProducts.request(query));
-    setUrl(values.start, values.end, jsonCategories, category);
+  const loadMoreProducts = () => {
+    if (displayLimit < filteredProducts.length) {
+      setDisplayLimit((prev) => prev + 2);
+    }
   };
 
-  const clearFilter = () => {
-    router.push({
-      pathname: '/products/' + category,
+  const handleScroll = (e) => {
+    if (e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight) {
+      loadMoreProducts();
+    }
+  };
+
+  const handleFilter = (values) => {
+    const { start, end, title } = values;
+
+    const filtered = products.filter((product) => {
+      const price = product?.variants?.[0]?.price || 0;
+      return (
+          (!start || price >= start) &&
+          (!end || price <= end) &&
+          (!title || product.title.toLowerCase().includes(title.toLowerCase()))
+      );
     });
+
+    setFilteredProducts(filtered);
+  };
+
+  const sortProducts = (order) => {
+    const sorted = [...filteredProducts].sort((a, b) => {
+      const priceA = a?.variants?.[0]?.price || 0;
+      const priceB = b?.variants?.[0]?.price || 0;
+      return order === 'expensive' ? priceB - priceA : priceA - priceB;
+    });
+
+    setFilteredProducts(sorted);
+  };
+
+  const clearFilters = () => {
+    router.push(`/products/${category}`);
     dispatch(getProductsCategories.request({ id: category }));
     form.resetFields();
   };
-
-  const changes = (id, e) => {
-    setIDs((prevIDs) =>
-        e.target.checked ? [...prevIDs, id] : prevIDs.filter((x) => x !== id)
-    );
-  };
-
-  const openNav = () => setIsNav(true);
 
   const Nav = () => (
       <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
@@ -137,34 +99,42 @@ const Index = () => {
           <CloseIcon />
         </span>
         </div>
-        <Form onFinish={handleSubmit} form={form}>
+        <Form form={form} onFinish={handleFilter}>
           <ul className={styles.filterList}>
-            {categories.map((item) => (
-                <li key={item.id}>
-                  <span>{item.name}</span>
-                  <span>
-                <Form.Item name={['checkbox', item.id]} valuePropName="checked">
-                  <Checkbox onChange={(e) => changes(item.id, e)} />
-                </Form.Item>
-              </span>
+            <li>
+              <Form.Item name="title">
+                <Input placeholder='Поиск по названию'/>
+              </Form.Item>
+            </li>
+            {categories.map((category) => (
+                <li key={category.id}>
+                  <span>{category.name}</span>
+                  <Form.Item name={['checkbox', category.id]} valuePropName="checked">
+                    <Checkbox/>
+                  </Form.Item>
                 </li>
             ))}
           </ul>
+          <div className={styles.lastSection}>
+            <Button onClick={() => sortProducts('expensive')}>Дорогой</Button>
+            <Button onClick={() => sortProducts('cheap')}>Дешевый</Button>
+          </div>
           <div className={styles.filterList}>
             <h3>{t('price')}</h3>
             <div className={styles.priceList}>
               <Form.Item name="start">
-                <Input placeholder="от" name="startPrice" type="number" />
+                <Input type="number" placeholder='Мин.'/>
               </Form.Item>
               <Form.Item name="end">
-                <Input placeholder="до" min={0} name="endPrice" type="number" />
+                <Input type="number" placeholder='Макс.'/>
               </Form.Item>
             </div>
           </div>
           <div className={styles.lastSection}>
             <Button htmlType="submit">{t('filter')}</Button>
-            <Button onClick={clearFilter}>{t('clear')}</Button>
+            <Button onClick={clearFilters}>{t('clear')}</Button>
           </div>
+
         </Form>
       </div>
   );
@@ -172,26 +142,27 @@ const Index = () => {
   return (
       <Skeleton loading={isFetching} active>
         <div className={styles.mobileContainer}>
-        <span className={styles.filterButton} onClick={openNav}>
-          <FilterOutlined />
+        <span className={styles.filterButton} onClick={() => setIsNav(true)}>
+          <FilterOutlined/>
         </span>
         </div>
         <div className={styles.row} onScroll={handleScroll}>
-          <Nav />
+          <Nav/>
           <div className={styles.productsSection}>
             <div className={styles.productRow}>
-              {products.length > 0
-                  ? [...products].reverse().map((item) => (  // Reverse here directly
-                      <Item addCart={addNotification} key={item.id} item={item}/>
+              {filteredProducts.slice(0, displayLimit).length > 0 ? (
+                  filteredProducts.slice(0, displayLimit).map((item) => (
+                      <Item addCart={showNotification} key={item.id} item={item} />
                   ))
-                  : <h2 className={styles.title}>{t('product_not_found')}</h2>}
+              ) : (
+                  <h2 className={styles.title}>{t('product_not_found')}</h2>
+              )}
             </div>
-
           </div>
         </div>
-        <Notification style={stylesNotification}>
+        <Notification style={{ transform: isNotificationVisible ? 'translate(0%)' : 'translate(150%)' }}>
         <span className="icon">
-          <CheckOutlined/>
+          <CheckOutlined />
         </span>
           <span>{t('added_basket')}</span>
         </Notification>

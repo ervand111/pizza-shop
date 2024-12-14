@@ -2,26 +2,71 @@
 .row {
     display: flex;
     margin: auto;
-
+    /*overflow-y: auto;*/
+    /*max-height: 100vh;*/
 }
-
 
 .nav {
     width: auto;
     padding-left: 50px;
     padding-bottom: 50px;
-    background:#A90000;
+    background: #A90000;
+    height: 100vh;
 }
 
 .nav > fieldset span {
     color: white;
+    font-size: 18px;
+    font-weight: bold;
 }
-.filterList h3{
+
+.filterList h3 {
     color: white;
+    margin-bottom: 20px;
 }
-.filterButton{
+
+/* Filter Button */
+.filterButton {
     font-size: 30px;
     display: none;
+    background-color: #A90000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filterButton:hover {
+    background-color: #880000;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav {
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .filterButton {
+        display: block;
+    }
+
+    .sortButtons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        background: yellow;
+    }
+
+    .sortButtons button {
+        width: 80%;
+    }
 }
 
 .title {
@@ -148,10 +193,12 @@
     display: flex;
     align-items: center;
     padding-right: 60px;
+    gap: 20px;
 
 }
 .lastSection button{
     margin: 0 10px;
+    width: calc(100% / 2 - 20px);
 }
 
 .productHeader p {
