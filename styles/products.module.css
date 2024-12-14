@@ -154,7 +154,9 @@
 }
 
 .item {
+    position: relative;
     width: 80%;
+    padding: 40px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,7 +193,6 @@
 }
 
 .productItemImg {
-
     width: 100%;
     height: 50%;
     border-bottom: none;
@@ -317,6 +318,7 @@
     right: 10px;
     top: 10px;
     background-color: white;
+    z-index: 1111;
     border-radius: 50%;
     display: flex;
     justify-content: center;

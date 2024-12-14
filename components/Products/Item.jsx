@@ -85,54 +85,57 @@ const Item = ({ item, addCart }) => {
   }, [item]);
 
   return (
-      <div className={styles.item}>
-        <Skeleton loading={isFetching} active>
-          <div className={styles.productItem}>
-            <div className={styles.productItemImg}>
-              <Link href={{
-                pathname: '/product/[name]/',
-                query: { name: item.id },
-              }}>
-                <Image
-                    src={process.env.IMAGE_URL2 + item.avatar}
-                    style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s' }}
-                    onLoad={() => setIsLoader(false)}
-                    width={240}
-                    height={240}
-                    alt={item.title}
-                    priority
-                />
-              </Link>
-              <div className={styles.wishlist}>
-                {!isFavorite(item) ? (
-                    <HeartOutlined onClick={addToFavorite} />
-                ) : (
-                    <HeartFilled onClick={removeToFavorite} />
-                )}
-              </div>
+    <div className={styles.item}>
+      <div className={styles.wishlist}>
+        {!isFavorite(item) ? (
+          <HeartOutlined onClick={addToFavorite}/>
+        ) : (
+          <HeartFilled onClick={removeToFavorite}/>
+        )}
+      </div>
+      <Skeleton loading={isFetching} active>
+
+        <div className={styles.productItem}>
+
+          <div className={styles.productItemImg}>
+            <Link href={{
+              pathname: '/product/[name]/',
+              query: {name: item.id},
+            }}>
+              <Image
+                src={process.env.IMAGE_URL2 + item.avatar}
+                style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
+                onLoad={() => setIsLoader(false)}
+                width={240}
+                height={240}
+                alt={item.title}
+                priority
+              />
+            </Link>
+
+          </div>
+          <div className={styles.productItemText}>
+            <div className={styles.text}>
+              <h3>{item.title}</h3>
+              <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
             </div>
-            <div className={styles.productItemText}>
-              <div className={styles.text}>
-                <h3>{item.title}</h3>
-                <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
+            <div className={styles.addCard}>
+              <div
+                className={`${styles.basketIcon} ${animate ? styles.animate : ''} ${removeAnimate ? styles.animates : ''}`}
+                style={{opacity: isAddedToBasket ? 0 : 1}}
+              >
+                <ShoppingFilled/>
               </div>
-              <div className={styles.addCard}>
-                <div
-                    className={`${styles.basketIcon} ${animate ? styles.animate : ''} ${removeAnimate ? styles.animates : ''}`}
-                    style={{ opacity: isAddedToBasket ? 0 : 1 }}
-                >
-                  <ShoppingFilled />
-                </div>
-                {!isBasket(item) ? (
-                    <button onClick={handleAddToBasket}>{t("add")} <ShoppingOutlined /></button>
-                ) : (
-                    <button onClick={removeIsBasket}>{t("remove")} <ShoppingFilled /></button>
-                )}
-              </div>
+              {!isBasket(item) ? (
+                <button onClick={handleAddToBasket}>{t("add")} <ShoppingOutlined/></button>
+              ) : (
+                <button onClick={removeIsBasket}>{t("remove")} <ShoppingFilled/></button>
+              )}
             </div>
           </div>
-        </Skeleton>
-      </div>
+        </div>
+      </Skeleton>
+    </div>
   );
 };
 

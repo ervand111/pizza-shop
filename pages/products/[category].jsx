@@ -67,9 +67,9 @@ const Index = () => {
     const filtered = products.filter((product) => {
       const price = product?.variants?.[0]?.price || 0;
       return (
-          (!start || price >= start) &&
-          (!end || price <= end) &&
-          (!title || product.title.toLowerCase().includes(title.toLowerCase()))
+        (!start || price >= start) &&
+        (!end || price <= end) &&
+        (!title || product.title.toLowerCase().includes(title.toLowerCase()))
       );
     });
 
@@ -95,81 +95,81 @@ const Index = () => {
 
 
   const Nav = () => (
-      <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
-        <div className={styles.headerNav}>
+    <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
+      <div className={styles.headerNav}>
         <span onClick={() => setIsNav(false)}>
           <CloseIcon />
         </span>
-        </div>
-        <Form form={form} onFinish={handleFilter}>
-          <ul className={styles.filterList}>
-            <li>
-              <Form.Item name="title">
-                <Input placeholder='Поиск по названию'/>
+      </div>
+      <Form form={form} onFinish={handleFilter}>
+        <ul className={styles.filterList}>
+          <li>
+            <Form.Item name="title">
+              <Input placeholder='Поиск по названию'/>
+            </Form.Item>
+          </li>
+          {categories.map((category) => (
+            <li key={category.id}>
+              <span>{category.name}</span>
+              <Form.Item name={['checkbox', category.id]} valuePropName="checked">
+                <Checkbox/>
               </Form.Item>
             </li>
-            {categories.map((category) => (
-                <li key={category.id}>
-                  <span>{category.name}</span>
-                  <Form.Item name={['checkbox', category.id]} valuePropName="checked">
-                    <Checkbox/>
-                  </Form.Item>
-                </li>
-            ))}
-          </ul>
-          <div className={styles.lastSection}>
-            <Button onClick={() => sortProducts('expensive')}>Максимальная цена</Button>
-            <Button onClick={() => sortProducts('cheap')}>Минимальная цена</Button>
+          ))}
+        </ul>
+        <div className={styles.midleSection}>
+          <Button onClick={() => sortProducts('expensive')}>Максимальная цена</Button>
+          <Button onClick={() => sortProducts('cheap')}>Минимальная цена</Button>
 
+        </div>
+        <div className={styles.filterList}>
+          <h3>{t('price')}</h3>
+          <div className={styles.priceList}>
+            <Form.Item name="start">
+              <Input type="number" placeholder='Мин.'/>
+            </Form.Item>
+            <Form.Item name="end">
+              <Input type="number" placeholder='Макс.'/>
+            </Form.Item>
           </div>
-          <div className={styles.filterList}>
-            <h3>{t('price')}</h3>
-            <div className={styles.priceList}>
-              <Form.Item name="start">
-                <Input type="number" placeholder='Мин.'/>
-              </Form.Item>
-              <Form.Item name="end">
-                <Input type="number" placeholder='Макс.'/>
-              </Form.Item>
-            </div>
-          </div>
-          <div className={styles.lastSection}>
-            <Button htmlType="submit">{t('filter')}</Button>
-            <Button onClick={clearFilters}>{t('clear')}</Button>
-          </div>
+        </div>
+        <div className={styles.lastSection}>
+          <Button htmlType="submit">{t('filter')}</Button>
+          <Button onClick={clearFilters}>{t('clear')}</Button>
+        </div>
 
-        </Form>
-      </div>
+      </Form>
+    </div>
   );
 
   return (
-      <Skeleton loading={isFetching} active>
-        <div className={styles.mobileContainer}>
+    <Skeleton loading={isFetching} active>
+      <div className={styles.mobileContainer}>
         <span className={styles.filterButton} onClick={() => setIsNav(true)}>
           <FilterOutlined/>
         </span>
-        </div>
-        <div className={styles.row} onScroll={handleScroll}>
-          <Nav/>
-          <div className={styles.productsSection}>
-            <div className={styles.productRow}>
-              {filteredProducts.slice(0, displayLimit).length > 0 ? (
-                  filteredProducts.slice(0, displayLimit).map((item) => (
-                      <Item addCart={showNotification} key={item.id} item={item} />
-                  ))
-              ) : (
-                  <h2 className={styles.title}>{t('product_not_found')}</h2>
-              )}
-            </div>
+      </div>
+      <div className={styles.row} onScroll={handleScroll}>
+        <Nav/>
+        <div className={styles.productsSection}>
+          <div className={styles.productRow}>
+            {filteredProducts.slice(0, displayLimit).length > 0 ? (
+              filteredProducts.slice(0, displayLimit).map((item) => (
+                <Item addCart={showNotification} key={item.id} item={item} />
+              ))
+            ) : (
+              <h2 className={styles.title}>{t('product_not_found')}</h2>
+            )}
           </div>
         </div>
-        <Notification style={{ transform: isNotificationVisible ? 'translate(0%)' : 'translate(150%)' }}>
+      </div>
+      <Notification style={{ transform: isNotificationVisible ? 'translate(0%)' : 'translate(150%)' }}>
         <span className="icon">
           <CheckOutlined />
         </span>
-          <span>{t('added_basket')}</span>
-        </Notification>
-      </Skeleton>
+        <span>{t('added_basket')}</span>
+      </Notification>
+    </Skeleton>
   );
 };
 
