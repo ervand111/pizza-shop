@@ -24,10 +24,9 @@
     list-style: none;
     font-size: 20px;
     margin: 0 20px;
-    font-style: italic;
-    font-weight: 500;
     cursor: pointer;
-    font-family: MardotoItalic, serif;
+    letter-spacing: 2px;
+    font-weight: 700;
     transition: 0.5s;
 }
 .header a{

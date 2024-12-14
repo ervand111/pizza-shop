@@ -60,6 +60,17 @@ const Item = ({item, addCart}) => {
     addCart()
   }, [item, addCart, addFavorite, setCount]);
 
+
+  const [animate, setAnimate] = useState(false);
+
+  const handleAddToBasket = () => {
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+      addToBaskets();
+    }, 1000);
+  };
+
   useEffect(() => {
   }, [item])
   return (
@@ -96,20 +107,19 @@ const Item = ({item, addCart}) => {
               <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
             </div>
             <div className={styles.addCard}>
-
+              <div className={`${styles.basketIcon} ${animate ? styles.animate : ""}`}>
+                <ShoppingFilled />
+              </div>
               {!isBasket(item) ? (
-                <button onClick={addToBaskets}> {t("add")} <ShoppingOutlined/> </button>
-
+                <button onClick={handleAddToBasket}>{t("add")} <ShoppingOutlined /></button>
               ) : (
-                <button onClick={removeToBasket}> {t('remove')} <ShoppingFilled/></button>
+                <button onClick={removeToBasket}>{t("remove")} <ShoppingFilled /></button>
               )}
-
             </div>
-          </div>
           <div>
           </div>
         </div>
-
+        </div>
       </Skeleton>
 
     </div>
