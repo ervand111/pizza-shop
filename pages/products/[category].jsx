@@ -86,11 +86,13 @@ const Index = () => {
     setFilteredProducts(sorted);
   };
 
+
   const clearFilters = () => {
     router.push(`/products/${category}`);
     dispatch(getProductsCategories.request({ id: category }));
     form.resetFields();
   };
+
 
   const Nav = () => (
       <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
@@ -116,8 +118,9 @@ const Index = () => {
             ))}
           </ul>
           <div className={styles.lastSection}>
-            <Button onClick={() => sortProducts('expensive')}>Дорогой</Button>
-            <Button onClick={() => sortProducts('cheap')}>Дешевый</Button>
+            <Button onClick={() => sortProducts('expensive')}>Максимальная цена</Button>
+            <Button onClick={() => sortProducts('cheap')}>Минимальная цена</Button>
+
           </div>
           <div className={styles.filterList}>
             <h3>{t('price')}</h3>
