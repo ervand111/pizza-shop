@@ -33,31 +33,29 @@ const Index = () => {
   };
 
   const [visibleProduct, setVisibleProduct] = useState(4);
+
   const loadMoreProducts = () => {
     if (visibleProduct < products.length) {
-      setVisibleProduct((prev) => prev + 2);
+      setVisibleProduct(prev => prev + 2);
+    }
+  };
+  const handleScroll = (e) => {
+    const target = e.target;
+    if (target.scrollHeight - target.scrollTop === target.clientHeight) {
+      loadMoreProducts(); // Call the function to load more products
     }
   };
 
-  const handleScroll = (e) => {
-    const target = e.target; // Համոզվեք, որ ճիշտ է
-    const bottom = target.scrollHeight - target.scrollTop === target.clientHeight;
-    if (bottom) {
-      loadMoreProducts();
-    }
-  };
 
 
   useEffect(() => {
-    setTimeout(() => {
-      const { min, max, ids } = router.query;
-      if (min !== undefined && max !== undefined && ids !== undefined) {
-        form.setFieldsValue({
-          start: min || 0,
-          end: max || 0,
-        });
-      }
-    }, 1000);
+    const { min, max, ids } = router.query;
+    if (min && max && ids) {
+      form.setFieldsValue({
+        start: min || 0,
+        end: max || 0,
+      });
+    }
   }, [router.query, form]);
 
   const addNotification = () => {
@@ -83,22 +81,29 @@ const Index = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setVisibleProduct(4);
+  }, [products]);
+
+  useEffect(() => {
+    const reversedProducts = [...products].reverse(); // Reverse the products array directly.
+    setVisibleProduct(reversedProducts); // Use the reversed array for rendering.
+  }, [products]);
+
   const setUrl = (start, end, categories, id) => {
     const query = {
       min: start || 0,
       max: end || 1000000,
       ids: categories,
     };
-    const updatedQuery = { ...query };
     router.push({
       pathname: '/products/' + id,
-      query: updatedQuery,
+      query: query,
     });
   };
 
   const handleSubmit = (values) => {
     const jsonCategories = JSON.stringify(ids);
-    console.log(jsonCategories)
     const query = {
       min: (values.start * currentRate.value) || 0,
       max: (values.end * currentRate.value) || 10000000,
@@ -118,19 +123,14 @@ const Index = () => {
   };
 
   const changes = (id, e) => {
-    if (e.target.checked) {
-      setIDs([...ids, id]);
-    } else {
-      setIDs(ids.filter((x) => x !== id));
-    }
+    setIDs((prevIDs) =>
+        e.target.checked ? [...prevIDs, id] : prevIDs.filter((x) => x !== id)
+    );
   };
 
-  const openNav = () => {
-    setIsNav(true);
-  };
+  const openNav = () => setIsNav(true);
 
   const Nav = () => (
-
       <div className={`${styles.nav} ${isNav ? styles.active : ''}`}>
         <div className={styles.headerNav}>
         <span onClick={() => setIsNav(false)}>
@@ -139,18 +139,16 @@ const Index = () => {
         </div>
         <Form onFinish={handleSubmit} form={form}>
           <ul className={styles.filterList}>
-            {categories.map((item) => {
-              return (
-                  <li key={item.id}>
-                    <span>{item.name}</span>
-                    <span>
-                  <Form.Item name={['checkbox', item.id]} valuePropName="checked">
-                    <Checkbox onChange={(e) => changes(item.id, e)} />
-                  </Form.Item>
-                </span>
-                  </li>
-              );
-            })}
+            {categories.map((item) => (
+                <li key={item.id}>
+                  <span>{item.name}</span>
+                  <span>
+                <Form.Item name={['checkbox', item.id]} valuePropName="checked">
+                  <Checkbox onChange={(e) => changes(item.id, e)} />
+                </Form.Item>
+              </span>
+                </li>
+            ))}
           </ul>
           <div className={styles.filterList}>
             <h3>{t('price')}</h3>
@@ -172,7 +170,6 @@ const Index = () => {
   );
 
   return (
-
       <Skeleton loading={isFetching} active>
         <div className={styles.mobileContainer}>
         <span className={styles.filterButton} onClick={openNav}>
@@ -184,29 +181,24 @@ const Index = () => {
           <div className={styles.productsSection}>
             <div className={styles.productRow}>
               {products.length > 0
-                  ? products.reverse().map((item) => (
-                      <Item addCart={addNotification} key={item.id} item={item} />
+                  ? [...products].reverse().map((item) => (  // Reverse here directly
+                      <Item addCart={addNotification} key={item.id} item={item}/>
                   ))
-                  : (
-                      <h2 className={styles.title}>{t('product_not_found')}</h2>
-                  )}
+                  : <h2 className={styles.title}>{t('product_not_found')}</h2>}
             </div>
+
           </div>
         </div>
         <Notification style={stylesNotification}>
         <span className="icon">
-          <CheckOutlined />
+          <CheckOutlined/>
         </span>
           <span>{t('added_basket')}</span>
         </Notification>
       </Skeleton>
-
   );
 };
 
 Index.getLayout = (page) => <App>{page}</App>;
 
 export default Index;
-
-export class handleScroll {
-}

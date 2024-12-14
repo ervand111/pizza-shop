@@ -32,15 +32,16 @@
     font-weight: lighter;
     width: 100%;
 }
-
 .productRow {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top of the container */
     justify-content: space-evenly;
     flex-wrap: wrap;
-    width:100%;
-
+    width: 100%;
+    gap: 20px; /* Add space between items */
+    padding: 10px; /* Optional: Adds padding around the container */
 }
+
 
 .productRow > div {
     width: calc(90% / 3 - 20px);

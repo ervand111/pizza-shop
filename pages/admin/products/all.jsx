@@ -44,7 +44,9 @@ const AllCategoryPage = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isDefault, setIsDefault] = useState(false);
+
     const filteredSearch = useSelector((state) => state?.product?.searchResult?.data);
+
     const [searchTimeout, setSearchTimeout] = useState(null);
 
 
