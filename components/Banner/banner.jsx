@@ -25,13 +25,13 @@ const Banner = ({slides}) => {
     return (
       <div className={styles.parentBanner}>
 
-        <div className={styles.container}>
-            <Slider {...settings}>
-                {slides?.map((item) => (
+          <div className={styles.container}>
+              <Slider {...settings}>
+                  {slides?.map((item) => (
                     <Item key={item.id} item={item}/>
-                ))}
-            </Slider>
-        </div>
+                  ))}
+              </Slider>
+          </div>
       </div>
 
     );

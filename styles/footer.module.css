@@ -211,7 +211,7 @@
     }
 
     .pages{
-        justify-content: start;
+        justify-content: flex-start;
 
     }
     .footer > div:last-child {
@@ -237,7 +237,7 @@
     }
 
     .pages{
-        justify-content: start;
+        justify-content: flex-start;
     }
     .footer > div:last-child {
         width: 100%;

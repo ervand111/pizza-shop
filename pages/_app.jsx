@@ -44,39 +44,39 @@ function App({Component, pageProps}) {
             }
         }, [])
         return (
-            <div>
-                {isToken ?
-                    <Component {...pageProps} />
-                    : <Login/>}
-            </div>
+          <div>
+              {isToken ?
+                <Component {...pageProps} />
+                : <Login/>}
+          </div>
         )
     }
 
     const getLayout = Component.getLayout ?? ((page) => page)
 
     return (
-        <div>
-            <span id='header'>.</span>
-            <NavBarProvider>
-                <CountProvider>
-                    <RateProvider>
-                        <BasketProvider>
-                            <AdminProvider>
-                                <IntlProvider locale={locale} messages={(messages)[locale]}>
-                                    {isPageInAdminFolder ?
-                                        <MyComp/>
-                                        : (
-                                            getLayout(
-                                                <Component {...pageProps} />
-                                            )
-                                        )}
-                                </IntlProvider>
-                            </AdminProvider>
-                        </BasketProvider>
-                    </RateProvider>
-                </CountProvider>
-            </NavBarProvider>
-        </div>
+      <div>
+          <span id='header'>.</span>
+          <NavBarProvider>
+              <CountProvider>
+                  <RateProvider>
+                      <BasketProvider>
+                          <AdminProvider>
+                              <IntlProvider locale={locale} messages={(messages)[locale]}>
+                                  {isPageInAdminFolder ?
+                                    <MyComp/>
+                                    : (
+                                      getLayout(
+                                        <Component {...pageProps} />
+                                      )
+                                    )}
+                              </IntlProvider>
+                          </AdminProvider>
+                      </BasketProvider>
+                  </RateProvider>
+              </CountProvider>
+          </NavBarProvider>
+      </div>
     )
 }
 

@@ -105,7 +105,7 @@
 .header ul {
     display: flex;
     width: auto;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .headerMenu li a::after {
@@ -572,7 +572,7 @@
     .lists li::after {
         content: '';
         position: absolute;
-        width: 0%;
+        width: 0;
         height: 2px;
         background: #f39c12;
         bottom: 0;
