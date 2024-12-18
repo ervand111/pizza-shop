@@ -371,43 +371,6 @@
 }
 
 
-.text {
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease;
-}
-
-.text h4 {
-    font-size: 20px;
-    cursor: pointer;
-    color: #A90000 ;
-    transition: all 0.3s ease-in-out;
-    padding: 5px;
-    font-weight: 600;
-    animation: pulse 1s ease-out infinite;
-}
-
-.text h4:hover {
-    color: #1890ff;
-    transform: scale(1.1);
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.text h4::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #1890ff;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease-in-out;
-}
-
-.text h4:hover::after {
-    width: 100%;
-}
 
 
 .text h3 {

@@ -22,14 +22,7 @@ const Item = ({ item, addCart }) => {
   const [isAddedToBasket, setIsAddedToBasket] = useState(false); // State to control icon visibility
 
 
-  const router = useRouter();
 
-  const handleProductClick = (id) => {
-    router.push({
-      pathname: '/product/[name]/',
-      query: { name: id },
-    });
-  };
 
   const removeToBasket = useCallback(() => {
     setCount((prev) => {
@@ -130,13 +123,6 @@ const Item = ({ item, addCart }) => {
             <div className={styles.text}>
               <h3>{item.title}</h3>
               <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
-              <button
-                  style={{textDecoration: "none", background: "none", border: "none", padding: 0, cursor: "pointer"}}
-                  onClick={() => handleProductClick(item.id)}
-              >
-                <h4 style={{marginTop: 10}}>Информация</h4>
-              </button>
-
             </div>
             <div className={styles.addCard}>
               <div
