@@ -98,6 +98,7 @@ const Item = ({item, addCart}) => {
                 <div className={styles.productItem}>
 
                     <div className={styles.productItemImg}>
+
                             <Image
                                 src={process.env.IMAGE_URL2 + item.avatar}
                                 style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
@@ -107,6 +108,8 @@ const Item = ({item, addCart}) => {
                                 alt={item.title}
                                 priority
                             />
+
+
                     </div>
                     <div className={styles.productItemText}>
                         <div className={styles.text}>
@@ -114,15 +117,11 @@ const Item = ({item, addCart}) => {
                             <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
 
                             <h4 style={{marginTop: 10}}>
-                                <Link
-                                    href={{
-                                        pathname: '/product/[name]/',
-                                        query: {name: item.id}
-                                    }}
-                                >
+                                <a href={`/product/${item.id}/`}>
                                     Информация
-                                </Link>
+                                </a>
                             </h4>
+
                         </div>
                         <div className={styles.addCard}>
                             <div
