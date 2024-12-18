@@ -98,10 +98,6 @@ const Item = ({item, addCart}) => {
                 <div className={styles.productItem}>
 
                     <div className={styles.productItemImg}>
-                        <Link href={{
-                            pathname: '/product/[name]/',
-                            query: {name: item.id},
-                        }}>
                             <Image
                                 src={process.env.IMAGE_URL2 + item.avatar}
                                 style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
@@ -111,8 +107,6 @@ const Item = ({item, addCart}) => {
                                 alt={item.title}
                                 priority
                             />
-                        </Link>
-
                     </div>
                     <div className={styles.productItemText}>
                         <div className={styles.text}>
