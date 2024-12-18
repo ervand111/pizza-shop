@@ -373,40 +373,41 @@
     flex-direction: column;
     transition: all 0.3s ease;
 }
-
-.text h4 {
+.text h4 a{
     font-size: 20px;
     cursor: pointer;
-    color: #A90000;
+    color: #A90000; /* Red color for text */
     transition: all 0.3s ease-in-out; /* Smooth transition for color and scale */
     display: inline-block;
     position: relative;
     padding: 5px;
     font-weight: 600;
-    animation: pulse 1s ease-out infinite; /* Adds the pulse animation */
-
+    animation: pulse 1s ease-out infinite; /* Pulse animation */
 }
 
-.text h4:hover {
+/* Hover effect on h4 */
+.text h4 a:hover {
     color: #1890ff; /* Blue color on hover */
     transform: scale(1.1); /* Slight zoom effect */
     text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifting effect */
 }
 
-.text h4::after {
+/* Underline animation */
+.text h4 a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #1890ff;
+    background-color: #1890ff; /* Blue underline color */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     transition: width 0.3s ease-in-out; /* Animation for underline */
 }
 
-.text h4:hover::after {
-    width: 100%; /* Underline expands on hover */
+/* Underline expands on hover */
+.text h4 a:hover::after {
+    width: 100%; /* Underline expands to full width on hover */
 }
 
 .text h3 {
