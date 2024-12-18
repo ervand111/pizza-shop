@@ -4,7 +4,6 @@ import { HeartFilled, HeartOutlined, ShoppingFilled, ShoppingOutlined } from "@a
 import Link from "next/link";
 import CountContext from 'providers/countContext';
 import BasketContext from 'providers/BasketContext';
-import RateContext from "../../providers/rateContext";
 import Image from "next/image";
 import { t } from "../../utils/utils";
 import { useSelector } from "react-redux";
@@ -14,7 +13,6 @@ const Item = ({ item, addCart }) => {
   const { setCount } = useContext(CountContext);
   const isFetching = useSelector((state) => state.product?.isFetching);
   const { add, remove, isFavorite, isBasket, removeFromFavorite, addFavorite } = useContext(BasketContext);
-  const { price, currentRate } = useContext(RateContext);
   const [isLoading, setIsLoader] = useState(true);
   const [animate, setAnimate] = useState(false);
   const [removeAnimate, setRemoveAnimate] = useState(false);
@@ -118,6 +116,12 @@ const Item = ({ item, addCart }) => {
             <div className={styles.text}>
               <h3>{item.title}</h3>
               <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
+              <Link style={{textDecoration: "none"}} href={{
+                pathname: '/product/[name]/',
+                query: {name: item.id},
+              }}><h4 style={{marginTop: 10}}>Информация</h4>
+              </Link>
+
             </div>
             <div className={styles.addCard}>
               <div

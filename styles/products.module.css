@@ -9,7 +9,7 @@
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    background-image: url("/photos/bg-2.jpg");
+    background-image: url('../public/photos/bg-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     backdrop-filter: blur(10px);
@@ -166,10 +166,8 @@
     box-shadow: 0 0 10px 5px rgba(189, 189, 189, 0.65);
     transition: 0.2s ease-in-out;
     margin: 50px auto;
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-radius: 100px 30px 100px 30px;
+
 }
 
 .item:hover {
@@ -185,10 +183,8 @@
     align-items: center;
     flex-wrap: wrap;
     background-color: white;
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-radius: 100px 30px 100px 30px;
+
 
 }
 
@@ -236,10 +232,8 @@
     text-transform: uppercase;
     cursor: pointer;
     background-color: #A90000;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 30px 10px 30px 10px;
+
 }
 
 .addCard button:hover {
@@ -380,6 +374,41 @@
     transition: all 0.3s ease;
 }
 
+.text h4 {
+    font-size: 20px;
+    cursor: pointer;
+    color: #A90000;
+    transition: all 0.3s ease-in-out; /* Smooth transition for color and scale */
+    display: inline-block;
+    position: relative;
+    padding: 5px;
+    font-weight: 600;
+    animation: pulse 1s ease-out infinite; /* Adds the pulse animation */
+
+}
+
+.text h4:hover {
+    color: #1890ff; /* Blue color on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifting effect */
+}
+
+.text h4::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #1890ff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out; /* Animation for underline */
+}
+
+.text h4:hover::after {
+    width: 100%; /* Underline expands on hover */
+}
+
 .text h3 {
     font-family: "Modern No. 20", serif;
     font-size: 22px;
@@ -496,6 +525,7 @@
 }
 
 
+
 @media screen and (max-width: 600px) {
     .offers{
         height: 80px;
@@ -511,41 +541,21 @@
 
     }
     .item{
-        height: 450px;
+        padding: 0;
+        height: auto;
+    }
+
+    .productItem{
+        padding: 0;
+        height: auto;
+        margin: 0;
     }
     .wishlist {
         width: 30px;
         height: 30px;
-        top: 9px;
+        top: 16px;
+        right: 16px;
     }
-    @keyframes moveToBasket {
-        0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
-        }
-        50% {
-            transform: translate(80px, -70px) scale(1.5);
-            opacity: 0.7;
-        }
-        100% {
-            transform: translate(120px, -20px) scale(0.2);
-            opacity: 0;
-
-        }
-    }    @keyframes backToBasket {
-                 0% {
-                     transform: translate(110px, -20px) scale(0.2);
-                     opacity: 0;
-                 }
-                 50% {
-                     transform: translate(50px, -70px) scale(1.5);
-                     opacity: 0.7;
-                 }
-                 100% {
-                     transform: translate(0, 0) scale(1);
-                     opacity: 1;
-                 }
-             }
 
     .addCard{
         width: 100%;
@@ -563,6 +573,11 @@
     .basketIcon svg{
         font-size: 26px!important;
     }
+    .text h4 {
+        font-size: 16px;
+
+
+    }
     .text  h3{
         font-size: 16px;
         text-align: center;
@@ -571,6 +586,9 @@
         font-size: 16px;
         text-align: center;
         margin: 2px;
+    }
+    .text{
+        align-items: center;
     }
     .productItem{
         height: auto;
