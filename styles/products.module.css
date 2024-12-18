@@ -374,9 +374,6 @@
 .text {
     width: 100%;
     height: auto;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
     transition: all 0.3s ease;
 }
 
@@ -385,17 +382,15 @@
     cursor: pointer;
     color: #A90000 ;
     transition: all 0.3s ease-in-out;
-    display: inline-block;
-    position: relative;
     padding: 5px;
     font-weight: 600;
-    animation: pulse 1s ease-out infinite; /* Adds the pulse animation */
+    animation: pulse 1s ease-out infinite;
 }
 
 .text h4:hover {
-    color: #1890ff; /* Blue color on hover */
-    transform: scale(1.1); /* Slight zoom effect */
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifting effect */
+    color: #1890ff;
+    transform: scale(1.1);
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .text h4::after {
@@ -407,11 +402,11 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    transition: width 0.3s ease-in-out; /* Animation for underline */
+    transition: width 0.3s ease-in-out;
 }
 
 .text h4:hover::after {
-    width: 100%; /* Underline expands on hover */
+    width: 100%;
 }
 
 
@@ -419,7 +414,7 @@
     font-family: "Modern No. 20", serif;
     font-size: 22px;
     font-weight: bold;
-    color: #333;  /* Dark color for better readability */
+    color: #333;
     padding: 4px;
 }
 
