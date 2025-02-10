@@ -372,6 +372,9 @@
 
     .text {
         height: auto;
+        width: 60%;
+        margin-left: 10px;
+        box-shadow: 0 10px 40px 20px silver;
     }
 
     .slider {
@@ -388,6 +391,9 @@
 }
 
 @media only screen and (max-width: 800px) {
+    .title h1 {
+        font-size: 30px;
+    }
     .buttons button {
         padding: 10px 29px;
         font-size: 12px;
@@ -419,6 +425,7 @@
     }
 
     .text {
+        width: 90%;
         height: auto;
         margin: 20px;
         box-shadow: 0 0 0 2px silver;
@@ -446,6 +453,10 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .title h1 {
+        font-size: 20px;
+        text-align: center;
+    }
     .buttons button {
         padding: 10px 20px;
         font-size: 10px;
@@ -479,12 +490,13 @@
     }
 
     .paragraph p {
-        font-size: 16px;
-        padding: 10px;
+        font-size: 12px;
+        padding: 10px 0;
     }
 
     .paragraph h2 {
-        font-size: 20px;
+        font-size: 15px;
+        text-align: center;
     }
 
     .paragraph h3 {
@@ -507,6 +519,9 @@
         height: 200px;
         border: none;
         margin: 10px;
+    }
+    .text{
+        width: 100%;
     }
 
 }

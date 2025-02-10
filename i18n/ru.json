@@ -36,6 +36,7 @@
   "contact_surname": "Фамилия*",
   "contact_message": "Cообщение*",
   "contact_send": "Отправлять",
+  "choose_size": "выбрать_размер",
   "contact_field_error_name": "Пожалуйста, введите имя",
   "contact_field_error_surname": "Пожалуйста, введите фамилию",
   "contact_field_error_email": "Пожалуйста введите адрес электронной почты",

@@ -10,7 +10,7 @@ import { getSlides } from "../../store/slides/actions";
 const Banner = ({slides}) => {
     const [interval, setInterval] = useState(2000);
     useEffect(()=>{
-        setInterval(4000) /*Its will change*/
+        setInterval(4000)
     },[slides])
     const settings = {
         dots: true,

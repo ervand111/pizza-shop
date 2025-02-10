@@ -9,7 +9,7 @@ const {Option} = Select;
 
 const AllCategoryPage = () => {
     const dispatch = useDispatch();
-    const slides = useSelector((state) => state.slide.slides.slides);
+    const slides = useSelector((state) => state.slide.slides?.slides);
 
     const [editingProduct, setEditingProduct] = useState(null);
     const [editModalVisible, setEditModalVisible] = useState(false);

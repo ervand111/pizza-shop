@@ -123,6 +123,10 @@ const Item = ({ item, addCart }) => {
             <div className={styles.text}>
               <h3>{item.title}</h3>
               <p>{item?.variants?.length > 0 ? item.variants[0].price : 0} руб</p>
+              <span><Link href={{
+                pathname: '/product/[name]/',
+                query: {name: item.id},
+              }}>Информация</Link></span>
             </div>
             <div className={styles.addCard}>
               <div
