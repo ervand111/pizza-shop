@@ -86,6 +86,7 @@ const Footer = ({contact, categories}) => {
           <div>
             <h4>{t("pages")}</h4>
             <ul>
+              <li><Link href={'/delivery'}>Политика доставки</Link></li>
               <li><Link href={'/contact'}>{t("contact_us")}</Link></li>
               <li><Link href={'/about'}>{t("about_us")}</Link></li>
               <li><Link href={'/faqs'}>Вопросы</Link></li>

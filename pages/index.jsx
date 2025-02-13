@@ -9,6 +9,7 @@ import App from "../components/Layouts/app";
 import Head from 'next/head';
 import {getSlides} from "../store/slides/actions";
 import Delivery from "../components/delivery/delivery";
+import Map from "../components/map/map";
 
 function Home() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function Home() {
       <Delivery/>
       <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
       <Review/>
-
+      <Map/>
 
     </>
   );

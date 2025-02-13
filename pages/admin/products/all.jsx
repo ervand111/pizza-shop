@@ -89,7 +89,6 @@ const AllCategoryPage = () => {
     }, [categories]);
 
    function setFilesImages(images){
-       console.log('okkkk', images)
        setFiles(images)
    }
     const handleDeleteCategory = (id) => {

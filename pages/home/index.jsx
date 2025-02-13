@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getImportantProducts, getNewProducts, getProductsAll} from "store/products/actions";
 import {getSlides} from "../../store/slides/actions";
 import Delivery from "../../components/delivery/delivery";
+import Map from "../../components/map/map";
 
 const Index = () => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Index = () => {
             <Delivery/>
             <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
             <Review/>
-
+            <Map/>
         </>
     );
 };

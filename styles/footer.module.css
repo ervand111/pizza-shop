@@ -200,7 +200,8 @@
 @media only screen and (max-width: 430px) {
     .pages li {
         font-size: 10px;
-        text-align: left;
+        width: max-content;
+        margin-left: 0;
     }
 
     .pages h4 {
@@ -220,12 +221,12 @@
 
     }
 }
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 375px) {
     .pages{
         gap: 20px;
     }
     .pages li {
-        font-size: 10px;
+        font-size: 8px;
         text-align: left;
     }
 
