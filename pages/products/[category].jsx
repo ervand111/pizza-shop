@@ -104,7 +104,7 @@ const Index = () => {
       <Form form={form} onFinish={handleFilter}>
         <ul className={styles.filterList}>
           <li>
-            <Form.Item name="title">
+            <Form.Item name="title" style={{width:'100%'}}>
               <Input placeholder='Поиск по названию'/>
             </Form.Item>
           </li>

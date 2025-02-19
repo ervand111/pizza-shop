@@ -15,6 +15,7 @@ import { t, truncateContent } from "../../utils/utils";
 import { useRouter } from "next/router";
 
 const Item = ({ item, onRemove }) => {
+    console.log(item)
     const { add, remove, isBasket } = useContext(BasketContext);
     const { setCount } = useContext(CountContext);
     const [isShow, setIsShow] = useState(false);
@@ -77,7 +78,7 @@ const Item = ({ item, onRemove }) => {
           <div className={styles.favoriteItem}>
               <div className={styles.favoriteRow}>
                   <div className={styles.price}>
-                      <p>{item?.price} руб</p>
+                      <p>{item.price} руб</p>
                   </div>
                   <div className={styles.rowR}>
                       <div className={styles.mobileIcons}>

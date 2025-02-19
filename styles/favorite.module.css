@@ -216,8 +216,11 @@
 
 .favorite {
     width: 90%;
+    box-shadow: 0 5px 30px 10px #a89f9f;
+    padding: 20px;
     margin: auto;
-
+    margin-bottom: 30px !important;
+    margin-top: 133px;
 }
 
 .favoriteDiv {
