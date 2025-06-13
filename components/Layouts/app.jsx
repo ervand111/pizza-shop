@@ -5,6 +5,7 @@ import {Loader} from "../../utils/utils";
 import {useDispatch, useSelector} from "react-redux";
 import {getCategories} from "../../store/category/actions";
 import {getContact} from "../../store/about/actions";
+import LiveChat from "../LiveChat/LiveChat";
 
 const App = ({children}) => {
     const categories = useSelector((state) => state.category?.categories) || [];
@@ -22,6 +23,7 @@ const App = ({children}) => {
                     {children}
                     <Loader/>
                 </div>
+              <LiveChat/>
                 <Footer contact={contact} categories={categories}/>
         </div>
     );

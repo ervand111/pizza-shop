@@ -11,6 +11,7 @@ import {getSlides} from "../store/slides/actions";
 import Delivery from "../components/delivery/delivery";
 import Map from "../components/map/map";
 import FeedbackLink from "../components/FeedbackLink/feedbackLink";
+import LiveChat from "../components/LiveChat/LiveChat";
 
 function Home() {
   const dispatch = useDispatch();
@@ -32,10 +33,11 @@ function Home() {
         <title>Алекс Пицца</title>
       </Head>
       <Banner slides={slides?.slides}/>
-      <FeedbackLink/>
       <Products products={newProducts} title={t("newSuggestion") || "Default Title"}/>
       <Delivery/>
       <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
+      <FeedbackLink/>
+      <LiveChat/>
       <Review/>
       <Map/>
 
