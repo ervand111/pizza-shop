@@ -2,7 +2,7 @@
 import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
 import L from "leaflet";  // Importing Leaflet to create custom icon
 import styles from 'styles/map.module.css'
-import Link from "next/link";
+
 const center = [45.097972, 39.059341];
 
 const MapComponent = () => {
