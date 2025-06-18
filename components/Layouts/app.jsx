@@ -23,7 +23,6 @@ const App = ({children}) => {
                     {children}
                     <Loader/>
                 </div>
-              <LiveChat/>
                 <Footer contact={contact} categories={categories}/>
         </div>
     );

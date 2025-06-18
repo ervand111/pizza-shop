@@ -37,7 +37,6 @@ function Home() {
       <Delivery/>
       <Products products={importantProducts} title={t("bestSuggestion") || "Default Title"}/>
       <FeedbackLink/>
-      <LiveChat/>
       <Review/>
       <Map/>
 
