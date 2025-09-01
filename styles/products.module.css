@@ -62,18 +62,6 @@
 
 
 /* Add responsiveness */
-@media (max-width: 768px) {
-    .offers {
-        height: 250px; /* Adjust height for smaller screens */
-        margin-top: 20px; /* Reduce margin */
-    }
-
-    .offers h2 {
-        font-size: 40px; /* Reduce font size */
-    }
-
-
-}
 
 .products {
     width: 100%;
@@ -332,6 +320,11 @@
     text-decoration: none;
     text-align: center;
 }
+/*@media (max-width: 768px) {*/
+
+
+
+/*}*/
 
 @media only screen and (max-width: 1880px) {
     .productsRow > div {
@@ -371,55 +364,23 @@
 }
 
 @media screen and (max-width: 900px) {
-
+    .text h3 {
+        font-size: 18px;
+    }
     .text p {
-        font-size: 18px; /* Adjusted font size */
+        font-size: 16px;
     }
-
-    .offers h2 {
-        font-size: 30px;
-        margin: 10px 0;
+    .text span a {
+        font-size: 18px;
     }
-}
-@media screen and (max-width: 768px) {
-    .offers{
-        height: 120px;
-    }
-
-    .wishlist {
-        width: 30px;
-        height: 30px;
-    }
-
     .addCard button {
         font-size: 14px;
         padding: 15px 20px;
         margin: 40px 0;
-
     }
-    .addCard svg{
-        font-size: 16px;
-    }
-    .text p {
-        font-size: 16px; /* Adjusted font size */
-    }
-
-
-}
-
-
-@media screen and (max-width: 600px) {
-    .offers{
-        height: 80px;
-    }
-
-    .item{
-        height: 450px;
-    }
-    .wishlist {
-        width: 30px;
-        height: 30px;
-        top: 9px;
+    .offers h2 {
+        font-size: 30px;
+        margin: 10px 0;
     }
     @keyframes moveToBasket {
         0% {
@@ -436,19 +397,87 @@
 
         }
     }    @keyframes backToBasket {
-                 0% {
-                     transform: translate(110px, -20px) scale(0.2);
-                     opacity: 0;
-                 }
-                 50% {
-                     transform: translate(50px, -70px) scale(1.5);
-                     opacity: 0.7;
-                 }
-                 100% {
-                     transform: translate(0, 0) scale(1);
-                     opacity: 1;
-                 }
+             0% {
+                 transform: translate(110px, -20px) scale(0.2);
+                 opacity: 0;
              }
+             50% {
+                 transform: translate(50px, -70px) scale(1.5);
+                 opacity: 0.7;
+             }
+             100% {
+                 transform: translate(0, 0) scale(1);
+                 opacity: 1;
+             }
+         }
+}
+@media screen and (max-width: 768px) {
+    .offers {
+        height: 250px; /* Adjust height for smaller screens */
+        margin-top: 20px; /* Reduce margin */
+    }
+
+    .offers h2 {
+        font-size: 40px; /* Reduce font size */
+    }
+    .wishlist {
+        width: 30px;
+        height: 30px;
+    }
+
+    .addCard button {
+        font-size: 14px;
+        padding: 15px 20px;
+        margin: 40px 0;
+
+    }
+    .addCard svg{
+        font-size: 16px;
+    }
+    .text p {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 668px) {
+
+    .text h3 {
+        font-size: 15px;
+    }
+    .text p {
+        font-size: 15px;
+    }
+    .text span a {
+        font-size: 17px;
+    }
+    .addCard button {
+        font-size: 13px;
+        padding: 13px 18px;
+        margin: 40px 0;
+
+    }
+    .addCard svg{
+        font-size: 15px;
+    }
+    .text p {
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .offers{
+        height: 80px;
+    }
+
+    .item{
+        height: 450px;
+    }
+    .wishlist {
+        width: 30px;
+        height: 30px;
+        top: 14px;
+    }
+
 
     .addCard{
         width: 100%;
@@ -456,8 +485,8 @@
         justify-content: space-between;
     }
     .addCard button {
-        font-size: 10px;
-        padding: 10px 12px;
+        font-size: 14px;
+        padding: 15px 15px;
         margin: 0;
     }
     .productItemText span a{
@@ -465,16 +494,16 @@
     }
     .addCard svg{
         margin: 0;
-        font-size: 12px;
+        font-size: 16px;
     }
     .basketIcon svg{
-        font-size: 26px!important;
+        font-size: 36px!important;
     }
     .text  h3{
         font-size: 16px;
         text-align: center;
     }
-    .text  p{
+    .text p{
         font-size: 16px;
         text-align: center;
         margin: 2px;
@@ -482,7 +511,34 @@
     .productItem{
         height: auto;
     }
+    @keyframes moveToBasket {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(120px, -70px) scale(1.5);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translate(180px, -20px) scale(0.2);
+            opacity: 0;
 
+        }
+    }    @keyframes backToBasket {
+             0% {
+                 transform: translate(140px, -20px) scale(0.2);
+                 opacity: 0;
+             }
+             50% {
+                 transform: translate(100px, -70px) scale(1.5);
+                 opacity: 0.7;
+             }
+             100% {
+                 transform: translate(0, 0) scale(1);
+                 opacity: 1;
+             }
+         }
 
 }
 
